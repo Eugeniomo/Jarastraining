@@ -1,0 +1,1817 @@
+        .credential-description {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Facilities Section */
+        .facilities {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .facilities-content h2 {
+            font-size: 2.8rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .facilities-content p {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        
+        .facility-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .facility-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.15);
+        }
+        
+        .facility-item h3 {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .facility-item p {
+            color: var(--gray-600);
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            opacity: 0.9;
+        }
+        
+        .contact-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 0.75rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .contact-item p {
+            margin: 0;
+            opacity: 0.95;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h3 {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gray-700);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .footer-section p {
+            color: var(--gray-300);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+            transform: translateX(3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+        
+        .footer-bottom a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .footer-certifications {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            background: var(--gray-800);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border: 1px solid var(--gray-600);
+            transition: all 0.3s ease;
+        }
+        
+        .cert-badge:hover {
+            background: var(--gray-700);
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                border-radius: 0 0 15px 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 4rem 0;
+                min-height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .exclusive-badge {
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+            }
+            
+            .about-grid,
+            .facilities-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content h2,
+            .facilities-content h2,
+            .contact-info h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .exclusive-badge {
+                font-size: 0.8rem;
+            }
+            
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation and Scroll Effects */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        .btn:focus,
+        .nav-link:focus,
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        
+        /* Print styles */
+        @media print {
+            .header,
+            .footer,
+            .particles,
+            .btn {
+                display: none;
+            }
+            
+            body {
+                color: black;
+                background: white;
+            }
+            
+            .hero {
+                background: white;
+                color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <img src="https://via.placeholder.com/150x45/10b981/FFFFFF?text=JARAS" alt="Jaras Training Logo">
+                    <div>
+                        <div class="logo-text">Jaras Training</div>
+                        <small style="color: var(--gray-600); font-size: 0.8rem;">Una división de Jaras Diesel</small>
+                    </div>
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+                    ☰
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#cursos" class="nav-link">Cursos</a></li>
+                    <li><a href="#instalaciones" class="nav-link">Instalaciones</a></li>
+                    <li><a href="#credenciales" class="nav-link">Credenciales</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="https://jarasdiesel.cl" target="_blank" class="nav-link" style="color: var(--accent-color);">Jaras Diesel</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="exclusive-badge">
+                    Únicos Representantes Autorizados Clarke Fire en Latinoamérica
+                </div>
+                <h1>Capacitación Técnica en Sistemas Contra Incendios</h1>
+                <p class="subtitle">
+                    OTEC certificada SENCE especializada en <strong>capacitación y certificación</strong> de personal técnico 
+                    en motores diesel Clarke Fire, inspecciones NFPA 25 y comisionamiento de sistemas contra incendios. 
+                    Respaldados por <strong>22 años de experiencia</strong> de Jaras Diesel en el sector.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#cursos" class="btn btn-primary">Ver Cursos de Capacitación</a>
+                    <a href="#contacto" class="btn btn-secondary">Solicitar Información</a>
+                </div>
+                
+                <!-- Floating particles -->
+                <div class="particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">22+</span>
+                    <div class="stat-label">Años Experiencia Jaras Diesel</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Capacitación Práctica</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">2</span>
+                    <div class="stat-label">Años Validez Certificación</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">Clarke</span>
+                    <div class="stat-label">Únicos Autorizados Latinoamérica</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <div class="heritage-badge">División Educativa de Jaras Diesel</div>
+                    <h2>Capacitación Técnica Especializada</h2>
+                    <p>
+                        Jaras Diesel Training SpA es una OTEC certificada por SENCE, constituida como la 
+                        <strong>división educativa especializada</strong> de Jaras Diesel Limitada, empresa 
+                        líder en sistemas contra incendios con más de 22 años de experiencia.
+                    </p>
+                    <p>
+                        Como <strong>únicos autorizados por Clarke Fire</strong> para impartir certificaciones 
+                        en Latinoamérica, ofrecemos capacitación técnica de nivel mundial respaldada por décadas 
+                        de experiencia práctica en el sector.
+                    </p>
+                    <ul class="about-features">
+                        <li>OTEC certificada SENCE con NCh 2728:2015</li>
+                        <li>Únicos autorizados Clarke Fire en Latinoamérica</li>
+                        <li>Instructores con experiencia industrial real</li>
+                        <li>Metodología 100% práctica con equipos operativos</li>
+                        <li>Sala de capacitación con motor Clarke y controlador Tornatech</li>
+                        <li>Respaldados por flota de carros bomba de Jaras Diesel</li>
+                    </ul>
+                    <a href="https://jarasdiesel.cl" target="_blank" class="btn btn-primary">Conocer Jaras Diesel</a>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://via.placeholder.com/500x400/10b981/FFFFFF?text=Sala+de+Capacitación" 
+                         alt="Sala de capacitación con equipos Clarke Fire y Tornatech">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="cursos" class="courses">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Programas de Capacitación</h2>
+                <p>Certificaciones técnicas reconocidas internacionalmente con metodología práctica</p>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <h3 class="course-title">Certificación en Comisionamiento y Puesta en Marcha de Motores Clarke</h3>
+                        <div class="course-duration">2 días intensivos | Validez 2 años</div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">
+                            Curso diseñado para certificar personal técnico en comisionamiento y puesta en marcha 
+                            de sistemas contra incendio con motores Clarke Fire según norma NFPA 20.
+                        </p>
+                        <ul class="course-features">
+                            <li>Marco normativo NFPA 20 y verificación de instalaciones</li>
+                            <li>Procedimientos oficiales Clarke Fire</li>
+                            <li>Práctica con motor Clarke y controlador Tornatech operativos</li>
+                            <li>Introducción a mantenimiento según NFPA 25</li>
+                            <li>Certificado con validez internacional</li>
+                            <li>Dirigido a técnicos de servicio e ingenieros</li>
+                        </ul>
+                        <div class="course-price">
+                            <div class="price-label">Inversión por participante</div>
+                            <div class="price-amount">Consultar</div>
+                        </div>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Solicitar Información</a>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <h3 class="course-title">Certificación en Inspección y Pruebas Semanales NFPA 25</h3>
+                        <div class="course-duration">2 días intensivos | Certificación continua</div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">
+                            Capacitación para personal de mantenimiento, operaciones y brigadas de emergencia 
+                            en inspecciones y pruebas semanales según norma NFPA 25.
+                        </p>
+                        <ul class="course-features">
+                            <li>Fundamentos teóricos NFPA 25</li>
+                            <li>Procedimientos de inspección visual</li>
+                            <li>Pruebas sin flujo (Churn Test)</li>
+                            <li>Operación segura de equipos</li>
+                            <li>Documentación y reportes</li>
+                            <li>Prácticas en sala de bombas real</li>
+                        </ul>
+                        <div class="course-price">
+                            <div class="price-label">Inversión por participante</div>
+                            <div class="price-amount">Consultar</div>
+                        </div>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Solicitar Información</a>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <h3 class="course-title">Capacitación Corporativa Personalizada</h3>
+                        <div class="course-duration">Duración flexible | In-company disponible</div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">
+                            Programas de capacitación diseñados específicamente para las necesidades 
+                            de su empresa, con posibilidad de realización en sus instalaciones.
+                        </p>
+                        <ul class="course-features">
+                            <li>Análisis de necesidades específicas</li>
+                            <li>Contenido adaptado a sus equipos</li>
+                            <li>Modalidad presencial en nuestras instalaciones</li>
+                            <li>Capacitación in-company disponible</li>
+                            <li>Certificados personalizados</li>
+                            <li>Seguimiento post-capacitación</li>
+                        </ul>
+                        <div class="course-price">
+                            <div class="price-label">Inversión</div>
+                            <div class="price-amount">A cotizar</div>
+                        </div>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Solicitar Cotización</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section id="credenciales" class="credentials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Credenciales y Certificaciones</h2>
+                <p>Respaldos oficiales que garantizan la calidad y reconocimiento de nuestra capacitación</p>
+            </div>
+            
+            <div class="credentials-grid">
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/dc2626/FFFFFF?text=CLARKE" alt="Clarke Fire Logo" class="credential-logo">
+                    <h3 class="credential-title">Autorización Exclusiva Clarke Fire</h3>
+                    <p class="credential-description">
+                        Únicos autorizados en Latinoamérica para impartir certificaciones oficiales 
+                        Clarke Fire en motores para sistemas contra incendios.
+                    </p>
+                </div>
+                
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/10b981/FFFFFF?text=SENCE" alt="SENCE Logo" class="credential-logo">
+                    <h3 class="credential-title">OTEC Certificada SENCE</h3>
+                    <p class="credential-description">
+                        Organismo Técnico de Capacitación registrado y certificado por SENCE Chile 
+                        con NCh 2728:2015.
+                    </p>
+                </div>
+                
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/f59e0b/FFFFFF?text=NFPA" alt="NFPA Standards" class="credential-logo">
+                    <h3 class="credential-title">Estándares NFPA 20 & 25</h3>
+                    <p class="credential-description">
+                        Capacitación basada en las normas internacionales NFPA 20 (instalación) 
+                        y NFPA 25 (mantenimiento) de sistemas contra incendios.
+                    </p>
+                </div>
+                
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/3b82f6/FFFFFF?text=JARAS" alt="Jaras Diesel Experience" class="credential-logo">
+                    <h3 class="credential-title">22 Años Experiencia Jaras Diesel</h3>
+                    <p class="credential-description">
+                        Respaldados por más de dos décadas de experiencia técnica de Jaras Diesel 
+                        en sistemas contra incendios industriales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="instalaciones" class="facilities">
+        <div class="container">
+            <div class="facilities-grid">
+                <div class="facilities-content fade-in">
+                    <h2>Instalaciones de Capacitación</h2>
+                    <p>
+                        Contamos con instalaciones especialmente diseñadas para capacitación práctica, 
+                        equipadas con los mismos sistemas que encontrarán en campo.
+                    </p>
+                    
+                    <div class="facility-item">
+                        <h3>Sala de Bombas Operativa</h3>
+                        <p>
+                            Sala de capacitación equipada con motor Clarke Fire y controlador Tornatech 
+                            completamente funcionales para práctica real.
+                        </p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <h3>Equipamiento Técnico Especializado</h3>
+                        <p>
+                            Herramientas de diagnóstico, instrumentos de medición y equipos de seguridad 
+                            utilizados en la industria de protección contra incendios.
+                        </p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <h3>Respaldo Técnico Jaras Diesel</h3>
+                        <p>
+                            Acceso a la experiencia técnica y flota de carros bomba de Jaras Diesel 
+                            para demostraciones y casos prácticos.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="about-image fade-in">
+                    <img src="https://via.placeholder.com/500x400/f59e0b/FFFFFF?text=Instalaciones+Técnicas" 
+                         alt="Instalaciones de capacitación técnica">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h2>Contacto</h2>
+                    <p>
+                        Solicite información sobre nuestros programas de capacitación o cotice 
+                        un programa personalizado para su empresa.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <h3>Dirección</h3>
+                        <p>Alcalde Guzmán 1431<br>Quilicura, Santiago<br>Región Metropolitana, Chile</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Teléfono</h3>
+                        <p>+56 2 2776 7977</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>info@jarastraining.cl</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Horario de Atención</h3>
+                        <p>Lunes a Viernes: 8:30 - 17:30 hrs</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <h3>Solicitar Información</h3>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="curso">Curso de Interés</label>
+                            <select id="curso" name="curso">
+                                <option value="">Seleccione un curso</option>
+                                <option value="clarke-comisionamiento">Certificación Comisionamiento Clarke</option>
+                                <option value="nfpa-25">Inspección y Pruebas NFPA 25</option>
+                                <option value="corporativo">Capacitación Corporativa</option>
+                                <option value="otro">Otro / Consulta General</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="Describa sus necesidades de capacitación..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Jaras Diesel Training SpA</h3>
+                    <p>
+                        OTEC certificada SENCE especializada en capacitación técnica para sistemas contra incendios. 
+                        División educativa de Jaras Diesel Limitada.
+                    </p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">OTEC SENCE</span>
+                        <span class="cert-badge">NCh 2728:2015</span>
+                        <span class="cert-badge">Clarke Fire Autorizado</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Capacitación</h3>
+                    <ul>
+                        <li><a href="#cursos">Certificación Clarke Fire</a></li>
+                        <li><a href="#cursos">Inspecciones NFPA 25</a></li>
+                        <li><a href="#cursos">Capacitación Corporativa</a></li>
+                        <li><a href="#credenciales">Credenciales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#instalaciones">Instalaciones</a></li>
+                        <li><a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel</a></li>
+                        <li><a href="https://clarkefire.com" target="_blank">Clarke Fire</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="#contacto">Información</a></li>
+                        <li><a href="tel:+56227767977">+56 2 2776 7977</a></li>
+                        <li><a href="mailto:info@jarastraining.cl">info@jarastraining.cl</a></li>
+                        <li>Quilicura, Santiago, Chile</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jaras Diesel Training SpA. Todos los derechos reservados. | Una división de <a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel Limitada</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission (replace with actual form handling)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic form validation
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#dc2626';
+                } else {
+                    field.style.borderColor = '#10b981';
+                }
+            });
+            
+            if (isValid) {
+                // Show success message
+                const button = this.querySelector('button[type="submit"]');
+                const originalText = button.textContent;
+                button.textContent = 'Enviando...';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Gracias por su consulta. Nos pondremos en contacto a la brevedad.');
+                    this.reset();
+                    button.textContent = originalText;
+                    button.disabled = false;
+                }, 1500);
+            } else {
+                alert('Por favor complete todos los campos obligatorios.');
+            }
+        });
+
+        // Active navigation link based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Enhanced accessibility
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes mobile menu
+            if (e.key === 'Escape') {
+                document.querySelector('.nav-menu').classList.remove('active');
+            }
+        });
+
+        // Performance optimization - lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+    </script>
+</body>
+</html>
+    <!DOCTYPE html>
+<html lang="es" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaras Diesel Training SpA | Certificación Clarke Fire Latinoamérica | Capacitación NFPA 25</title>
+    <meta name="description" content="OTEC certificada SENCE para capacitación en motores diesel contra incendios Clarke Fire. Únicos autorizados para certificaciones Clarke en Latinoamérica. Cursos NFPA 20 y NFPA 25 presenciales.">
+    <meta name="keywords" content="capacitación Clarke Fire, certificación motores diesel contra incendios, curso NFPA 25, OTEC sistemas contra incendios, Jaras Training, capacitación bomba contra incendios, curso NFPA 20">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jarastraining.cl/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jaras Diesel Training SpA | Capacitación Clarke Fire Latinoamérica">
+    <meta property="og:description" content="OTEC certificada para capacitación en sistemas contra incendios. Únicos autorizados para certificaciones Clarke Fire en Latinoamérica. Cursos NFPA 20 y NFPA 25.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jarastraining.cl/">
+    <meta property="og:image" content="https://jarastraining.cl/images/og-image.jpg">
+    <meta property="og:locale" content="es_CL">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jaras Diesel Training SpA | Certificación Clarke Fire">
+    <meta name="twitter:description" content="OTEC líder en capacitación de sistemas contra incendios. Únicos representantes Clarke Fire en Latinoamérica.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Jaras Diesel Training SpA",
+        "alternateName": "Jaras Training",
+        "url": "https://jarastraining.com",
+        "logo": "https://jarastraining.com/logo.png",
+        "description": "OTEC certificada SENCE especializada en capacitación técnica para sistemas contra incendios. Únicos autorizados para certificaciones Clarke Fire en Latinoamérica.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Alcalde Guzmán 1431",
+            "addressLocality": "Quilicura",
+            "addressRegion": "Santiago, Región Metropolitana",
+            "addressCountry": "CL"
+        },
+        "telephone": "+56-2-27767977",
+        "areaServed": [
+            "Chile", "Argentina", "Perú", "Bolivia", "Ecuador", "Colombia", "Uruguay", "Paraguay"
+        ],
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Jaras Diesel Limitada",
+            "url": "https://jarasdiesel.cl"
+        },
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "OTEC Certificada SENCE",
+                "description": "Organismo Técnico de Capacitación certificado por SENCE Chile"
+            },
+            {
+                "@type": "EducationalOccupationalCredential", 
+                "name": "Representante Exclusivo Clarke Fire",
+                "description": "Únicos autorizados para impartir certificaciones Clarke Fire en Latinoamérica"
+            }
+        ],
+        "courseMode": "Presencial",
+        "educationalCredentialAwarded": "Certificación Clarke Fire",
+        "offers": [
+            {
+                "@type": "Course",
+                "name": "Certificación en Comisionamiento y Puesta en Marcha de Motores Clarke",
+                "description": "Curso de 2 días para certificación en motores Clarke Fire según NFPA 20",
+                "provider": {
+                    "@type": "EducationalOrganization",
+                    "name": "Jaras Diesel Training SpA"
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --primary-dark: #059669;
+            --secondary-color: #3b82f6;
+            --secondary-dark: #2563eb;
+            --accent-color: #f59e0b;
+            --accent-dark: #d97706;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --clarke-red: #dc2626;
+            --success-green: #10b981;
+            --gradient-primary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #10b981 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Floating particles background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: -5s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: -10s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: -15s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: -20s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-delay: -25s; }
+        .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: -30s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: -35s; }
+        .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: -40s; }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(16, 185, 129, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 30px rgba(16, 185, 129, 0.2);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo img {
+            height: 45px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover img {
+            transform: rotate(2deg);
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+            left: 10%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Badge con movimiento - Opción 4 */
+        .exclusive-badge {
+            background: none;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0;
+            border-radius: 0;
+            font-weight: 600;
+            display: inline-block;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        
+        .exclusive-badge::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #10b981, #3b82f6);
+            animation: lineExpand 2s ease-out 1s forwards, lineShimmer 3s ease-in-out 3s infinite;
+        }
+        
+        .exclusive-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: textShimmer 4s ease-in-out 2s infinite;
+        }
+        
+        @keyframes lineExpand {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes lineShimmer {
+            0%, 100% { 
+                background: linear-gradient(90deg, #f59e0b, #10b981, #3b82f6);
+                transform: scaleX(1);
+            }
+            50% { 
+                background: linear-gradient(90deg, #3b82f6, #f59e0b, #10b981);
+                transform: scaleX(1.02);
+            }
+        }
+        
+        @keyframes textShimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+        
+        .exclusive-badge:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .exclusive-badge:hover::before {
+            height: 4px;
+            animation-duration: 1.5s;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.05) rotate(2deg); }
+            70% { transform: scale(0.9) rotate(-1deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Statistics Section */
+        .stats {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            animation: countUp 2s ease-out;
+        }
+        
+        @keyframes countUp {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .stat-label {
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.8rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-600);
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        
+        .heritage-badge {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: slideInLeft 0.8s ease-out;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .about-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .about-features li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-features li:hover {
+            transform: translateX(10px);
+        }
+        
+        .about-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.4rem;
+            background: rgba(16, 185, 129, 0.1);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: checkPop 0.5s ease-out;
+        }
+        
+        @keyframes checkPop {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .about-image {
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.02) rotate(1deg);
+        }
+        
+        /* Courses Section */
+        .courses {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .course-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .course-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        
+        .course-duration {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .course-content {
+            padding: 2.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-description {
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+        
+        .course-features li {
+            padding: 0.75rem 0;
+            color: var(--gray-700);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .course-features li:hover {
+            transform: translateX(5px);
+        }
+        
+        .course-features li::before {
+            content: '▶';
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+        
+        .course-price {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+        
+        .price-label {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-amount {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .course-card .btn {
+            margin-top: auto;
+            align-self: stretch;
+        }
+        
+        /* Credentials Section */
+        .credentials {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .credential-card {
+            text-align: center;
+            padding: 2.5rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            background: white;
+        }
+        
+        .credential-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.1);
+        }
+        
+        .credential-logo {
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .credential-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .credential-description {
+            color: var(--gray-600);
+            font-size: 1rem;
+            
