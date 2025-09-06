@@ -1,286 +1,1287 @@
-<!doctype html> <!-- cambio mínimo -->
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" prefix="og: http://ogp.me/ns#">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jaras Training – Capacitación en Salas de Bomba, NFPA y CLARKE</title>
-  <meta name="description" content="OTEC Jaras Training: cursos y capacitación técnica en salas de bombas, normas NFPA y motores diésel CLARKE. Presencial en Chile. SENCE y empresas.">
-  <style>
-    :root{
-      --bg:#0f172a;
-      --card:#0b1227;
-      --ink:#e5e7eb;
-      --muted:#94a3b8;
-      --pri:#22c55e;
-      --pri-d:#16a34a;
-      --accent:#38bdf8;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaras Diesel Training SpA | Certificación Clarke Fire Latinoamérica | Capacitación NFPA 25</title>
+    <meta name="description" content="Únicos representantes autorizados Clarke Fire en Latinoamérica. OTEC certificada SENCE para capacitación en motores diesel contra incendios, NFPA 20 y NFPA 25. Cursos presenciales con equipos reales.">
+    <meta name="keywords" content="Clarke Fire Latinoamérica, certificación motores diesel contra incendios, capacitación NFPA 25, OTEC sistemas contra incendios, Jaras Diesel Training, bomba contra incendios, NFPA 20, motores Clarke">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jarastraining.cl/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jaras Diesel Training SpA | Únicos Representantes Clarke Fire Latinoamérica">
+    <meta property="og:description" content="OTEC certificada para capacitación en sistemas contra incendios. Representantes exclusivos Clarke Fire. Cursos NFPA 20 y NFPA 25 con equipos reales.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jarastraining.cl/">
+    <meta property="og:image" content="https://jarastraining.cl/images/og-image.jpg">
+    <meta property="og:locale" content="es_CL">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jaras Diesel Training SpA | Certificación Clarke Fire">
+    <meta name="twitter:description" content="OTEC líder en capacitación de sistemas contra incendios. Únicos representantes Clarke Fire en Latinoamérica.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Jaras Diesel Training SpA",
+        "alternateName": "Jaras Training",
+        "url": "https://jarastraining.cl",
+        "logo": "https://jarastraining.cl/logo.png",
+        "description": "OTEC certificada SENCE especializada en capacitación de sistemas contra incendios. Únicos representantes autorizados Clarke Fire en Latinoamérica.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Francisco Zelada 90",
+            "addressLocality": "Estación Central",
+            "addressRegion": "Santiago",
+            "addressCountry": "CL"
+        },
+        "telephone": "+56-2-27767977",
+        "areaServed": [
+            "Chile", "Argentina", "Perú", "Bolivia", "Ecuador", "Colombia", "Uruguay", "Paraguay"
+        ],
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "Jaras Diesel Limitada",
+            "url": "https://jarasdiesel.cl"
+        },
+        "hasCredential": [
+            {
+                "@type": "EducationalOccupationalCredential",
+                "name": "OTEC Certificada SENCE",
+                "description": "Organismo Técnico de Capacitación certificado por SENCE Chile"
+            },
+            {
+                "@type": "EducationalOccupationalCredential", 
+                "name": "Representante Exclusivo Clarke Fire",
+                "description": "Únicos autorizados para impartir certificaciones Clarke Fire en Latinoamérica"
+            }
+        ],
+        "courseMode": "Presencial",
+        "educationalCredentialAwarded": "Certificación Clarke Fire",
+        "offers": [
+            {
+                "@type": "Course",
+                "name": "Certificación en Comisionamiento y Puesta en Marcha de Motores Clarke",
+                "description": "Curso de 2 días para certificación en motores Clarke Fire según NFPA 20",
+                "provider": {
+                    "@type": "EducationalOrganization",
+                    "name": "Jaras Diesel Training SpA"
+                }
+            }
+        ]
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    html,body{margin:0;height:100%;color:var(--ink);background:var(--bg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .btn{display:inline-block;background:var(--pri);color:#031;padding:12px 18px;border-radius:14px;font-weight:700;transition:transform .12s ease}
-    .btn:hover{background:var(--pri-d);text-decoration:none;transform:translateY(-1px)}
-    header{position:sticky;top:0;background:rgba(3,6,23,.8);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid #1f2937;z-index:50}
-    nav{display:flex;align-items:center;gap:20px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--pri)}
-    .spacer{flex:1}
-    .nav{display:flex;gap:16px}
-    .nav a{color:var(--ink);padding:8px 6px;border-radius:10px}
-    .nav a.active{color:var(--pri)}
-    .hamb{display:none;background:#0b1227;border:1px solid #1e293b;color:var(--ink);border-radius:12px;padding:8px 10px}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:60px 24px 24px}
-    .hero h1{font-size:40px;line-height:1.1;margin:0 0 12px;font-weight:900}
-    .hero p{color:var(--muted);margin:0 0 24px}
-    .card{background:linear-gradient(180deg, rgba(56,189,248,.06), rgba(34,197,94,.06)); border:1px solid #1e293b; border-radius:20px; padding:20px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    h2{font-size:22px;margin:0 0 12px}
-    h3{font-size:18px;margin:0 0 6px}
-    .list{margin:0;padding-left:18px;color:var(--ink)}
-    .list li{margin:6px 0}
-    .muted{color:var(--muted)}
-    .tag{display:inline-block;border:1px solid #1e293b;border-radius:999px;padding:6px 10px;margin:4px 6px 0 0;color:var(--muted)}
-    .section{padding:48px 24px}
-    section{scroll-margin-top:84px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
-    .kpi .box{background:var(--card);border:1px solid #1e293b;border-radius:16px;padding:14px;text-align:center}
-    .kpi b{font-size:20px}
-    .footer{border-top:1px solid #1f2937;padding:28px 24px;color:var(--muted)}
-    input,select,textarea{width:100%;background:#0b1022;color:var(--ink);border:1px solid #1e293b;border-radius:12px;padding:10px}
-    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    form .row + .row{margin-top:12px}
-    form .row.full{grid-template-columns:1fr}
-    .badge{display:inline-block;background:#072d1a;border:1px solid #0e6f3a;color:#8ef0b1;padding:6px 10px;border-radius:999px;font-size:12px}
-    .reveal{opacity:0;transform:translateY(10px);transition:opacity .4s ease, transform .4s ease}
-    .reveal.show{opacity:1;transform:none}
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .kpi{grid-template-columns:repeat(2,1fr)}
-      form .row{grid-template-columns:1fr}
-      .hamb{display:block;margin-left:auto}
-      .nav{display:none;position:fixed;left:16px;right:16px;top:64px;background:rgba(3,6,23,.96);border:1px solid #1e293b;border-radius:16px;padding:12px;flex-direction:column}
-      .nav.open{display:flex}
-    }
-  </style>
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #1f4788;
+            --secondary-color: #f97316;
+            --accent-color: #dc2626;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --clarke-red: #dc2626;
+            --success-green: #059669;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .exclusive-badge {
+            background: var(--clarke-red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        /* Statistics Section */
+        .stats {
+            background: var(--gray-100);
+            padding: 3rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1rem;
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+        
+        .heritage-badge {
+            background: var(--success-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .about-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .about-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .about-features li::before {
+            content: '✓';
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Courses Section */
+        .courses {
+            background: var(--gray-100);
+            padding: 4rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .course-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .course-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-duration {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .course-content {
+            padding: 2rem;
+        }
+        
+        .course-description {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .course-features li {
+            padding: 0.5rem 0;
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .course-features li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .course-price {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-label {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        /* Credentials Section */
+        .credentials {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .credential-card {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        
+        .credential-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .credential-logo {
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        
+        .credential-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .credential-description {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+        
+        /* Facilities Section */
+        .facilities {
+            background: var(--gray-100);
+            padding: 4rem 0;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .facilities-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .facility-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .facility-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .facility-item p {
+            color: var(--gray-600);
+            margin: 0;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-600);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+        
+        .footer-certifications {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            background: var(--gray-800);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid var(--gray-600);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .about-grid,
+            .facilities-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation and Scroll Effects */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        .btn:focus,
+        .nav-link:focus,
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <nav>
-        <div class="brand"><div class="dot"></div><span>Jaras Training</span></div>
-        <div class="spacer"></div>
-        <button id="hamb" class="hamb" aria-label="Abrir menú">☰</button>
-        <div id="nav" class="nav">
-          <a href="#servicios">Servicios</a>
-          <a href="#cursos">Cursos</a>
-          <a href="#sence">SENCE</a>
-          <a href="#contacto">Contacto</a>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <img src="https://via.placeholder.com/150x45/1f4788/FFFFFF?text=JARAS" alt="Jaras Training Logo">
+                    <div>
+                        <div class="logo-text">Jaras Training</div>
+                        <small style="color: var(--gray-600); font-size: 0.8rem;">Una división de Jaras Diesel</small>
+                    </div>
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Abrir menú de navegación">
+                    ☰
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#cursos" class="nav-link">Cursos</a></li>
+                    <li><a href="#instalaciones" class="nav-link">Instalaciones</a></li>
+                    <li><a href="#credenciales" class="nav-link">Credenciales</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="https://jarasdiesel.cl" target="_blank" class="nav-link" style="color: var(--secondary-color);">Jaras Diesel</a></li>
+                </ul>
+            </nav>
         </div>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="hero wrap">
-      <div>
-        <span class="badge">OTEC – Capacitación técnica presencial</span>
-        <h1>Cursos especializados: salas de bomba, NFPA y motores diésel CLARKE</h1>
-        <p>Formamos equipos competentes para operar, mantener y auditar sistemas contra incendio. Enfoque práctico, instructores con experiencia en terreno y contenidos alineados a NFPA 20, 25 y buenas prácticas del fabricante CLARKE.</p>
-        <div class="cta">
-          <a class="btn" href="#contacto">Solicitar cotización</a>
-          <a class="btn" style="background:#0b1227;color:var(--ink);border:1px solid #1e293b" href="#cursos">Ver cursos</a>
-        </div>
-        <div class="kpi">
-          <div class="box"><b>Presencial</b><div class="muted">Chile</div></div>
-          <div class="box"><b>NFPA 20/25</b><div class="muted">alineado</div></div>
-          <div class="box"><b>CLARKE</b><div class="muted">motores diésel</div></div>
-          <div class="box"><b>Empresas</b><div class="muted">SST y SG</div></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Contenido tipo para salas de bombas</h3>
-        <ul class="list">
-          <li>Arquitectura del sistema y componentes</li>
-          <li>Bombas principales, jockey y válvulas</li>
-          <li>Motores CLARKE: operación y mantenimiento</li>
-          <li>Pruebas semanales/mensuales según NFPA 25</li>
-          <li>Bitácoras, checklists y seguridad</li>
-        </ul>
-        <div style="margin-top:10px" class="muted">Se entrega material y registro de asistencia. Evaluación final opcional.</div>
-      </div>
-    </section>
-    <section id="servicios" class="section wrap">
-      <h2>Servicios</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Capacitaciones in-company</h3>
-          <p class="muted">Cursos prácticos en sitio. Ajustados a riesgos y equipos reales del cliente.</p>
-          <div class="tag">Grupos de 8–20</div>
-          <div class="tag">4–16 horas</div>
-        </div>
-        <div class="card">
-          <h3>Programas NFPA</h3>
-          <p class="muted">Introducción y profundización en NFPA 20 y 25 orientado a operación y mantención.</p>
-          <div class="tag">NFPA 20</div><div class="tag">NFPA 25</div>
-        </div>
-        <div class="card">
-          <h3>CLARKE – Motores diésel</h3>
-          <p class="muted">Operación segura, rutinas, alarmas y análisis básico de fallas en motores CLARKE.</p>
-          <div class="tag">Arranque y pruebas</div><div class="tag">Bitácoras</div>
-        </div>
-      </div>
-    </section>
-    <section id="cursos" class="section wrap">
-      <h2>Cursos</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Operación de salas de bombas (NFPA 20/25)</h3>
-          <p class="muted">Arquitectura del sistema, secuencias de operación, chequeos diarios y pruebas periódicas conforme a NFPA 25.</p>
-          <ul class="list">
-            <li>Duración: 8 horas</li>
-            <li>Modalidad: presencial en sitio del cliente</li>
-            <li>Incluye: material, lista de asistencia, evaluación y <b>certificado de aprobación Jaras Training</b></li>
-            <li>Referencia normativa: NFPA 20 y NFPA 25</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>NFPA 25: inspección, pruebas y mantenimiento</h3>
-          <p class="muted">Planificación y ejecución de inspecciones y pruebas. Registro en bitácoras y criterios de aceptación.</p>
-          <ul class="list">
-            <li>Duración: 8–16 horas</li>
-            <li>Prácticas guiadas en terreno</li>
-            <li>Formatos de checklist listos para uso</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Motores diésel CLARKE: operación y mantenimiento</h3>
-          <p class="muted">Operación segura, rutinas, alarmas, interpretación de paneles y resolución básica de fallas en motores CLARKE para sistemas contra incendio.</p>
-          <ul class="list">
-            <li>Duración: 4–8 horas</li>
-            <li>Requisitos: sala habilitada y acceso al equipo</li>
-            <li>Base técnica: documentación del fabricante <a href="https://www.clarkefire.com" target="_blank" rel="noopener">CLARKE</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="grid" style="margin-top:18px">
-        <div class="card">
-          <h3>Programa integral para brigadas de emergencia</h3>
-          <p class="muted">Rol de la brigada en SCI, seguridad en operación, comunicación y coordinación con mantenimiento.</p>
-          <ul class="list">
-            <li>Duración: 8 horas</li>
-            <li>Foco: procedimientos y práctica supervisada</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Auditoría operativa a salas de bomba</h3>
-          <p class="muted">Listas de verificación, revisión de registros, pruebas funcionales y recomendaciones priorizadas.</p>
-          <ul class="list">
-            <li>Duración: 6–8 horas</li>
-            <li>Entrega: informe ejecutivo y plan de acción</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Programa a medida</h3>
-          <p class="muted">Diseño según equipos y riesgos del cliente. Combinable con módulos NFPA y CLARKE.</p>
-          <ul class="list">
-            <li>Diagnóstico inicial sin costo</li>
-            <li>Adaptación de contenidos y tiempos</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card" style="margin-top:18px">
-        <h3>Certificación técnica y referencias CLARKE</h3>
-        <p class="muted">Nuestros cursos de motores diésel para SCI se dictan <b>alineados a los manuales y boletines del fabricante</b> <a href="https://www.clarkefire.com" target="_blank" rel="noopener">CLARKE</a>. Entregamos certificado de aprobación de Jaras Training y <b>referencias a documentación oficial</b> para sustentar prácticas de operación y mantenimiento.</p>
-        <div class="cta">
-          <a class="btn" href="#contacto">Solicitar programa</a>
-          <a class="muted" href="https://www.clarkefire.com" target="_blank" rel="noopener">Sitio oficial CLARKE</a>
-          <a class="muted" href="#" target="_blank" rel="noopener" id="link-jaras">Jaras Diesel</a>
-        </div>
-      </div>
-    </section>
-    <section id="sence" class="section wrap">
-      <h2>Información OTEC y SENCE</h2>
-      <p class="muted">Capacitación para empresas. Emisión de certificados. Coordinación con RR.HH. y registro de asistencia. Modalidad presencial. Consultar requisitos SENCE vigentes.</p>
-    </section>
-    <section id="contacto" class="section wrap">
-      <h2>Contacto</h2>
-      <div class="grid">
-        <div class="card">
-          <form action="mailto:contacto@jarastraining.cl" method="post" enctype="text/plain">
-            <div class="row">
-              <div><label>Nombre</label><input name="nombre" required></div>
-              <div><label>Email</label><input type="email" name="email" required></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="exclusive-badge">
+                    🔥 Únicos Representantes Autorizados Clarke Fire en Latinoamérica
+                </div>
+                <h1>Certificación Técnica en Sistemas Contra Incendios</h1>
+                <p class="subtitle">
+                    OTEC certificada SENCE especializada en capacitación de motores diesel Clarke Fire, 
+                    inspecciones NFPA 25 y comisionamiento de sistemas contra incendios. 
+                    <strong>22 años de experiencia</strong> respaldados por Jaras Diesel.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#cursos" class="btn btn-primary">Ver Cursos Disponibles</a>
+                    <a href="#contacto" class="btn btn-secondary">Solicitar Cotización</a>
+                </div>
             </div>
-            <div class="row">
-              <div><label>Empresa</label><input name="empresa"></div>
-              <div><label>Teléfono</label><input name="fono"></div>
-            </div>
-            <div class="row full">
-              <div>
-                <label>Interés</label>
-                <select name="interes">
-                  <option>Operación de salas de bombas</option>
-                  <option>NFPA 25: inspección y pruebas</option>
-                  <option>Motores diésel CLARKE</option>
-                  <option>Programa a medida</option>
-                </select>
-              </div>
-            </div>
-            <div class="row full">
-              <div><label>Mensaje</label><textarea name="mensaje" rows="4" placeholder="Cuéntanos fechas tentativas y lugar"></textarea></div>
-            </div>
-            <div class="row full">
-              <button class="btn" type="submit">Enviar consulta</button>
-              &nbsp;
-              <a class="muted" href="https://wa.me/56900000000" target="_blank" rel="noopener">WhatsApp</a>
-            </div>
-          </form>
         </div>
-        <div class="card">
-          <h3>Datos de contacto</h3>
-          <p class="muted">Email: <a href="mailto:contacto@jarastraining.cl">contacto@jarastraining.cl</a><br>
-          Teléfono: +56 9 0000 0000<br>
-          Región Metropolitana, Chile</p>
-          <h3>Documentos</h3>
-          <ul class="list">
-            <li>Temarios y programas (PDF)</li>
-            <li>Política de calidad (PDF)</li>
-            <li>Registro de asistencia (XLSX)</li>
-          </ul>
-        </div>
-      </div>
     </section>
-  </main>
-  <footer class="footer wrap">
-    <div>© <span id="y"></span> Jaras Training · <a href="#" id="link-jaras-foot" class="muted" style="color:inherit;text-decoration:underline" target="_blank" rel="noopener">Jaras Diesel</a>.</div>
-  </footer>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const btn = document.getElementById('hamb');
-    const nav = document.getElementById('nav');
-    if(btn && nav){
-      btn.addEventListener('click',()=> nav.classList.toggle('open'));
-      nav.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> nav.classList.remove('open')));
-    }
-    const links = document.querySelectorAll('.nav a');
-    const sections = Array.from(document.querySelectorAll('section[id]'));
-    const spy = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          links.forEach(l=> l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
-        }
-      })
-    },{threshold:0.6});
-    sections.forEach(s=> spy.observe(s));
-    document.querySelectorAll('.card, .kpi .box').forEach(el=> el.classList.add('reveal'));
-    const ro = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); ro.unobserve(e.target); } });
-    },{threshold:0.2});
-    document.querySelectorAll('.reveal').forEach(el=> ro.observe(el));
-  </script>
+
+    <!-- Statistics -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">22+</span>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-item fade-in">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">22+</span>
+                    <div class="stat-label">Años Experiencia Jaras Diesel</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Capacitación Práctica</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">2</span>
+                    <div class="stat-label">Años Validez Certificación</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">Clarke</span>
+                    <div class="stat-label">Únicos Autorizados Latinoamérica</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <div class="heritage-badge">División Educativa de Jaras Diesel</div>
+                    <h2>Capacitación Técnica Especializada</h2>
+                    <p>
+                        Jaras Diesel Training SpA es una OTEC certificada por SENCE, constituida como la 
+                        <strong>división educativa especializada</strong> de Jaras Diesel Limitada, empresa 
+                        líder en sistemas contra incendios con más de 22 años de experiencia.
+                    </p>
+                    <p>
+                        Como <strong>únicos autorizados por Clarke Fire</strong> para impartir certificaciones 
+                        en Latinoamérica, ofrecemos capacitación técnica de nivel mundial respaldada por décadas 
+                        de experiencia práctica en el sector.
+                    </p>
+                    <ul class="about-features">
+                        <li>OTEC certificada SENCE con NCh 2728:2015</li>
+                        <li>Únicos autorizados Clarke Fire en Latinoamérica</li>
+                        <li>Instructores con experiencia industrial real</li>
+                        <li>Metodología 100% práctica con equipos operativos</li>
+                        <li>Sala de capacitación con motor Clarke y controlador Tornatech</li>
+                        <li>Respaldados por flota de carros bomba de Jaras Diesel</li>
+                    </ul>
+                    <a href="https://jarasdiesel.cl" target="_blank" class="btn btn-primary">Conocer Jaras Diesel</a>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://via.placeholder.com/500x400/1f4788/FFFFFF?text=Sala+de+Capacitación" 
+                         alt="Sala de capacitación con equipos Clarke Fire y Tornatech">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="cursos" class="courses">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Programas de Capacitación</h2>
+                <p>Certificaciones técnicas reconocidas internacionalmente con metodología práctica</p>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <h3 class="course-title">Certificación en Comisionamiento y Puesta en Marcha de Motores Clarke</h3>
+                        <div class="course-duration">2 días intensivos | Validez 2 años</div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">
+                            Curso diseñado para certificar personal técnico en comisionamiento y puesta en marcha 
+                            de sistemas contra incendio con motores Clarke Fire según norma NFPA 20.
+                        </p>
+                        <ul class="course-features">
+                            <li>Marco normativo NFPA 20 y verificación de instalaciones</li>
+                            <li>Procedimientos oficiales Clarke Fire</li>
+                            <li>Práctica con motor Clarke y controlador Tornatech operativos</li>
+                            <li>Introducción a mantenimiento según NFPA 25</li>
+                            <li>Certificado con validez internacional</li>
+                            <li>Dirigido a técnicos de servicio e ingenieros</li>
+                        </ul>
+                        <div class="course-price">
+                            <div class="price-label">Inversión por participante</div>
+                            <div class="price-amount">Consultar</div>
+                        </div>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Solicitar Información</a>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <h3 class="course-title">Certificación en Inspección y Pruebas Semanales NFPA 25</h3>
+                        <div class="course-duration">2 días intensivos | Certificación continua</div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">
+                            Capacitación para personal de mantenimiento, operaciones y brigadas de emergencia 
+                            en inspecciones y pruebas semanales según norma NFPA 25.
+                        </p>
+                        <ul class="course-features">
+                            <li>Fundamentos teóricos NFPA 25</li>
+                            <li>Procedimientos de inspección visual</li>
+                            <li>Pruebas sin flujo (Churn Test)</li>
+                            <li>Operación segura de equipos</li>
+                            <li>Documentación y reportes</li>
+                            <li>Prácticas en sala de bombas real</li>
+                        </ul>
+                        <div class="course-price">
+                            <div class="price-label">Inversión por participante</div>
+                            <div class="price-amount">Consultar</div>
+                        </div>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Solicitar Información</a>
+                    </div>
+                </div>
+
+                <div class="course-card fade-in">
+                    <div class="course-header">
+                        <h3 class="course-title">Capacitación Corporativa Personalizada</h3>
+                        <div class="course-duration">Duración flexible | In-company disponible</div>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">
+                            Programas de capacitación diseñados específicamente para las necesidades 
+                            de su empresa, con posibilidad de realización en sus instalaciones.
+                        </p>
+                        <ul class="course-features">
+                            <li>Análisis de necesidades específicas</li>
+                            <li>Contenido adaptado a sus equipos</li>
+                            <li>Modalidad presencial en nuestras instalaciones</li>
+                            <li>Capacitación in-company disponible</li>
+                            <li>Certificados personalizados</li>
+                            <li>Seguimiento post-capacitación</li>
+                        </ul>
+                        <div class="course-price">
+                            <div class="price-label">Inversión</div>
+                            <div class="price-amount">A cotizar</div>
+                        </div>
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%;">Solicitar Cotización</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section id="credenciales" class="credentials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Credenciales y Certificaciones</h2>
+                <p>Respaldos oficiales que garantizan la calidad y reconocimiento de nuestra capacitación</p>
+            </div>
+            
+            <div class="credentials-grid">
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/dc2626/FFFFFF?text=CLARKE" alt="Clarke Fire Logo" class="credential-logo">
+                    <h3 class="credential-title">Autorización Exclusiva Clarke Fire</h3>
+                    <p class="credential-description">
+                        Únicos autorizados en Latinoamérica para impartir certificaciones oficiales 
+                        Clarke Fire en motores para sistemas contra incendios.
+                    </p>
+                </div>
+                
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/1f4788/FFFFFF?text=SENCE" alt="SENCE Logo" class="credential-logo">
+                    <h3 class="credential-title">OTEC Certificada SENCE</h3>
+                    <p class="credential-description">
+                        Organismo Técnico de Capacitación registrado y certificado por SENCE Chile 
+                        con NCh 2728:2015.
+                    </p>
+                </div>
+                
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/f97316/FFFFFF?text=NFPA" alt="NFPA Standards" class="credential-logo">
+                    <h3 class="credential-title">Estándares NFPA 20 & 25</h3>
+                    <p class="credential-description">
+                        Capacitación basada en las normas internacionales NFPA 20 (instalación) 
+                        y NFPA 25 (mantenimiento) de sistemas contra incendios.
+                    </p>
+                </div>
+                
+                <div class="credential-card fade-in">
+                    <img src="https://via.placeholder.com/120x80/059669/FFFFFF?text=JARAS" alt="Jaras Diesel Experience" class="credential-logo">
+                    <h3 class="credential-title">22 Años Experiencia Jaras Diesel</h3>
+                    <p class="credential-description">
+                        Respaldados por más de dos décadas de experiencia técnica de Jaras Diesel 
+                        en sistemas contra incendios industriales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="instalaciones" class="facilities">
+        <div class="container">
+            <div class="facilities-grid">
+                <div class="facilities-content fade-in">
+                    <h2>Instalaciones de Capacitación</h2>
+                    <p style="color: var(--gray-600); margin-bottom: 2rem;">
+                        Contamos con instalaciones especialmente diseñadas para capacitación práctica, 
+                        equipadas con los mismos sistemas que encontrarán en campo.
+                    </p>
+                    
+                    <div class="facility-item">
+                        <h3>Sala de Bombas Operativa</h3>
+                        <p>
+                            Sala de capacitación equipada con motor Clarke Fire y controlador Tornatech 
+                            completamente funcionales para práctica real.
+                        </p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <h3>Equipamiento Técnico Especializado</h3>
+                        <p>
+                            Herramientas de diagnóstico, instrumentos de medición y equipos de seguridad 
+                            utilizados en la industria de protección contra incendios.
+                        </p>
+                    </div>
+                    
+                    <div class="facility-item">
+                        <h3>Respaldo Técnico Jaras Diesel</h3>
+                        <p>
+                            Acceso a la experiencia técnica y flota de carros bomba de Jaras Diesel 
+                            para demostraciones y casos prácticos.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="about-image fade-in">
+                    <img src="https://via.placeholder.com/500x400/f97316/FFFFFF?text=Instalaciones+Técnicas" 
+                         alt="Instalaciones de capacitación técnica">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h2>Contacto</h2>
+                    <p style="margin-bottom: 2rem;">
+                        Solicite información sobre nuestros programas de capacitación o cotice 
+                        un programa personalizado para su empresa.
+                    </p>
+                    
+                    <div class="contact-item">
+                        <h3>Dirección</h3>
+                        <p>Francisco Zelada 90<br>Estación Central, Santiago<br>Chile</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Teléfono</h3>
+                        <p>+56 2 2776 7977</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>capacitacion@jarasdiesel.cl</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h3>Horario de Atención</h3>
+                        <p>Lunes a Viernes: 8:30 - 17:30 hrs</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <h3>Solicitar Información</h3>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" id="empresa" name="empresa">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="curso">Curso de Interés</label>
+                            <select id="curso" name="curso">
+                                <option value="">Seleccione un curso</option>
+                                <option value="clarke-comisionamiento">Certificación Comisionamiento Clarke</option>
+                                <option value="nfpa-25">Inspección y Pruebas NFPA 25</option>
+                                <option value="corporativo">Capacitación Corporativa</option>
+                                <option value="otro">Otro / Consulta General</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="Describa sus necesidades de capacitación..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Jaras Diesel Training SpA</h3>
+                    <p style="color: var(--gray-300); margin-bottom: 1rem;">
+                        OTEC certificada SENCE especializada en capacitación técnica para sistemas contra incendios. 
+                        División educativa de Jaras Diesel Limitada.
+                    </p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">OTEC SENCE</span>
+                        <span class="cert-badge">NCh 2728:2015</span>
+                        <span class="cert-badge">Clarke Fire Autorizado</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Capacitación</h3>
+                    <ul>
+                        <li><a href="#cursos">Certificación Clarke Fire</a></li>
+                        <li><a href="#cursos">Inspecciones NFPA 25</a></li>
+                        <li><a href="#cursos">Capacitación Corporativa</a></li>
+                        <li><a href="#credenciales">Credenciales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#instalaciones">Instalaciones</a></li>
+                        <li><a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel</a></li>
+                        <li><a href="https://clarkefire.com" target="_blank">Clarke Fire</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="#contacto">Información</a></li>
+                        <li><a href="tel:+56227767977">+56 2 2776 7977</a></li>
+                        <li><a href="mailto:info@jarastraining.cl">info@jarastraining.cl</a></li>
+                        <li>Quilicura, Santiago, Chile</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jaras Diesel Training SpA. Todos los derechos reservados. | Una división de <a href="https://jarasdiesel.cl" target="_blank" style="color: var(--secondary-color);">Jaras Diesel Limitada</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission (replace with actual form handling)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por su consulta. Nos pondremos en contacto a la brevedad.');
+        });
+
+        // Active navigation link
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
