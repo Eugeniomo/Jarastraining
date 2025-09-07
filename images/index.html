@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jaras Training – Capacitación en Salas de Bomba, NFPA y CLARKE</title>
+  <meta name="description" content="OTEC Jaras Training: cursos y capacitación técnica en salas de bombas, normas NFPA y motores diésel CLARKE. Presencial en Chile. SENCE y empresas.">
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#0b1227;
+      --ink:#e5e7eb;
+      --muted:#94a3b8;
+      --pri:#22c55e;
+      --pri-d:#16a34a;
+      --accent:#38bdf8;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;height:100%;color:var(--ink);background:var(--bg);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .btn{display:inline-block;background:var(--pri);color:#031;padding:12px 18px;border-radius:14px;font-weight:700;transition:transform .12s ease}
+    .btn:hover{background:var(--pri-d);text-decoration:none;transform:translateY(-1px)}
+    header{position:sticky;top:0;background:rgba(3,6,23,.8);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid #1f2937;z-index:50}
+    nav{display:flex;align-items:center;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--pri)}
+    .spacer{flex:1}
+    .nav{display:flex;gap:16px}
+    .nav a{color:var(--ink);padding:8px 6px;border-radius:10px}
+    .nav a.active{color:var(--pri)}
+    .hamb{display:none;background:#0b1227;border:1px solid #1e293b;color:var(--ink);border-radius:12px;padding:8px 10px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:60px 24px 24px}
+    .hero h1{font-size:40px;line-height:1.1;margin:0 0 12px;font-weight:900}
+    .hero p{color:var(--muted);margin:0 0 24px}
+    .card{background:linear-gradient(180deg, rgba(56,189,248,.06), rgba(34,197,94,.06)); border:1px solid #1e293b; border-radius:20px; padding:20px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    h2{font-size:22px;margin:0 0 12px}
+    h3{font-size:18px;margin:0 0 6px}
+    .list{margin:0;padding-left:18px;color:var(--ink)}
+    .list li{margin:6px 0}
+    .muted{color:var(--muted)}
+    .tag{display:inline-block;border:1px solid #1e293b;border-radius:999px;padding:6px 10px;margin:4px 6px 0 0;color:var(--muted)}
+    .section{padding:48px 24px}
+    section{scroll-margin-top:84px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:12px}
+    .kpi .box{background:var(--card);border:1px solid #1e293b;border-radius:16px;padding:14px;text-align:center}
+    .kpi b{font-size:20px}
+    .footer{border-top:1px solid #1f2937;padding:28px 24px;color:var(--muted)}
+    input,select,textarea{width:100%;background:#0b1022;color:var(--ink);border:1px solid #1e293b;border-radius:12px;padding:10px}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form .row + .row{margin-top:12px}
+    form .row.full{grid-template-columns:1fr}
+    .badge{display:inline-block;background:#072d1a;border:1px solid #0e6f3a;color:#8ef0b1;padding:6px 10px;border-radius:999px;font-size:12px}
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .4s ease, transform .4s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .kpi{grid-template-columns:repeat(2,1fr)}
+      form .row{grid-template-columns:1fr}
+      .hamb{display:block;margin-left:auto}
+      .nav{display:none;position:fixed;left:16px;right:16px;top:64px;background:rgba(3,6,23,.96);border:1px solid #1e293b;border-radius:16px;padding:12px;flex-direction:column}
+      .nav.open{display:flex}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand"><div class="dot"></div><span>Jaras Training</span></div>
+        <div class="spacer"></div>
+        <button id="hamb" class="hamb" aria-label="Abrir menú">☰</button>
+        <div id="nav" class="nav">
+          <a href="#servicios">Servicios</a>
+          <a href="#cursos">Cursos</a>
+          <a href="#sence">SENCE</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero wrap">
+      <div>
+        <span class="badge">OTEC – Capacitación técnica presencial</span>
+        <h1>Cursos especializados: salas de bomba, NFPA y motores diésel CLARKE</h1>
+        <p>Formamos equipos competentes para operar, mantener y auditar sistemas contra incendio. Enfoque práctico, instructores con experiencia en terreno y contenidos alineados a NFPA 20, 25 y buenas prácticas del fabricante CLARKE.</p>
+        <div class="cta">
+          <a class="btn" href="#contacto">Solicitar cotización</a>
+          <a class="btn" style="background:#0b1227;color:var(--ink);border:1px solid #1e293b" href="#cursos">Ver cursos</a>
+        </div>
+        <div class="kpi">
+          <div class="box"><b>Presencial</b><div class="muted">Chile</div></div>
+          <div class="box"><b>NFPA 20/25</b><div class="muted">alineado</div></div>
+          <div class="box"><b>CLARKE</b><div class="muted">motores diésel</div></div>
+          <div class="box"><b>Empresas</b><div class="muted">SST y SG</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Contenido tipo para salas de bombas</h3>
+        <ul class="list">
+          <li>Arquitectura del sistema y componentes</li>
+          <li>Bombas principales, jockey y válvulas</li>
+          <li>Motores CLARKE: operación y mantenimiento</li>
+          <li>Pruebas semanales/mensuales según NFPA 25</li>
+          <li>Bitácoras, checklists y seguridad</li>
+        </ul>
+        <div style="margin-top:10px" class="muted">Se entrega material y registro de asistencia. Evaluación final opcional.</div>
+      </div>
+    </section>
+    <section id="servicios" class="section wrap">
+      <h2>Servicios</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Capacitaciones in-company</h3>
+          <p class="muted">Cursos prácticos en sitio. Ajustados a riesgos y equipos reales del cliente.</p>
+          <div class="tag">Grupos de 8–20</div>
+          <div class="tag">4–16 horas</div>
+        </div>
+        <div class="card">
+          <h3>Programas NFPA</h3>
+          <p class="muted">Introducción y profundización en NFPA 20 y 25 orientado a operación y mantención.</p>
+          <div class="tag">NFPA 20</div><div class="tag">NFPA 25</div>
+        </div>
+        <div class="card">
+          <h3>CLARKE – Motores diésel</h3>
+          <p class="muted">Operación segura, rutinas, alarmas y análisis básico de fallas en motores CLARKE.</p>
+          <div class="tag">Arranque y pruebas</div><div class="tag">Bitácoras</div>
+        </div>
+      </div>
+    </section>
+    <section id="cursos" class="section wrap">
+      <h2>Cursos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Operación de salas de bombas (NFPA 20/25)</h3>
+          <p class="muted">Arquitectura del sistema, secuencias de operación, chequeos diarios y pruebas periódicas conforme a NFPA 25.</p>
+          <ul class="list">
+            <li>Duración: 8 horas</li>
+            <li>Modalidad: presencial en sitio del cliente</li>
+            <li>Incluye: material, lista de asistencia, evaluación y <b>certificado de aprobación Jaras Training</b></li>
+            <li>Referencia normativa: NFPA 20 y NFPA 25</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>NFPA 25: inspección, pruebas y mantenimiento</h3>
+          <p class="muted">Planificación y ejecución de inspecciones y pruebas. Registro en bitácoras y criterios de aceptación.</p>
+          <ul class="list">
+            <li>Duración: 8–16 horas</li>
+            <li>Prácticas guiadas en terreno</li>
+            <li>Formatos de checklist listos para uso</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Motores diésel CLARKE: operación y mantenimiento</h3>
+          <p class="muted">Operación segura, rutinas, alarmas, interpretación de paneles y resolución básica de fallas en motores CLARKE para sistemas contra incendio.</p>
+          <ul class="list">
+            <li>Duración: 4–8 horas</li>
+            <li>Requisitos: sala habilitada y acceso al equipo</li>
+            <li>Base técnica: documentación del fabricante <a href="https://www.clarkefire.com" target="_blank" rel="noopener">CLARKE</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid" style="margin-top:18px">
+        <div class="card">
+          <h3>Programa integral para brigadas de emergencia</h3>
+          <p class="muted">Rol de la brigada en SCI, seguridad en operación, comunicación y coordinación con mantenimiento.</p>
+          <ul class="list">
+            <li>Duración: 8 horas</li>
+            <li>Foco: procedimientos y práctica supervisada</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Auditoría operativa a salas de bomba</h3>
+          <p class="muted">Listas de verificación, revisión de registros, pruebas funcionales y recomendaciones priorizadas.</p>
+          <ul class="list">
+            <li>Duración: 6–8 horas</li>
+            <li>Entrega: informe ejecutivo y plan de acción</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Programa a medida</h3>
+          <p class="muted">Diseño según equipos y riesgos del cliente. Combinable con módulos NFPA y CLARKE.</p>
+          <ul class="list">
+            <li>Diagnóstico inicial sin costo</li>
+            <li>Adaptación de contenidos y tiempos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="margin-top:18px">
+        <h3>Certificación técnica y referencias CLARKE</h3>
+        <p class="muted">Nuestros cursos de motores diésel para SCI se dictan <b>alineados a los manuales y boletines del fabricante</b> <a href="https://www.clarkefire.com" target="_blank" rel="noopener">CLARKE</a>. Entregamos certificado de aprobación de Jaras Training y <b>referencias a documentación oficial</b> para sustentar prácticas de operación y mantenimiento.</p>
+        <div class="cta">
+          <a class="btn" href="#contacto">Solicitar programa</a>
+          <a class="muted" href="https://www.clarkefire.com" target="_blank" rel="noopener">Sitio oficial CLARKE</a>
+          <a class="muted" href="#" target="_blank" rel="noopener" id="link-jaras">Jaras Diesel</a>
+        </div>
+      </div>
+    </section>
+    <section id="sence" class="section wrap">
+      <h2>Información OTEC y SENCE</h2>
+      <p class="muted">Capacitación para empresas. Emisión de certificados. Coordinación con RR.HH. y registro de asistencia. Modalidad presencial. Consultar requisitos SENCE vigentes.</p>
+    </section>
+    <section id="contacto" class="section wrap">
+      <h2>Contacto</h2>
+      <div class="grid">
+        <div class="card">
+          <form action="mailto:contacto@jarastraining.cl" method="post" enctype="text/plain">
+            <div class="row">
+              <div><label>Nombre</label><input name="nombre" required></div>
+              <div><label>Email</label><input type="email" name="email" required></div>
+            </div>
+            <div class="row">
+              <div><label>Empresa</label><input name="empresa"></div>
+              <div><label>Teléfono</label><input name="fono"></div>
+            </div>
+            <div class="row full">
+              <div>
+                <label>Interés</label>
+                <select name="interes">
+                  <option>Operación de salas de bombas</option>
+                  <option>NFPA 25: inspección y pruebas</option>
+                  <option>Motores diésel CLARKE</option>
+                  <option>Programa a medida</option>
+                </select>
+              </div>
+            </div>
+            <div class="row full">
+              <div><label>Mensaje</label><textarea name="mensaje" rows="4" placeholder="Cuéntanos fechas tentativas y lugar"></textarea></div>
+            </div>
+            <div class="row full">
+              <button class="btn" type="submit">Enviar consulta</button>
+              &nbsp;
+              <a class="muted" href="https://wa.me/56900000000" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Datos de contacto</h3>
+          <p class="muted">Email: <a href="mailto:contacto@jarastraining.cl">contacto@jarastraining.cl</a><br>
+          Teléfono: +56 9 0000 0000<br>
+          Región Metropolitana, Chile</p>
+          <h3>Documentos</h3>
+          <ul class="list">
+            <li>Temarios y programas (PDF)</li>
+            <li>Política de calidad (PDF)</li>
+            <li>Registro de asistencia (XLSX)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap">
+    <div>© <span id="y"></span> Jaras Training · <a href="#" id="link-jaras-foot" class="muted" style="color:inherit;text-decoration:underline" target="_blank" rel="noopener">Jaras Diesel</a>.</div>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const btn = document.getElementById('hamb');
+    const nav = document.getElementById('nav');
+    if(btn && nav){
+      btn.addEventListener('click',()=> nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach(a=> a.addEventListener('click',()=> nav.classList.remove('open')));
+    }
+    const links = document.querySelectorAll('.nav a');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          links.forEach(l=> l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+        }
+      })
+    },{threshold:0.6});
+    sections.forEach(s=> spy.observe(s));
+    document.querySelectorAll('.card, .kpi .box').forEach(el=> el.classList.add('reveal'));
+    const ro = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); ro.unobserve(e.target); } });
+    },{threshold:0.2});
+    document.querySelectorAll('.reveal').forEach(el=> ro.observe(el));
+  </script>
+</body>
+</html>
