@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Corporativo Jaras Training - Estilo Clarke Fire</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hero-container {
+            width: 1200px;
+            height: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        
+        .hero-corporate {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                #1a1a1a 0%, 
+                #2d2d2d 25%, 
+                #404040 50%, 
+                #2d2d2d 75%, 
+                #1a1a1a 100%);
+        }
+        
+        /* Video Background Placeholder - Industrial/Technical */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .industrial-video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                #2a2a2a 0%, 
+                #3d3d3d 25%, 
+                #525252 50%, 
+                #3d3d3d 75%, 
+                #2a2a2a 100%);
+            background-size: 200% 200%;
+            animation: industrialFlow 12s ease-in-out infinite;
+            position: relative;
+        }
+        
+        @keyframes industrialFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Subtle Industrial Grid */
+        .industrial-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(220, 38, 38, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(220, 38, 38, 0.08) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.7;
+            animation: gridDrift 20s linear infinite;
+        }
+        
+        @keyframes gridDrift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+        
+        /* Clarke Fire Red Accents */
+        .clarke-accent {
+            position: absolute;
+            width: 3px;
+            height: 100px;
+            background: linear-gradient(180deg, transparent, #dc2626, transparent);
+            animation: clarkeBeam 8s ease-in-out infinite;
+        }
+        
+        .clarke-accent:nth-child(1) {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+        
+        .clarke-accent:nth-child(2) {
+            bottom: 30%;
+            right: 20%;
+            animation-delay: -4s;
+        }
+        
+        .clarke-accent:nth-child(3) {
+            top: 60%;
+            left: 70%;
+            animation-delay: -2s;
+        }
+        
+        @keyframes clarkeBeam {
+            0%, 100% { opacity: 0; transform: scaleY(0); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+        
+        /* Corporate Overlay */
+        .corporate-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(26, 26, 26, 0.85) 0%,
+                rgba(45, 45, 45, 0.75) 50%,
+                rgba(64, 64, 64, 0.65) 100%
+            );
+            z-index: 2;
+        }
+        
+        /* Professional Pattern */
+        .professional-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 50px 50px;
+            z-index: 3;
+        }
+        
+        /* Content Container */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 40px;
+        }
+        
+        /* Clarke Fire Corporate Badge */
+        .clarke-badge {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            margin-bottom: 35px;
+            display: inline-block;
+            position: relative;
+            box-shadow: 
+                0 10px 30px rgba(220, 38, 38, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .clarke-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            animation: corporateShine 5s ease-in-out infinite;
+        }
+        
+        @keyframes corporateShine {
+            0%, 85%, 100% { left: -100%; }
+            15%, 75% { left: 100%; }
+        }
+        
+        /* SENCE Milestone Badge */
+        .sence-milestone {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 16px 30px;
+            border-radius: 15px;
+            margin: 25px auto 45px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            box-shadow: 
+                0 8px 25px rgba(16, 185, 129, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            animation: milestoneGlow 3s ease-in-out infinite;
+            flex-direction: column;
+            text-align: center;
+            min-width: 300px;
+        }
+        
+        @keyframes milestoneGlow {
+            0%, 100% { 
+                box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 12px 35px rgba(16, 185, 129, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                transform: scale(1.02);
+            }
+        }
+        
+        .milestone-icon {
+            font-size: 1.5rem;
+            animation: rocketLaunch 2s ease-in-out infinite;
+        }
+        
+        @keyframes rocketLaunch {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+        
+        .milestone-text {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 4px;
+        }
+        
+        .milestone-subtitle {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-weight: 500;
+            font-style: italic;
+        }
+        
+        .sence-milestone::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: milestoneShine 4s ease-in-out infinite;
+        }
+        
+        @keyframes milestoneShine {
+            0%, 80%, 100% { left: -100%; }
+            20%, 60% { left: 100%; }
+        }
+        
+        /* Corporate Typography */
+        .hero-title {
+            font-size: 4.2rem;
+            font-weight: 800;
+            margin-bottom: 26px;
+            line-height: 1.15;
+            color: #ffffff;
+            text-shadow: 0 6px 25px rgba(0,0,0,0.6);
+            letter-spacing: -1.5px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.35rem;
+            font-weight: 400;
+            line-height: 1.65;
+            margin-bottom: 45px;
+            opacity: 0.92;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e5e7eb;
+        }
+        
+        /* Corporate Buttons - Jaras Style */
+        .hero-buttons {
+            display: flex;
+            gap: 22px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 65px;
+        }
+        
+        .btn-corporate {
+            padding: 18px 36px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        
+        .btn-primary-corp {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary-corp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.45);
+            background: linear-gradient(135deg, #b91c1c, #991b1b);
+        }
+        
+        .btn-secondary-corp {
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+        }
+        
+        .btn-secondary-corp:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        /* Corporate Stats - Industrial Style */
+        .corporate-stats {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 65px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(25px);
+            padding: 28px 45px;
+            border-radius: 18px;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .stat-corporate {
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .stat-corporate::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 1px solid rgba(220, 38, 38, 0.15);
+            border-radius: 12px;
+            animation: statPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes statPulse {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        .stat-number-corp {
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: #dc2626;
+            display: block;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+        }
+        
+        .stat-label-corp {
+            font-size: 0.88rem;
+            opacity: 0.88;
+            font-weight: 600;
+            color: #d1d5db;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Jaras Diesel Inspired Elements */
+        .jaras-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 4;
+        }
+        
+        .diesel-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, #dc2626, transparent);
+            height: 2px;
+            width: 200px;
+            animation: dieselScan 10s linear infinite;
+        }
+        
+        .diesel-line:nth-child(1) {
+            top: 25%;
+            left: -200px;
+            animation-delay: 0s;
+        }
+        
+        .diesel-line:nth-child(2) {
+            bottom: 35%;
+            right: -200px;
+            animation-delay: -5s;
+        }
+        
+        @keyframes dieselScan {
+            0% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+            100% { opacity: 0; transform: translateX(1400px); }
+        }
+        
+        .industrial-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #dc2626;
+            border-radius: 50%;
+            animation: industrialBlink 3s ease-in-out infinite;
+            box-shadow: 0 0 15px #dc2626;
+        }
+        
+        .industrial-dot:nth-child(3) { top: 18%; left: 12%; animation-delay: 0s; }
+        .industrial-dot:nth-child(4) { top: 75%; right: 18%; animation-delay: -1s; }
+        .industrial-dot:nth-child(5) { bottom: 22%; left: 22%; animation-delay: -2s; }
+        
+        @keyframes industrialBlink {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container {
+                width: 100%;
+                height: 600px;
+                border-radius: 0;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.15rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .corporate-stats {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 35px;
+                flex-wrap: wrap;
+                gap: 35px;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeOut 2s ease-out 1s forwards;
+        }
+        
+        .loading-text {
+            color: #dc2626;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: loadingPulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="hero-corporate">
+            <!-- Video Background -->
+            <div class="video-background">
+                <div class="industrial-video-placeholder">
+                    <div class="industrial-grid"></div>
+                    <div class="clarke-accent"></div>
+                    <div class="clarke-accent"></div>
+                    <div class="clarke-accent"></div>
+                </div>
+                <!-- 
+                Para video real, descomenta y agrega tu video:
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="tu-video-industrial-jaras.mp4" type="video/mp4">
+                    <source src="tu-video-industrial-jaras.webm" type="video/webm">
+                </video>
+                -->
+            </div>
+            
+            <!-- Corporate Overlay -->
+            <div class="corporate-overlay"></div>
+            
+            <!-- Professional Pattern -->
+            <div class="professional-pattern"></div>
+            
+            <!-- Jaras Industrial Elements -->
+            <div class="jaras-elements">
+                <div class="diesel-line"></div>
+                <div class="diesel-line"></div>
+                <div class="industrial-dot"></div>
+                <div class="industrial-dot"></div>
+                <div class="industrial-dot"></div>
+            </div>
+            
+            <!-- Loading Animation -->
+            <div class="loading-overlay">
+                <div class="loading-text">Cargando Sistema...</div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="hero-content">
+                <div class="clarke-badge">
+                    Únicos Representantes Autorizados Clarke Fire en Latinoamérica
+                </div>
+                
+                <h1 class="hero-title">
+                    Certificación Técnica en Sistemas Contra Incendios
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Especialistas en <strong>capacitación y certificación</strong> de personal técnico 
+                    en motores diesel Clarke Fire, inspecciones NFPA 25 y comisionamiento de sistemas contra incendios. 
+                    Respaldados por <strong>22 años de experiencia</strong> de Jaras Diesel en el sector.
+                </p>
+                
+                <!-- Hito SENCE como badge especial -->
+                <div class="sence-milestone">
+                    <span class="milestone-icon">🚀</span>
+                    <span class="milestone-text">EN PROCESO DE CERTIFICACIÓN SENCE</span>
+                    <span class="milestone-subtitle">Próximamente cursos con franquicia tributaria</span>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#cursos" class="btn-corporate btn-primary-corp">Ver Cursos Disponibles</a>
+                    <a href="#contacto" class="btn-corporate btn-secondary-corp">Solicitar Cotización</a>
+                </div>
+            </div>
+            
+            <!-- Corporate Stats -->
+            <div class="corporate-stats">
+                <div class="stat-corporate">
+                    <span class="stat-number-corp">22+</span>
+                    <div class="stat-label-corp">Años Experiencia</div>
+                </div>
+                <div class="stat-corporate">
+                    <span class="stat-number-corp">100%</span>
+                    <div class="stat-label-corp">Capacitación Práctica</div>
+                </div>
+                <div class="stat-corporate">
+                    <span class="stat-number-corp">Clarke</span>
+                    <div class="stat-label-corp">Únicos Autorizados</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
