@@ -6,19 +6,16 @@
     <title>Capacitación Clarke Fire Chile | Certificación NFPA 25 Latinoamérica | Jaras Training</title>
     <meta name="description" content="🔥 OTEC certificación SENCE Chile. Únicos autorizados Clarke Fire en Latinoamérica. Cursos NFPA 20 y NFPA 25 sistemas contra incendios. ✓ 22 años experiencia ✓ Certificación internacional">
     
-    <!-- Keywords optimizadas por país -->
     <meta name="keywords" content="capacitación Clarke Fire Chile, curso NFPA 25 Santiago, certificación motores diesel contra incendios, OTEC sistemas contra incendios Chile, capacitación NFPA 20 Latinoamérica, curso bombas contra incendios Chile, certificación Clarke Fire Argentina, capacitación sistemas contra incendios Perú, curso NFPA 25 Colombia, Jaras Training Chile, capacitación técnica contra incendios, comisionamiento motores Clarke, inspección NFPA 25 Chile, curso bombero industrial, capacitación mantenimiento contra incendios">
     
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://eugeniomo.github.io/Jarastraining/">
     
-    <!-- Geo Tags -->
     <meta name="geo.region" content="CL-RM">
     <meta name="geo.placename" content="Santiago, Chile">
     <meta name="geo.position" content="-33.386;-70.745">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="Jaras Training | Capacitación Clarke Fire Oficial Latinoamérica">
     <meta property="og:description" content="OTEC en proceso SENCE. Únicos autorizados Clarke Fire en Latinoamérica. Cursos NFPA 20 y 25 con 22 años experiencia.">
     <meta property="og:type" content="website">
@@ -29,13 +26,11 @@
     <meta property="og:locale" content="es_CL">
     <meta property="og:site_name" content="Jaras Diesel Training SpA">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Capacitación Clarke Fire | Jaras Training Chile">
     <meta name="twitter:description" content="🔥 Únicos autorizados Clarke Fire Latinoamérica. Cursos NFPA certificados.">
     <meta name="twitter:image" content="https://eugeniomo.github.io/Jarastraining/hero-jaras.jpg">
     
-    <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function(){
@@ -43,7 +38,6 @@
         })();
     </script>
     
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -212,7 +206,7 @@
             cursor: pointer;
         }
 
-        /* Hero Section con imagen de fondo */
+        /* Hero Section */
         .hero {
             position: relative;
             color: white;
@@ -342,8 +336,39 @@
 
         /* Stats */
         .stats {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
             padding: 4rem 0;
+            overflow: hidden;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('banner-camion.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3);
+            z-index: 0;
+        }
+        
+        .stats::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(59, 130, 246, 0.8) 100%);
+            z-index: 1;
+        }
+        
+        .stats .container {
+            position: relative;
+            z-index: 2;
         }
         
         .stats-grid {
@@ -354,16 +379,16 @@
         }
         
         .stat-item {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.4s ease;
         }
         
         .stat-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
         
         .stat-number {
@@ -381,81 +406,41 @@
             font-weight: 500;
         }
 
-        /* About */
-        .about {
-            padding: 5rem 0;
-        }
-        
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .heritage-badge {
-            background: var(--gradient-accent);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-        
-        .about-content h2 {
-            font-size: 2.8rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-        
-        .about-content p {
-            margin-bottom: 1.5rem;
-            color: var(--gray-600);
-            font-size: 1.15rem;
-            line-height: 1.7;
-        }
-        
-        .about-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        
-        .about-features li {
-            padding: 0.75rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .about-features li::before {
-            content: '✓';
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.4rem;
-            background: rgba(16, 185, 129, 0.1);
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .about-image img {
-            max-width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
         /* Courses */
         .courses {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
             padding: 5rem 0;
+            overflow: hidden;
+        }
+        
+        .courses::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('banner-tecnicos-trabajando.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3);
+            z-index: 0;
+        }
+        
+        .courses::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(226, 232, 240, 0.95) 100%);
+            z-index: 1;
+        }
+        
+        .courses .container {
+            position: relative;
+            z-index: 2;
         }
         
         .section-header {
@@ -544,36 +529,47 @@
             font-size: 0.8rem;
             margin-top: 0.2rem;
         }
-        
-        .course-price {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(16, 185, 129, 0.05);
-            border-radius: 12px;
-        }
-        
-        .price-label {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-        }
-        
-        .price-amount {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
 
         /* Credentials */
         .credentials {
+            position: relative;
             padding: 5rem 0;
+            overflow: hidden;
+        }
+        
+        .credentials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('banner-tecnico-chaleco.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3);
+            z-index: 0;
+        }
+        
+        .credentials::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1;
+        }
+        
+        .credentials .container {
+            position: relative;
+            z-index: 2;
         }
         
         .credentials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
         }
         
@@ -583,6 +579,7 @@
             border: 2px solid var(--gray-200);
             border-radius: 20px;
             transition: all 0.4s ease;
+            background: white;
         }
         
         .credential-card:hover {
@@ -613,8 +610,39 @@
 
         /* Facilities */
         .facilities {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
             padding: 5rem 0;
+            overflow: hidden;
+        }
+        
+        .facilities::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('sala-bombas-tecnicos.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3);
+            z-index: 0;
+        }
+        
+        .facilities::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(226, 232, 240, 0.95) 100%);
+            z-index: 1;
+        }
+        
+        .facilities .container {
+            position: relative;
+            z-index: 2;
         }
         
         .facilities-grid {
@@ -660,6 +688,12 @@
         .facility-item p {
             color: var(--gray-600);
             margin: 0;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         /* Contact */
@@ -759,7 +793,6 @@
             min-height: 120px;
         }
         
-        /* Honeypot anti-spam */
         .hp-field {
             position: absolute;
             left: -9999px;
@@ -838,6 +871,12 @@
         }
 
         /* Responsive */
+        @media (max-width: 968px) {
+            .credentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
@@ -869,7 +908,6 @@
                 font-size: 2.5rem;
             }
             
-            .about-grid,
             .facilities-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -877,6 +915,10 @@
             }
             
             .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credentials-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -895,7 +937,6 @@
             }
         }
         
-        /* Accessibility */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -907,7 +948,6 @@
             border: 0;
         }
 
-        /* Success/Error Messages */
         .form-message {
             padding: 1rem;
             border-radius: 8px;
@@ -946,7 +986,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
@@ -962,7 +1001,6 @@
                 
                 <ul class="nav-menu">
                     <li><a href="#inicio" class="nav-link">Inicio</a></li>
-                    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
                     <li><a href="#cursos" class="nav-link">Cursos</a></li>
                     <li><a href="#instalaciones" class="nav-link">Instalaciones</a></li>
                     <li><a href="#credenciales" class="nav-link">Credenciales</a></li>
@@ -973,7 +1011,6 @@
         </div>
     </header>
 
-    <!-- Hero -->
     <section id="inicio" class="hero">
         <div class="container">
             <div class="hero-content">
@@ -994,66 +1031,29 @@
         </div>
     </section>
 
-    <!-- Statistics -->
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">22+</span>
+                    <span class="stat-number" data-target="22">0</span>
                     <div class="stat-label">Años Experiencia Jaras Diesel</div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">100%</span>
+                    <span class="stat-number" data-target="100">0</span>
                     <div class="stat-label">Capacitación Práctica</div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">2</span>
+                    <span class="stat-number" data-target="2">0</span>
                     <div class="stat-label">Años Validez Certificación</div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">Clarke</span>
+                    <span class="stat-number" data-text="Clarke">-</span>
                     <div class="stat-label">Únicos Autorizados Latinoamérica</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="nosotros" class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <div class="heritage-badge">División Educativa de Jaras Diesel</div>
-                    <h2>Capacitación Técnica Especializada</h2>
-                    <p>
-                        Jaras Diesel Training SpA es una OTEC en proceso de certificación SENCE, constituida como la 
-                        <strong>división educativa especializada</strong> de Jaras Diesel Limitada, empresa 
-                        líder en sistemas contra incendios con más de 22 años de experiencia.
-                    </p>
-                    <p>
-                        Como <strong>únicos autorizados por Clarke Fire</strong> para impartir certificaciones 
-                        en Latinoamérica, ofrecemos capacitación técnica de nivel mundial respaldada por décadas 
-                        de experiencia práctica en el sector.
-                    </p>
-                    <ul class="about-features">
-                        <li>OTEC en proceso de certificación SENCE</li>
-                        <li>Únicos autorizados Clarke Fire en Latinoamérica</li>
-                        <li>Instructores con experiencia industrial real</li>
-                        <li>Metodología 100% práctica con equipos operativos</li>
-                        <li>Sala con motor Clarke y controlador Tornatech</li>
-                        <li>Respaldados por flota de Jaras Diesel</li>
-                    </ul>
-                    <a href="https://jarasdiesel.cl" target="_blank" class="btn btn-primary">Conocer Jaras Diesel</a>
-                </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/500x400/10b981/FFFFFF?text=Sala+Capacitación" 
-                         alt="Sala de capacitación Clarke Fire">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Courses -->
     <section id="cursos" class="courses">
         <div class="container">
             <div class="section-header">
@@ -1128,7 +1128,6 @@
         </div>
     </section>
 
-    <!-- Credentials -->
     <section id="credenciales" class="credentials">
         <div class="container">
             <div class="section-header">
@@ -1172,7 +1171,6 @@
         </div>
     </section>
 
-    <!-- Facilities -->
     <section id="instalaciones" class="facilities">
         <div class="container">
             <div class="facilities-grid">
@@ -1212,7 +1210,6 @@
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contacto" class="contact">
         <div class="container">
             <div class="contact-grid">
@@ -1247,7 +1244,6 @@
                     <div id="formMessage" class="form-message"></div>
                     <h3>Solicitar Información</h3>
                     <form id="contactForm">
-                        <!-- Honeypot anti-spam -->
                         <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
                         
                         <div class="form-group">
@@ -1295,7 +1291,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -1324,7 +1319,6 @@
                 <div class="footer-section">
                     <h3>Empresa</h3>
                     <ul>
-                        <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#instalaciones">Instalaciones</a></li>
                         <li><a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel</a></li>
                     </ul>
@@ -1376,27 +1370,58 @@
             });
         });
 
-        // EmailJS Form con protección anti-spam
+        // Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const text = element.getAttribute('data-text');
+            
+            if (text) {
+                element.textContent = text;
+                return;
+            }
+            
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (target === 100 ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (target === 100 ? '%' : '+');
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // EmailJS Form
         let lastSubmit = 0;
-        const SUBMIT_COOLDOWN = 30000; // 30 segundos
+        const SUBMIT_COOLDOWN = 30000;
 
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Anti-spam: Honeypot (comentado temporalmente para debug)
-            // if (this.website && this.website.value) {
-            //     console.log('Bot detectado');
-            //     return false;
-            // }
-            
-            // Anti-spam: Límite de tiempo
             const now = Date.now();
             if (now - lastSubmit < SUBMIT_COOLDOWN) {
                 showMessage('Por favor espere 30 segundos entre envíos', 'error');
                 return false;
             }
             
-            // Validación
             const requiredFields = this.querySelectorAll('[required]');
             let isValid = true;
             
@@ -1419,7 +1444,6 @@
             button.textContent = 'Enviando...';
             button.disabled = true;
             
-            // Enviar con EmailJS
             emailjs.sendForm('service_8rqehck', 'template_azbils9', this)
                 .then(function() {
                     lastSubmit = Date.now();
