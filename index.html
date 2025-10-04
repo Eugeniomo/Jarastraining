@@ -39,7 +39,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function(){
-            emailjs.init("czBj5hVTDdYh-I-0Z");
+            emailjs.init("C6E1dGjepERgIWja0");
         })();
     </script>
     
@@ -1395,11 +1395,11 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Anti-spam: Honeypot
-            if (this.website.value) {
-                console.log('Bot detectado');
-                return false;
-            }
+            // Anti-spam: Honeypot (comentado temporalmente para debug)
+            // if (this.website && this.website.value) {
+            //     console.log('Bot detectado');
+            //     return false;
+            // }
             
             // Anti-spam: Límite de tiempo
             const now = Date.now();
