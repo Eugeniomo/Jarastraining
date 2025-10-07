@@ -468,19 +468,21 @@
             margin: 0 auto;
         }
         
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2rem;
-        }
-        
-        .course-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
-            transition: all 0.4s ease;
-        }
+   .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+       .course-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
         
         .course-card:hover {
             transform: translateY(-10px);
@@ -559,11 +561,11 @@
             padding: 5rem 0;
         }
         
-        .credentials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+       .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
         
         .credential-card {
             text-align: center;
