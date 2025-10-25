@@ -150,7 +150,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
-    gap: 2rem;
 }
 
 .logo-right {
@@ -167,13 +166,9 @@
     height: 45px;
     width: auto;
 }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--primary-color);
-        }
+     .logo {
+    flex-shrink: 0;
+}
         
         .logo img {
             height: 45px;
@@ -188,15 +183,16 @@
             -webkit-text-fill-color: transparent;
         }
         
-       .nav-menu {
+     .nav-menu {
     display: flex;
     list-style: none;
     gap: 1.5rem;
     align-items: center;
     margin: 0;
     padding: 0;
+    flex-grow: 1;
+    justify-content: center;
 }
-
 .nav-link {
     text-decoration: none;
     color: var(--gray-800);
@@ -952,12 +948,8 @@
         <div class="container">
            <nav class="nav">
     <a href="#" class="logo">
-        <img src="logo-jaras-diesel.png" alt="Jaras Training Logo">
-        <div>
-            <div class="logo-text">Jaras Training</div>
-            <small style="color: var(--gray-600); font-size: 0.8rem;">Una división de Jaras Diesel</small>
-        </div>
-    </a>
+       <img src="logo-jaras-training.png" alt="Jaras Training">
+          </a>
     
     <button class="mobile-menu-toggle" aria-label="Abrir menú">☰</button>
     
@@ -971,12 +963,12 @@
     <li><a href="politicas.html" class="nav-link">Política/Certificaciones</a></li>
     <li><a href="consultas-reclamos.html" class="nav-link">Consultas/Reclamos</a></li>
 </ul>
+   <a href="https://jarasdiesel.cl" target="_blank" class="logo-right">
+    <img src="logo-jaras-diesel.png" alt="Jaras Diesel">
+</a> 
     
-    <a href="https://jarasdiesel.cl" target="_blank" class="logo-right">
-        <img src="logo-jaras-diesel.png" alt="Jaras Diesel Logo">
-    </a>
 </nav>
-            </nav>
+         
         </div>
     </header>
 
