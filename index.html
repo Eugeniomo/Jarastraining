@@ -188,21 +188,25 @@
             -webkit-text-fill-color: transparent;
         }
         
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-link {
-            text-decoration: none;
-            color: var(--gray-800);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
+       .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--gray-800);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
         
         .nav-link:hover {
             color: var(--primary-color);
@@ -957,16 +961,16 @@
     
     <button class="mobile-menu-toggle" aria-label="Abrir menú">☰</button>
     
-    <ul class="nav-menu">
-        <li><a href="#inicio" class="nav-link">Inicio</a></li>
-        <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-        <li><a href="#cursos" class="nav-link">Cursos</a></li>
-        <li><a href="#instalaciones" class="nav-link">Instalaciones</a></li>
-        <li><a href="#credenciales" class="nav-link">Credenciales</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
-        <li><a href="politica-certificaciones.html" class="nav-link">Política/Certificaciones</a></li>
-        <li><a href="https://jarasdiesel2023.sharepoint.com/sites/JarasTrainingSpA/_layouts/15/listforms.aspx?cid=NDQ1OTgyOTItMGFhYS00MGQ4LWJmNDEtZmZjOGZhN2FhZmZj&nav=OGQ5MzkxMjEtNjBhNy00NjEwLWJiZGQtZThmMDc0ZDU1YWFj" target="_blank" class="nav-link">Consultas/Reclamos</a></li>
-    </ul>
+  <ul class="nav-menu">
+    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+    <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+    <li><a href="#cursos" class="nav-link">Cursos</a></li>
+    <li><a href="#instalaciones" class="nav-link">Instalaciones</a></li>
+    <li><a href="#credenciales" class="nav-link">Credenciales</a></li>
+    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+    <li><a href="politicas.html" class="nav-link">Política/Certificaciones</a></li>
+    <li><a href="consultas-reclamos.html" class="nav-link">Consultas/Reclamos</a></li>
+</ul>
     
     <a href="https://jarasdiesel.cl" target="_blank" class="logo-right">
         <img src="logo-jaras-diesel.png" alt="Jaras Diesel Logo">
