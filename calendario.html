@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Cursos | Jaras Training</title>
+    <meta name="description" content="Calendario de cursos y capacitaciones disponibles en Jaras Training">
+    
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --primary-dark: #059669;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --gradient-primary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        
+        .header p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+        
+        /* Legend */
+        .legend {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .legend-badge {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .badge-abierto {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .badge-planificado {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .badge-finalizado {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        
+        /* Course Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .course-header {
+            padding: 2rem 2rem 1rem;
+        }
+        
+        .course-date {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .course-title {
+            font-size: 1.4rem;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .course-details {
+            padding: 0 2rem 2rem;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            color: var(--gray-600);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .detail-value {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+        
+        .status-badge {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .code-badge {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-family: monospace;
+            font-weight: 600;
+        }
+        
+        /* Contact CTA */
+        .contact-cta {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+        
+        .contact-cta h2 {
+            font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .contact-cta p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legend {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .contact-cta {
+                padding: 2rem;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            @page {
+                margin: 0;
+                size: auto;
+            }
+            
+            body {
+                margin: 0;
+                padding: 1cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="index.html" class="back-link">← Volver al Inicio</a>
+            <h1>Calendario de Cursos 2025-2026</h1>
+            <p>Programación completa de capacitaciones Jaras Training</p>
+        </div>
+        
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-badge badge-abierto">Abierto para Inscripción</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-badge badge-planificado">Planificado</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-badge badge-finalizado">Finalizado</span>
+            </div>
+        </div>
+        
+        <!-- Courses Grid -->
+        <div class="courses-grid">
+            
+            <!-- Curso 1 - Finalizado -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-date">12-13 Agosto 2025</div>
+                    <h3 class="course-title">Comisionamiento y Puesta en Marcha</h3>
+                </div>
+                <div class="course-details">
+                    <div class="detail-row">
+                        <span class="detail-label">📋 Código</span>
+                        <span class="code-badge">JDT-COMPEM-001</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">⏱️ Duración</span>
+                        <span class="detail-value">16 horas</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">📍 Modalidad</span>
+                        <span class="detail-value">Presencial</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">👥 Cupos</span>
+                        <span class="detail-value">Completados</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Estado</span>
+                        <span class="status-badge badge-finalizado">Finalizado</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Curso 2 - Finalizado -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-date">29-30 Septiembre 2025</div>
+                    <h3 class="course-title">Curso Auditor Interno ISO 9001:2015 e ISO 45001:2018</h3>
+                </div>
+                <div class="course-details">
+                    <div class="detail-row">
+                        <span class="detail-label">📋 Código</span>
+                        <span class="code-badge">JARAS-AAII-002</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">⏱️ Duración</span>
+                        <span class="detail-value">16 horas</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">📍 Modalidad</span>
+                        <span class="detail-value">Presencial</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">👥 Cupos</span>
+                        <span class="detail-value">Completados</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Estado</span>
+                        <span class="status-badge badge-finalizado">Finalizado</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Curso 3 - Abierto -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-date">29-30 Enero 2026</div>
+                    <h3 class="course-title">Curso Inspección y Pruebas</h3>
+                </div>
+                <div class="course-details">
+                    <div class="detail-row">
+                        <span class="detail-label">📋 Código</span>
+                        <span class="code-badge">JDT-INSP</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">⏱️ Duración</span>
+                        <span class="detail-value">16 horas</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">📍 Modalidad</span>
+                        <span class="detail-value">Presencial</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">👥 Cupos</span>
+                        <span class="detail-value">Disponibles</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Estado</span>
+                        <span class="status-badge badge-abierto">Abierto para Inscripción</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Curso 4 - Abierto -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-date">17-18 Marzo 2026</div>
+                    <h3 class="course-title">Comisionamiento y Puesta en Marcha</h3>
+                </div>
+                <div class="course-details">
+                    <div class="detail-row">
+                        <span class="detail-label">📋 Código</span>
+                        <span class="code-badge">JDT-COMPEM</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">⏱️ Duración</span>
+                        <span class="detail-value">16 horas</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">📍 Modalidad</span>
+                        <span class="detail-value">Presencial</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">👥 Cupos</span>
+                        <span class="detail-value">Disponibles</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Estado</span>
+                        <span class="status-badge badge-abierto">Abierto para Inscripción</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Curso 5 - Planificado -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-date">07 Abril 2026</div>
+                    <h3 class="course-title">Gestión y Respuesta a Emergencias: Formación de Brigadas</h3>
+                </div>
+                <div class="course-details">
+                    <div class="detail-row">
+                        <span class="detail-label">📋 Código</span>
+                        <span class="code-badge">JDT-BRIG</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">⏱️ Duración</span>
+                        <span class="detail-value">8 horas</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">📍 Modalidad</span>
+                        <span class="detail-value">Presencial</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">👥 Cupos</span>
+                        <span class="detail-value">Disponibles</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Estado</span>
+                        <span class="status-badge badge-planificado">Planificado</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h2>¿Interesado en Inscribirte?</h2>
+            <p>Contáctanos para más información sobre los cursos disponibles y reservar tu cupo</p>
+            <a href="tel:+56981319416" class="btn">Contactar Ahora</a>
+        </div>
+        
+    </div>
+</body>
+</html>
