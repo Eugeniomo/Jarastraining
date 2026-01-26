@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Calidad y Certificaciones | Jaras Training</title>
-    <meta name="description" content="Política de la Calidad y Certificaciones oficiales de Jaras Training">
+    <meta name="description" content="Documentación oficial de Jaras Training: Política de Calidad y Certificado Clarke Fire">
     
     <style>
         :root {
@@ -12,13 +12,16 @@
             --primary-dark: #059669;
             --secondary-color: #3b82f6;
             --accent-color: #f59e0b;
+            --accent-dark: #d97706;
             --gray-100: #f3f4f6;
             --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
             --gray-600: #4b5563;
             --gray-700: #374151;
             --gray-800: #1f2937;
             --gray-900: #111827;
             --gradient-primary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #10b981 100%);
         }
         
         * {
@@ -31,7 +34,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--gray-800);
-            background: #fff;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
         }
         
         .container {
@@ -42,8 +46,7 @@
 
         /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: white;
             box-shadow: 0 2px 20px rgba(16, 185, 129, 0.1);
             position: sticky;
             top: 0;
@@ -55,6 +58,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
+            gap: 2rem;
         }
         
         .logo {
@@ -78,102 +82,314 @@
             -webkit-text-fill-color: transparent;
         }
         
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .nav-menu > li {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            margin-top: 0.5rem;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu li {
+            list-style: none;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--gray-100);
+            color: var(--primary-color);
+            padding-left: 1.5rem;
+        }
+        
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            margin-left: 0.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+                
+        .logo-jaras-diesel {
+            height: 45px;
+            width: auto;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Content */
+        .content {
+            padding: 4rem 0;
+        }
+        
         .back-link {
             display: inline-block;
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            margin-bottom: 2rem;
             transition: all 0.3s ease;
         }
         
         .back-link:hover {
-            background: rgba(16, 185, 129, 0.1);
+            transform: translateX(-5px);
         }
-
-        /* Page Header */
+        
         .page-header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 4rem 0 3rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            margin-bottom: 3rem;
             text-align: center;
         }
         
         .page-header h1 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
             font-weight: 800;
         }
         
         .page-header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
-
-        /* PDF Section */
-        .pdf-section {
-            padding: 3rem 0;
+            font-size: 1.1rem;
+            color: var(--gray-600);
         }
         
-        .pdf-container {
+        .document-section {
             background: white;
+            padding: 3rem;
             border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 3rem;
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            margin-bottom: 3rem;
         }
         
-        .pdf-title {
-            font-size: 1.8rem;
-            color: var(--gray-800);
-            margin-bottom: 1.5rem;
+        .document-section h2 {
+            font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
             font-weight: 700;
-            text-align: center;
         }
         
-        .pdf-viewer {
+        .pdf-embed {
             width: 100%;
             height: 800px;
-            border: 2px solid var(--gray-200);
+            border: none;
             border-radius: 12px;
-            background: var(--gray-100);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .download-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .download-link:hover {
+            color: var(--primary-dark);
         }
 
         /* Footer */
         .footer {
             background: var(--gray-900);
             color: white;
-            padding: 3rem 0 2rem;
-            margin-top: 3rem;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
         }
         
-        .footer-content {
-            text-align: center;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
         }
         
-        .footer-content p {
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
             color: var(--gray-300);
-            margin-bottom: 1rem;
+            line-height: 1.6;
         }
         
-        .footer-content a {
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+        
+        .footer-bottom a {
             color: var(--accent-color);
             text-decoration: none;
         }
+        
+        .footer-certifications {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            background: var(--gray-800);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border: 1px solid var(--gray-600);
+        }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.6rem;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .logo-jaras-diesel {
+                display: none;
+            }
+            
             .page-header h1 {
                 font-size: 2rem;
             }
             
-            .pdf-viewer {
+            .document-section {
+                padding: 2rem;
+            }
+            
+            .pdf-embed {
                 height: 600px;
             }
             
-            .pdf-container {
-                padding: 1rem;
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -183,72 +399,120 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="logo">
-                    <img src="logo-jdt.png" alt="Jaras Training Logo">
-                    <div>
-                        <div class="logo-text">Jaras Training</div>
-                        <small style="color: var(--gray-600); font-size: 0.8rem;">Una división de Jaras Diesel</small>
-                    </div>
-                </a>
-                <a href="index.html" class="back-link">← Volver al Inicio</a>
+              <a href="index.html" class="logo">
+    <img src="logo-jdt.png" alt="Jaras Training Logo">
+</a>
+                
+                <button class="mobile-menu-toggle" aria-label="Abrir menú">☰</button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+                    <li class="dropdown">
+                        <a href="cursos.html" class="nav-link">Cursos <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="calendario.html">Calendario Cursos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#instalaciones" class="nav-link">Instalaciones</a></li>
+                    <li><a href="index.html#credenciales" class="nav-link">Credenciales</a></li>
+                    <li class="dropdown">
+                        <a href="index.html#contacto" class="nav-link">Contacto <span class="dropdown-arrow">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=EUw9Id8rYE6qLqlQ-XJjaF7Fh-vb-iRCqi7KIdtVL5BUNklQTkMwRUZLMUY1VkY5MEpaRUVHREY3WS4u" target="_blank">Consultas/Reclamos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="politica-certificaciones.html" class="nav-link">Política/Certificaciones</a></li>
+                    <li><a href="https://www.clases.grupoabante.com/aulavirtual/" target="_blank" class="nav-link" style="color: var(--accent-color);">Aula Virtual</a></li>
+                </ul>
+                
+                <img src="logo-jaras-diesel.png" alt="Jaras Diesel" class="logo-jaras-diesel">
             </nav>
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Content -->
+    <div class="content">
         <div class="container">
-            <h1>Política de Calidad y Certificaciones</h1>
-            <p>Documentación oficial de Jaras Training</p>
-        </div>
-    </section>
-
-    <!-- PDF Section -->
-    <section class="pdf-section">
-        <div class="container">
+            <a href="index.html" class="back-link">← Volver al Inicio</a>
             
-            <!-- Política de la Calidad -->
-            <div class="pdf-container">
-                <h2 class="pdf-title">Política de la Calidad</h2>
-                <iframe 
-                    src="DO-01 Política de la Calidad rev01.pdf#toolbar=0&navpanes=0&scrollbar=0" 
-                    class="pdf-viewer"
-                    title="Política de la Calidad"
-                    frameborder="0">
-                    <p>Su navegador no puede mostrar PDFs. <a href="DO-01 Política de la Calidad rev01.pdf">Descargue el PDF</a>.</p>
-                </iframe>
+            <div class="page-header">
+                <h1>Política de Calidad y Certificaciones</h1>
+                <p>Documentación oficial de Jaras Training</p>
             </div>
-
-            <!-- Certificación Clarke -->
-            <div class="pdf-container">
-                <h2 class="pdf-title">Certificación Clarke Fire</h2>
-                <iframe 
-                    src="Carta jaras clarke Chile.pdf#toolbar=0&navpanes=0&scrollbar=0" 
-                    class="pdf-viewer"
-                    title="Certificación Clarke Fire"
-                    frameborder="0">
-                    <p>Su navegador no puede mostrar PDFs. <a href="Carta jaras clarke Chile.pdf">Descargue el PDF</a>.</p>
-                </iframe>
+            
+            <!-- Política de Calidad -->
+            <div class="document-section">
+                <h2>Política de la Calidad</h2>
+                <embed src="DO-01 Política de la Calidad rev01.pdf" type="application/pdf" class="pdf-embed">
+                <p style="text-align: center; color: var(--gray-600);">
+                    Su navegador no puede mostrar PDFs. 
+                    <a href="DO-01 Política de la Calidad rev01.pdf" download class="download-link">Descargue el PDF</a>
+                </p>
             </div>
-
+            
+            <!-- Certificación Clarke Fire -->
+            <div class="document-section">
+                <h2>Certificación Clarke Fire</h2>
+                <embed src="Carta jaras clarke Chile.pdf" type="application/pdf" class="pdf-embed">
+                <p style="text-align: center; color: var(--gray-600);">
+                    Su navegador no puede mostrar PDFs. 
+                    <a href="Carta jaras clarke Chile.pdf" download class="download-link">Descargue el PDF</a>
+                </p>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Jaras Diesel Training SpA</h3>
+                    <p>
+                        OTEC en proceso de certificación SENCE especializada en capacitación técnica para sistemas contra incendios. 
+                        División educativa de Jaras Diesel Limitada.
+                    </p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">OTEC en Proceso</span>
+                        <span class="cert-badge">Clarke Fire Autorizado</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Capacitación</h3>
+                    <ul>
+                        <li><a href="cursos.html">Certificación Clarke Fire</a></li>
+                        <li><a href="cursos.html">Inspecciones NFPA 25</a></li>
+                        <li><a href="cursos.html">Capacitación Corporativa</a></li>
+                        <li><a href="index.html#credenciales">Credenciales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                        <li><a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="index.html#contacto">Información</a></li>
+                        <li><a href="tel:+56981319416">+56 9 8131 9416</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#1b72757d745b717a697a686f697a727572757c35787476"><span class="__cf_email__" data-cfemail="94fdfaf2fbd4fef5e6f5e7e0e6f5fdfafdfaf3baf7fbf9">[email&#160;protected]</span></a></li>
+                        <li>Quilicura, Santiago</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
                 <p>&copy; 2025 Jaras Diesel Training SpA | División de <a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel Limitada</a></p>
             </div>
         </div>
     </footer>
-</body>
-</html>
 
-
-
-
-
-
-
-
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></s
