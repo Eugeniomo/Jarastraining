@@ -393,38 +393,29 @@
             }
         }
         
-        /* Protección contra impresión y descarga */
-        @media print {
-            body {
-                display: none !important;
-            }
-            body::after {
-                content: "Este documento no puede ser impreso";
-                display: block;
-                font-size: 2rem;
-                text-align: center;
-                padding: 2rem;
-            }
+        /* Ocultar toolbar de PDF (botones imprimir/descargar) */
+        embed[type="application/pdf"],
+        iframe[src*=".pdf"] {
+            width: 100%;
+            height: 100%;
         }
         
-        /* Ocultar controles de PDFs embebidos */
-        embed, iframe {
-            pointer-events: none;
+        /* Ocultar controles nativos del navegador en PDF */
+        .pdf-embed {
+            position: relative;
+            overflow: hidden;
         }
         
-        /* Marca de agua visible */
-        .doc-viewer::before {
-            content: "DOCUMENTO PROTEGIDO - JARAS TRAINING";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 3rem;
-            color: rgba(16, 185, 129, 0.1);
-            font-weight: 900;
+        .pdf-embed::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 50px;
+            background: white;
+            z-index: 10;
             pointer-events: none;
-            z-index: 9999;
-            white-space: nowrap;
         }
     </style>
 </head>
@@ -478,7 +469,7 @@
             <!-- Política de Calidad -->
             <div class="document-section">
                 <h2>Política de la Calidad</h2>
-                <embed src="DO-01 Política de la Calidad rev01.pdf" type="application/pdf" class="pdf-embed">
+                <embed src="DO-01 Política de la Calidad rev01.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" class="pdf-embed">
                 <p style="text-align: center; color: var(--gray-600);">
                     Su navegador no puede mostrar PDFs. 
                     <a href="DO-01 Política de la Calidad rev01.pdf" download class="download-link">Descargue el PDF</a>
@@ -488,7 +479,7 @@
             <!-- Certificación Clarke Fire -->
             <div class="document-section">
                 <h2>Certificación Clarke Fire</h2>
-                <embed src="Carta jaras clarke Chile.pdf" type="application/pdf" class="pdf-embed">
+                <embed src="Carta jaras clarke Chile.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" class="pdf-embed">
                 <p style="text-align: center; color: var(--gray-600);">
                     Su navegador no puede mostrar PDFs. 
                     <a href="Carta jaras clarke Chile.pdf" download class="download-link">Descargue el PDF</a>
@@ -550,91 +541,5 @@
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    
-    <!-- Protección contra impresión, descarga y copia -->
-    <script>
-        // Bloquear clic derecho
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // Bloquear Ctrl+P (imprimir)
-        document.addEventListener('keydown', function(e) {
-            // Bloquear Ctrl+P o Cmd+P
-            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-                e.preventDefault();
-                alert('⚠️ La impresión está deshabilitada en esta página');
-                return false;
-            }
-            
-            // Bloquear Ctrl+S o Cmd+S (guardar)
-            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-                e.preventDefault();
-                alert('⚠️ La descarga está deshabilitada en esta página');
-                return false;
-            }
-            
-            // Bloquear F12 (DevTools) - opcional
-            if (e.key === 'F12' || e.keyCode === 123) {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Bloquear Ctrl+Shift+I (Inspeccionar)
-            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Bloquear Ctrl+U (ver código fuente)
-            if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        // Bloquear selección de texto en documentos
-        document.querySelectorAll('.doc-viewer, .pdf-embed').forEach(function(elem) {
-            elem.style.userSelect = 'none';
-            elem.style.webkitUserSelect = 'none';
-            elem.style.msUserSelect = 'none';
-            elem.style.mozUserSelect = 'none';
-        });
-
-        // Advertencia al intentar salir de la página
-        window.addEventListener('beforeprint', function(e) {
-            e.preventDefault();
-            alert('⚠️ Este documento está protegido y no puede ser impreso');
-            return false;
-        });
-
-        // Detectar apertura de DevTools (método adicional)
-        const devtools = {
-            open: false,
-            orientation: null
-        };
-        
-        const threshold = 160;
-        
-        setInterval(function() {
-            if (window.outerWidth - window.innerWidth > threshold || 
-                window.outerHeight - window.innerHeight > threshold) {
-                if (!devtools.open) {
-                    devtools.open = true;
-                    console.clear();
-                    console.log('%c⚠️ ADVERTENCIA', 'color: red; font-size: 2rem; font-weight: bold;');
-                    console.log('%cEste contenido está protegido. El uso no autorizado puede tener consecuencias legales.', 'font-size: 1.2rem;');
-                }
-            } else {
-                devtools.open = false;
-            }
-        }, 500);
-
-        // Limpiar consola periódicamente
-        setInterval(function() {
-            console.clear();
-        }, 3000);
-    </script>
 </body>
 </html>
