@@ -1,0 +1,326 @@
+{
+  "cursos": [
+    {
+      "id": "clarke-comisionamiento",
+      "codigo": "JDT-COMPEM",
+      "nombre": "Certificación en Comisionamiento y Puesta en Marcha de Motores Clarke",
+      "nombreCorto": "Certificación Clarke Fire",
+      "categoria": "Certificación Oficial",
+      "descripcion": "Curso oficial diseñado para certificar personal técnico en comisionamiento y puesta en marcha de sistemas contra incendio con motores diesel Clarke Fire según norma NFPA 20.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Técnicos e Ingenieros",
+      "validez": "2 años",
+      "certificacion": "Clarke Fire Oficial",
+      "contenido": [
+        "Marco normativo NFPA 20 y verificación de instalaciones",
+        "Procedimientos oficiales Clarke Fire para comisionamiento",
+        "Práctica con motor Clarke y controlador Tornatech operativos",
+        "Introducción a mantenimiento preventivo según NFPA 25",
+        "Certificado internacional con validez de 2 años",
+        "Material técnico oficial Clarke Fire"
+      ],
+      "requisitos": "Conocimientos técnicos básicos",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2025-08-12",
+          "fechaFin": "2025-08-13",
+          "estado": "Finalizado",
+          "cupos": 15,
+          "cuposDisponibles": 0,
+          "ubicacion": "Quilicura, Santiago"
+        },
+        {
+          "fechaInicio": "2026-03-17",
+          "fechaFin": "2026-03-18",
+          "estado": "Abierto",
+          "cupos": 15,
+          "cuposDisponibles": 12,
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "nfpa25-inspeccion",
+      "codigo": "JDT-INSP",
+      "nombre": "Certificación en Inspección y Pruebas Semanales NFPA 25",
+      "nombreCorto": "Inspección NFPA 25",
+      "categoria": "Certificación NFPA",
+      "descripcion": "Capacitación especializada para personal de mantenimiento, operaciones y brigadas de emergencia en procedimientos de inspecciones y pruebas semanales según norma NFPA 25.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Personal Operacional y Brigadas",
+      "validez": "Continua",
+      "certificacion": "NFPA 25",
+      "contenido": [
+        "Fundamentos teóricos NFPA 25",
+        "Procedimientos de inspección visual detallada",
+        "Pruebas sin flujo (Churn Test)",
+        "Operación segura de equipos y sistemas",
+        "Documentación técnica y elaboración de reportes",
+        "Prácticas en sala de bombas con equipos reales"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-01-29",
+          "fechaFin": "2026-01-30",
+          "estado": "Abierto",
+          "cupos": 20,
+          "cuposDisponibles": 15,
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "corporativo-personalizado",
+      "codigo": "JDT-CORP",
+      "nombre": "Capacitación Corporativa Personalizada",
+      "nombreCorto": "Corporativo Personalizado",
+      "categoria": "Corporativo",
+      "descripcion": "Programas de capacitación diseñados específicamente para las necesidades técnicas de su empresa, con posibilidad de realización en nuestras instalaciones o en sus propias dependencias.",
+      "duracion": "Flexible",
+      "duracionDias": 0,
+      "modalidad": "Presencial / In-company",
+      "dirigidoA": "Empresas",
+      "validez": "N/A",
+      "certificacion": "Personalizado",
+      "contenido": [
+        "Análisis previo de necesidades específicas de capacitación",
+        "Contenido técnico adaptado a sus equipos y sistemas",
+        "Modalidad presencial en nuestras instalaciones equipadas",
+        "Opción de capacitación in-company en sus instalaciones",
+        "Certificados personalizados para su organización",
+        "Seguimiento y evaluación post-capacitación"
+      ],
+      "requisitos": "Según programa",
+      "precio": "A cotizar",
+      "fechasProgramadas": []
+    },
+    {
+      "id": "deteccion-alarma-nfpa",
+      "codigo": "JDT-DET-NFPA",
+      "nombre": "Tecnologías y Diseño de Sistemas de Detección y Alarma de Incendios basado en NFPA",
+      "nombreCorto": "Detección y Alarma NFPA",
+      "categoria": "Diseño y Tecnología",
+      "descripcion": "Capacitación avanzada en diseño, implementación y tecnologías de sistemas de detección y alarma de incendios según estándares NFPA.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Ingenieros, Proyectistas, Técnicos",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Fundamentos de detección de incendios",
+        "Normativa NFPA 72 - Sistemas de alarma",
+        "Tecnologías de detectores (iónicos, fotoeléctricos, térmicos)",
+        "Diseño de sistemas de notificación",
+        "Integración con sistemas de control",
+        "Casos prácticos de diseño"
+      ],
+      "requisitos": "Conocimientos técnicos en sistemas eléctricos",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-04-14",
+          "fechaFin": "2026-04-15",
+          "estado": "Planificado",
+          "cupos": 20,
+          "cuposDisponibles": 20,
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "extincion-espuma-nfpa",
+      "codigo": "JDT-ESP-NFPA",
+      "nombre": "Tecnologías y Diseño de Sistemas de Extinción por Espuma basado en NFPA",
+      "nombreCorto": "Extinción por Espuma",
+      "categoria": "Diseño y Tecnología",
+      "descripcion": "Curso especializado en diseño e implementación de sistemas de extinción por espuma para protección contra incendios según normativa NFPA.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Ingenieros, Proyectistas",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Principios de extinción por espuma",
+        "Tipos de espuma y aplicaciones",
+        "Normativa NFPA 11 y NFPA 16",
+        "Diseño de sistemas proporcionales",
+        "Cálculos hidráulicos específicos",
+        "Selección de equipos y componentes"
+      ],
+      "requisitos": "Conocimientos en sistemas contra incendios",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-05-19",
+          "fechaFin": "2026-05-20",
+          "estado": "Planificado",
+          "cupos": 15,
+          "cuposDisponibles": 15,
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "rociadores-nfpa13",
+      "codigo": "JDT-ROC-NFPA",
+      "nombre": "Tecnologías y Diseño de Sistemas de Extinción por Rociadores Automáticos basado en NFPA 13",
+      "nombreCorto": "Rociadores Automáticos",
+      "categoria": "Diseño y Tecnología",
+      "descripcion": "Capacitación integral en diseño de sistemas de rociadores automáticos según NFPA 13, incluyendo cálculos hidráulicos y selección de componentes.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Ingenieros, Proyectistas",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Normativa NFPA 13 - Rociadores automáticos",
+        "Clasificación de ocupaciones y riesgos",
+        "Tipos de rociadores y aplicaciones",
+        "Cálculos hidráulicos por método densidad-área",
+        "Diseño de redes de tuberías",
+        "Software de diseño hidráulico"
+      ],
+      "requisitos": "Conocimientos en hidráulica básica",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-06-23",
+          "fechaFin": "2026-06-24",
+          "estado": "Planificado",
+          "cupos": 18,
+          "cuposDisponibles": 18,
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "seguridad-electronica",
+      "codigo": "JDT-SEGELEC",
+      "nombre": "Tecnologías, Diseño e Integración de Sistemas de Seguridad Electrónica",
+      "nombreCorto": "Seguridad Electrónica",
+      "categoria": "Seguridad Integral",
+      "descripcion": "Curso avanzado sobre diseño e integración de sistemas de seguridad electrónica incluyendo CCTV, control de accesos y sistemas integrados.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Ingenieros, Técnicos Especialistas",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Sistemas CCTV y videovigilancia",
+        "Control de accesos electrónico",
+        "Detección de intrusión",
+        "Integración de sistemas de seguridad",
+        "Protocolos de comunicación",
+        "Diseño de infraestructura de red"
+      ],
+      "requisitos": "Conocimientos en sistemas electrónicos",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-07-14",
+          "fechaFin": "2026-07-15",
+          "estado": "Planificado",
+          "cupos": 20,
+          "cuposDisponibles": 20,
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "deteccion-incendios-internacional",
+      "codigo": "JDT-DETINT",
+      "nombre": "Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales",
+      "nombreCorto": "Detección Internacional",
+      "categoria": "Estándares Internacionales",
+      "descripcion": "Programa modular de 4 sesiones enfocado en tecnologías avanzadas de detección de incendios según estándares internacionales (NFPA, EN, BS).",
+      "duracion": "16 horas",
+      "duracionDias": 4,
+      "sesiones": 4,
+      "duracionSesion": "4 horas",
+      "modalidad": "Presencial",
+      "dirigidoA": "Ingenieros, Instaladores Certificados",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Sesión 1: Fundamentos y normativas internacionales",
+        "Sesión 2: Tecnologías de detección avanzada",
+        "Sesión 3: Diseño de sistemas integrales",
+        "Sesión 4: Implementación y comisionamiento"
+      ],
+      "requisitos": "Experiencia previa en sistemas de detección",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-08-11",
+          "fechaFin": "2026-08-28",
+          "estado": "Planificado",
+          "cupos": 15,
+          "cuposDisponibles": 15,
+          "ubicacion": "Quilicura, Santiago",
+          "observaciones": "4 sesiones: 11, 13, 25, 27 agosto 2026"
+        }
+      ]
+    },
+    {
+      "id": "notificacion-incendios-internacional",
+      "codigo": "JDT-NOTINT",
+      "nombre": "Diseño e Implementación de Tecnologías para la Notificación de Incendios basado en Estándares Internacionales",
+      "nombreCorto": "Notificación Internacional",
+      "categoria": "Estándares Internacionales",
+      "descripcion": "Programa modular de 4 sesiones especializado en sistemas de notificación y alarma de incendios conforme a estándares internacionales.",
+      "duracion": "16 horas",
+      "duracionDias": 4,
+      "sesiones": 4,
+      "duracionSesion": "4 horas",
+      "modalidad": "Presencial",
+      "dirigidoA": "Ingenieros, Instaladores Certificados",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Sesión 1: Sistemas de notificación según NFPA 72",
+        "Sesión 2: Dispositivos de alerta audiovisual",
+        "Sesión 3: Integración con sistemas de evacuación",
+        "Sesión 4: Pruebas y certificación de sistemas"
+      ],
+      "requisitos": "Experiencia previa en sistemas de alarma",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-09-08",
+          "fechaFin": "2026-09-29",
+          "estado": "Planificado",
+          "cupos": 15,
+          "cuposDisponibles": 15,
+          "ubicacion": "Quilicura, Santiago",
+          "observaciones": "4 sesiones: 8, 10, 22, 24 septiembre 2026"
+        }
+      ]
+    }
+  ],
+  "categorias": [
+    "Certificación Oficial",
+    "Certificación NFPA",
+    "Corporativo",
+    "Diseño y Tecnología",
+    "Seguridad Integral",
+    "Estándares Internacionales"
+  ],
+  "estados": [
+    "Abierto",
+    "Planificado",
+    "Finalizado",
+    "Cancelado",
+    "Completo"
+  ]
+}
