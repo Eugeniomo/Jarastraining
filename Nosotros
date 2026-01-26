@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Jaras Training - Historia y Trayectoria</title>
+    <meta name="description" content="Conoce la historia de Jaras Training, nuestra trayectoria y alianzas estratégicas. División educativa de Jaras Diesel con 22 años de experiencia.">
+    
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --primary-dark: #059669;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --accent-dark: #d97706;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --gradient-primary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #10b981 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(16, 185, 129, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            gap: 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .logo-jaras-diesel {
+            height: 45px;
+            width: auto;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Banner */
+        .banner {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .banner h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Historia */
+        .historia {
+            padding: 5rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .historia-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .historia-content p {
+            font-size: 1.15rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Timeline */
+        .timeline {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+        }
+        
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-year {
+            flex: 1;
+            text-align: right;
+            padding-right: 2rem;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            text-align: left;
+            padding-right: 0;
+            padding-left: 2rem;
+        }
+        
+        .timeline-year h3 {
+            font-size: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            z-index: 2;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
+        }
+        
+        .timeline-content h4 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .timeline-content p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Socios */
+        .socios {
+            padding: 5rem 0;
+        }
+        
+        .socios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .socio-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .socio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+        
+        .socio-header {
+            padding: 2rem;
+            text-align: center;
+            background: var(--gradient-primary);
+        }
+        
+        .socio-logo {
+            height: 100px;
+            object-fit: contain;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+        
+        .socio-content {
+            padding: 2rem;
+        }
+        
+        .socio-content h3 {
+            font-size: 1.5rem;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .socio-content p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* Certificado */
+        .certificado {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+        }
+        
+        .certificado-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+        
+        .certificado-embed {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            color: var(--gray-300);
+            line-height: 1.6;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+        
+        .footer-bottom a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .footer-certifications {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            background: var(--gray-800);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border: 1px solid var(--gray-600);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.6rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .logo-jaras-diesel {
+                display: none;
+            }
+            
+            .banner h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline-container::before {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                padding-left: 50px;
+            }
+            
+            .timeline-year {
+                display: none;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .socios-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+              <a href="index.html" class="logo">
+    <img src="logo-jdt.png" alt="Jaras Training Logo">
+</a>
+                
+                <button class="mobile-menu-toggle" aria-label="Abrir menú">☰</button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li><a href="cursos.html" class="nav-link">Cursos</a></li>
+                    <li><a href="index.html#instalaciones" class="nav-link">Instalaciones</a></li>
+                    <li><a href="index.html#credenciales" class="nav-link">Credenciales</a></li>
+                    <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="politica-certificaciones.html" class="nav-link">Política/Certificaciones</a></li>
+                    <li><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=EUw9Id8rYE6qLqlQ-XJjaF7Fh-vb-iRCqi7KIdtVL5BUNklQTkMwRUZLMUY1VkY5MEpaRUVHREY3WS4u" target="_blank" class="nav-link">Consultas/Reclamos</a></li>
+                    <li><a href="calendario.html" class="nav-link">Calendario Cursos</a></li>
+                </ul>
+                
+                <img src="logo-jaras-diesel.png" alt="Jaras Diesel" class="logo-jaras-diesel">
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="container">
+            <h1>Nosotros</h1>
+            <p>Nuestra historia, trayectoria y compromiso con la excelencia</p>
+        </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="historia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestra Historia</h2>
+            </div>
+            <div class="historia-content">
+                <p>
+                    Jaras Diesel Training SpA nace como la división educativa especializada de Jaras Diesel Limitada, 
+                    empresa con más de 22 años de trayectoria en el sector de sistemas contra incendios en Chile.
+                </p>
+                <p>
+                    Fundada por Rodrigo Jaras, ingeniero mecánico con vasta experiencia en motores diesel y sistemas 
+                    de protección contra incendios, Jaras Diesel se consolidó como referente nacional en el diseño, 
+                    instalación, mantenimiento y certificación de sistemas contra incendios industriales.
+                </p>
+                <p>
+                    La constante demanda del mercado por personal técnico altamente capacitado y certificado en 
+                    estándares internacionales motivó la creación de Jaras Training, con el objetivo de transferir 
+                    el conocimiento acumulado durante más de dos décadas de experiencia práctica.
+                </p>
+                <p>
+                    Hoy, como <strong>únicos representantes autorizados por Clarke Fire para Latinoamérica</strong>, 
+                    impartimos certificaciones oficiales reconocidas internacionalmente, respaldadas por nuestra 
+                    experiencia técnica y el equipamiento real con el que cuentan nuestras instalaciones.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hitos Clave</h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-year">
+                        <h3>2003</h3>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Fundación de Jaras Diesel</h4>
+                        <p>Rodrigo Jaras funda Jaras Diesel Limitada, iniciando operaciones en sistemas contra incendios industriales.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">
+                        <h3>2010</h3>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Consolidación en el Mercado</h4>
+                        <p>Jaras Diesel se posiciona como referente en mantenimiento y certificación de sistemas contra incendios.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">
+                        <h3>2018</h3>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Alianza con Clarke Fire</h4>
+                        <p>Jaras Diesel es designado representante exclusivo de Clarke Fire para Chile y Latinoamérica.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">
+                        <h3>2023</h3>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Creación de Jaras Training</h4>
+                        <p>Nace Jaras Diesel Training SpA como OTEC especializada, iniciando proceso de certificación SENCE.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">
+                        <h3>2025</h3>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>Primeras Certificaciones Oficiales</h4>
+                        <p>Impartimos las primeras certificaciones oficiales Clarke Fire en Latinoamérica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Socios -->
+    <section class="socios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Socios Estratégicos</h2>
+                <p>Alianzas que respaldan la calidad de nuestra capacitación</p>
+            </div>
+            <div class="socios-grid">
+                <div class="socio-card">
+                    <div class="socio-header">
+                        <img src="credenciales/clarke-logo.png" alt="Clarke Fire" class="socio-logo">
+                    </div>
+                    <div class="socio-content">
+                        <h3>Clarke Fire - Estados Unidos</h3>
+                        <p>
+                            Fabricante estadounidense líder mundial en motores diesel para sistemas contra incendios. 
+                            Con más de 50 años de experiencia, Clarke Fire es sinónimo de confiabilidad y tecnología 
+                            de punta en protección contra incendios.
+                        </p>
+                        <p>
+                            Jaras Training es el <strong>único centro autorizado en Latinoamérica</strong> para impartir 
+                            certificaciones oficiales Clarke Fire, garantizando capacitación con los más altos estándares 
+                            internacionales.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="socio-card">
+                    <div class="socio-header">
+                        <img src="credenciales/tornatech-logo.png" alt="Tornatech" class="socio-logo">
+                    </div>
+                    <div class="socio-content">
+                        <h3>Tornatech - Chile</h3>
+                        <p>
+                            Empresa chilena especializada en desarrollo de controladores electrónicos para sistemas 
+                            contra incendios, compatible con motores Clarke Fire y otras marcas líderes.
+                        </p>
+                        <p>
+                            La alianza con Tornatech permite a nuestros alumnos capacitarse en sistemas de control 
+                            de última generación, utilizados en proyectos de protección contra incendios en toda 
+                            Latinoamérica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificado -->
+    <section class="certificado">
+        <div class="container">
+            <div class="section-header">
+                <h2>Certificado Clarke Fire</h2>
+                <p>Autorización oficial como centro de capacitación exclusivo</p>
+            </div>
+            <div class="certificado-container">
+                <embed src="Carta jaras clarke Chile.pdf" type="application/pdf" class="certificado-embed">
+                <p style="text-align: center; margin-top: 1rem; color: var(--gray-600);">
+                    Su navegador no puede mostrar PDFs. 
+                    <a href="Carta jaras clarke Chile.pdf" download style="color: var(--primary-color); text-decoration: underline;">Descargue el certificado aquí</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para Capacitar a tu Equipo?</h2>
+            <p>
+                Solicita información sobre nuestros programas de capacitación o cotiza un curso 
+                personalizado para tu empresa.
+            </p>
+            <div class="cta-buttons">
+                <a href="cursos.html" class="btn btn-primary">Ver Cursos Disponibles</a>
+                <a href="index.html#contacto" class="btn btn-secondary">Solicitar Cotización</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Jaras Diesel Training SpA</h3>
+                    <p>
+                        OTEC en proceso de certificación SENCE especializada en capacitación técnica para sistemas contra incendios. 
+                        División educativa de Jaras Diesel Limitada.
+                    </p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">OTEC en Proceso</span>
+                        <span class="cert-badge">Clarke Fire Autorizado</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Capacitación</h3>
+                    <ul>
+                        <li><a href="cursos.html">Certificación Clarke Fire</a></li>
+                        <li><a href="cursos.html">Inspecciones NFPA 25</a></li>
+                        <li><a href="cursos.html">Capacitación Corporativa</a></li>
+                        <li><a href="index.html#credenciales">Credenciales</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="index.html#instalaciones">Instalaciones</a></li>
+                        <li><a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="index.html#contacto">Información</a></li>
+                        <li><a href="tel:+56981319416">+56 9 8131 9416</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#0f666169604f656e7d6e7c7b7d6e6661666168216c6062"><span class="__cf_email__" data-cfemail="98f1f6fef7d8f2f9eaf9ebeceaf9f1f6f1f6ffb6fbf7f5">[email&#160;protected]</span></a></li>
+                        <li>Quilicura, Santiago</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jaras Diesel Training SpA | División de <a href="https://jarasdiesel.cl" target="_blank">Jaras Diesel Limitada</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></s
