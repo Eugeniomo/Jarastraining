@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario de Cursos | Jaras Training</title>
-    <meta name="description" content="Calendario de cursos y capacitaciones disponibles en Jaras Training">
+    <title>Calendario de Cursos 2026 | Jaras Training</title>
+    <meta name="description" content="Calendario de fechas programadas para cursos de capacitación - Jaras Training">
     
     <style>
         :root {
             --primary-color: #10b981;
-            --primary-dark: #059669;
             --secondary-color: #3b82f6;
             --accent-color: #f59e0b;
             --gray-100: #f3f4f6;
@@ -17,15 +16,10 @@
             --gray-600: #4b5563;
             --gray-700: #374151;
             --gray-800: #1f2937;
-            --gray-900: #111827;
             --gradient-primary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,19 +28,14 @@
             padding: 2rem 0;
         }
         
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
         
-        /* Header */
-        .header {
+        .page-header {
             background: white;
             padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             text-align: center;
         }
         
@@ -59,11 +48,9 @@
             transition: all 0.3s ease;
         }
         
-        .back-link:hover {
-            transform: translateX(-5px);
-        }
+        .back-link:hover { transform: translateX(-5px); }
         
-        .header h1 {
+        .page-header h1 {
             font-size: 2.5rem;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -72,12 +59,71 @@
             font-weight: 800;
         }
         
-        .header p {
-            color: var(--gray-600);
-            font-size: 1.1rem;
+        .page-header p { color: var(--gray-600); font-size: 1.1rem; }
+        
+        .controls-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         
-        /* Legend */
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .control-group label {
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+        }
+        
+        .control-group select {
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .control-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .view-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+            background: white;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .view-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
         .legend {
             background: white;
             padding: 1.5rem;
@@ -103,44 +149,55 @@
             font-weight: 600;
         }
         
-        .badge-abierto {
-            background: #d1fae5;
-            color: #065f46;
+        .badge-abierto { background: #d1fae5; color: #065f46; }
+        .badge-planificado { background: #dbeafe; color: #1e40af; }
+        .badge-finalizado { background: #e5e7eb; color: #374151; }
+        
+        .timeline {
+            position: relative;
         }
         
-        .badge-planificado {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        
-        .badge-finalizado {
-            background: #e5e7eb;
-            color: #374151;
-        }
-        
-        /* Course Grid */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+        .month-section {
             margin-bottom: 3rem;
         }
         
-        .course-card {
+        .month-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .event-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
             transition: all 0.4s ease;
             position: relative;
+            animation: fadeIn 0.5s ease;
         }
         
-        .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .course-card::before {
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
+        }
+        
+        .event-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -150,161 +207,164 @@
             background: var(--gradient-primary);
         }
         
-        .course-header {
-            padding: 2rem 2rem 1rem;
+        .event-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
         
-        .course-date {
-            display: inline-block;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-        
-        .course-title {
-            font-size: 1.4rem;
-            color: var(--gray-800);
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        
-        .course-details {
-            padding: 0 2rem 2rem;
-        }
-        
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--gray-100);
-        }
-        
-        .detail-row:last-child {
-            border-bottom: none;
-        }
-        
-        .detail-label {
-            color: var(--gray-600);
-            font-weight: 500;
+        .event-date {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-        
-        .detail-value {
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: var(--gray-800);
+            margin-bottom: 0.5rem;
         }
         
-        .status-badge {
+        .event-duration {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+        
+        .event-body {
+            padding: 1.5rem;
+        }
+        
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+        
+        .event-code {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+        
+        .event-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+        
+        .detail-icon { color: var(--primary-color); }
+        
+        .event-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .event-status {
             padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
         }
         
-        .code-badge {
-            background: var(--gray-100);
+        .status-abierto { background: #d1fae5; color: #065f46; }
+        .status-planificado { background: #dbeafe; color: #1e40af; }
+        .status-finalizado { background: #e5e7eb; color: #374151; }
+        
+        .cupos-info {
+            font-weight: 600;
             color: var(--gray-700);
-            padding: 0.3rem 0.8rem;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-family: monospace;
-            font-weight: 600;
         }
         
-        /* Contact CTA */
-        .contact-cta {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
+        .cupos-disponibles {
+            color: var(--primary-color);
+        }
+        
+        .empty-state {
             text-align: center;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
         }
         
-        .contact-cta h2 {
-            font-size: 2rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            font-weight: 800;
+        .empty-state h3 {
+            font-size: 1.5rem;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
         }
         
-        .contact-cta p {
+        .empty-state p { color: var(--gray-600); }
+        
+        .loading {
+            text-align: center;
+            padding: 4rem;
+            font-size: 1.2rem;
             color: var(--gray-600);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
         }
         
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gradient-primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-        }
-        
-        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .courses-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .legend {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .contact-cta {
-                padding: 2rem;
-            }
-        }
-        
-        /* Print Styles */
-        @media print {
-            @page {
-                margin: 0;
-                size: auto;
-            }
-            
-            body {
-                margin: 0;
-                padding: 1cm;
-            }
+            .controls-grid { grid-template-columns: 1fr; }
+            .events-grid { grid-template-columns: 1fr; }
+            .legend { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
+        <div class="page-header">
             <a href="index.html" class="back-link">← Volver al Inicio</a>
-            <h1>Calendario de Cursos 2025-2026</h1>
-            <p>Programación completa de capacitaciones Jaras Training</p>
+            <h1>Calendario de Cursos 2026</h1>
+            <p>Fechas programadas para capacitaciones</p>
         </div>
         
-        <!-- Legend -->
+        <div class="controls-section">
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label for="cursoFilter">Filtrar por curso</label>
+                    <select id="cursoFilter">
+                        <option value="">Todos los cursos</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="estadoFilter">Filtrar por estado</label>
+                    <select id="estadoFilter">
+                        <option value="">Todos los estados</option>
+                        <option value="Abierto">Abierto</option>
+                        <option value="Planificado">Planificado</option>
+                        <option value="Finalizado">Finalizado</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="periodoFilter">Período</label>
+                    <select id="periodoFilter">
+                        <option value="all">Todo el año</option>
+                        <option value="Q1">Q1 (Ene-Mar)</option>
+                        <option value="Q2">Q2 (Abr-Jun)</option>
+                        <option value="Q3">Q3 (Jul-Sep)</option>
+                        <option value="Q4">Q4 (Oct-Dic)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="view-toggle">
+                <button class="view-btn active" onclick="setView('month')">Vista Mensual</button>
+                <button class="view-btn" onclick="setView('list')">Vista Lista</button>
+            </div>
+        </div>
+        
         <div class="legend">
             <div class="legend-item">
                 <span class="legend-badge badge-abierto">Abierto para Inscripción</span>
@@ -317,168 +377,230 @@
             </div>
         </div>
         
-        <!-- Courses Grid -->
-        <div class="courses-grid">
-            
-            <!-- Curso 1 - Finalizado -->
-            <div class="course-card">
-                <div class="course-header">
-                    <div class="course-date">12-13 Agosto 2025</div>
-                    <h3 class="course-title">Comisionamiento y Puesta en Marcha</h3>
-                </div>
-                <div class="course-details">
-                    <div class="detail-row">
-                        <span class="detail-label">📋 Código</span>
-                        <span class="code-badge">JDT-COMPEM-001</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">⏱️ Duración</span>
-                        <span class="detail-value">16 horas</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">📍 Modalidad</span>
-                        <span class="detail-value">Presencial</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">👥 Cupos</span>
-                        <span class="detail-value">Completados</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Estado</span>
-                        <span class="status-badge badge-finalizado">Finalizado</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Curso 2 - Finalizado -->
-            <div class="course-card">
-                <div class="course-header">
-                    <div class="course-date">29-30 Septiembre 2025</div>
-                    <h3 class="course-title">Curso Auditor Interno ISO 9001:2015 e ISO 45001:2018</h3>
-                </div>
-                <div class="course-details">
-                    <div class="detail-row">
-                        <span class="detail-label">📋 Código</span>
-                        <span class="code-badge">JARAS-AAII-002</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">⏱️ Duración</span>
-                        <span class="detail-value">16 horas</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">📍 Modalidad</span>
-                        <span class="detail-value">Presencial</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">👥 Cupos</span>
-                        <span class="detail-value">Completados</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Estado</span>
-                        <span class="status-badge badge-finalizado">Finalizado</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Curso 3 - Abierto -->
-            <div class="course-card">
-                <div class="course-header">
-                    <div class="course-date">29-30 Enero 2026</div>
-                    <h3 class="course-title">Curso Inspección y Pruebas</h3>
-                </div>
-                <div class="course-details">
-                    <div class="detail-row">
-                        <span class="detail-label">📋 Código</span>
-                        <span class="code-badge">JDT-INSP</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">⏱️ Duración</span>
-                        <span class="detail-value">16 horas</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">📍 Modalidad</span>
-                        <span class="detail-value">Presencial</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">👥 Cupos</span>
-                        <span class="detail-value">Disponibles</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Estado</span>
-                        <span class="status-badge badge-abierto">Abierto para Inscripción</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Curso 4 - Abierto -->
-            <div class="course-card">
-                <div class="course-header">
-                    <div class="course-date">17-18 Marzo 2026</div>
-                    <h3 class="course-title">Comisionamiento y Puesta en Marcha</h3>
-                </div>
-                <div class="course-details">
-                    <div class="detail-row">
-                        <span class="detail-label">📋 Código</span>
-                        <span class="code-badge">JDT-COMPEM</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">⏱️ Duración</span>
-                        <span class="detail-value">16 horas</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">📍 Modalidad</span>
-                        <span class="detail-value">Presencial</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">👥 Cupos</span>
-                        <span class="detail-value">Disponibles</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Estado</span>
-                        <span class="status-badge badge-abierto">Abierto para Inscripción</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Curso 5 - Planificado -->
-            <div class="course-card">
-                <div class="course-header">
-                    <div class="course-date">07 Abril 2026</div>
-                    <h3 class="course-title">Gestión y Respuesta a Emergencias: Formación de Brigadas</h3>
-                </div>
-                <div class="course-details">
-                    <div class="detail-row">
-                        <span class="detail-label">📋 Código</span>
-                        <span class="code-badge">JDT-BRIG</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">⏱️ Duración</span>
-                        <span class="detail-value">8 horas</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">📍 Modalidad</span>
-                        <span class="detail-value">Presencial</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">👥 Cupos</span>
-                        <span class="detail-value">Disponibles</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Estado</span>
-                        <span class="status-badge badge-planificado">Planificado</span>
-                    </div>
-                </div>
-            </div>
-            
+        <div id="calendarContainer" class="loading">
+            Cargando calendario...
         </div>
-        
-        <!-- Contact CTA -->
-        <div class="contact-cta">
-            <h2>¿Interesado en Inscribirte?</h2>
-            <p>Contáctanos para más información sobre los cursos disponibles y reservar tu cupo</p>
-            <a href="tel:+56981319416" class="btn">Contactar Ahora</a>
-        </div>
-        
     </div>
+
+    <script>
+        let cursosData = [];
+        let allEvents = [];
+        let filteredEvents = [];
+        let currentView = 'month';
+        
+        const mesesES = [
+            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+        ];
+        
+        fetch('cursos-data.json')
+            .then(response => response.json())
+            .then(data => {
+                cursosData = data.cursos;
+                processEvents();
+                populateCursoFilter();
+                renderCalendar();
+            })
+            .catch(error => {
+                console.error('Error cargando calendario:', error);
+                document.getElementById('calendarContainer').innerHTML = `
+                    <div class="empty-state">
+                        <h3>Error al cargar calendario</h3>
+                        <p>Por favor, intenta recargar la página</p>
+                    </div>
+                `;
+            });
+        
+        function processEvents() {
+            allEvents = [];
+            
+            cursosData.forEach(curso => {
+                if (curso.fechasProgramadas && curso.fechasProgramadas.length > 0) {
+                    curso.fechasProgramadas.forEach(fecha => {
+                        const event = {
+                            curso: curso.nombre,
+                            cursoCorto: curso.nombreCorto,
+                            codigo: curso.codigo,
+                            categoria: curso.categoria,
+                            fechaInicio: new Date(fecha.fechaInicio + 'T00:00:00'),
+                            fechaFin: new Date(fecha.fechaFin + 'T00:00:00'),
+                            estado: fecha.estado,
+                            cupos: fecha.cupos,
+                            cuposDisponibles: fecha.cuposDisponibles,
+                            ubicacion: fecha.ubicacion,
+                            duracion: curso.duracion,
+                            modalidad: curso.modalidad,
+                            observaciones: fecha.observaciones || ''
+                        };
+                        allEvents.push(event);
+                    });
+                }
+            });
+            
+            allEvents.sort((a, b) => a.fechaInicio - b.fechaInicio);
+            filteredEvents = allEvents;
+        }
+        
+        function populateCursoFilter() {
+            const select = document.getElementById('cursoFilter');
+            const uniqueCursos = [...new Set(cursosData.map(c => c.nombreCorto))];
+            
+            uniqueCursos.forEach(curso => {
+                const option = document.createElement('option');
+                option.value = curso;
+                option.textContent = curso;
+                select.appendChild(option);
+            });
+        }
+        
+        function renderCalendar() {
+            const container = document.getElementById('calendarContainer');
+            
+            if (filteredEvents.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No hay eventos programados</h3>
+                        <p>Intenta ajustar los filtros</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = '';
+            container.className = 'timeline';
+            
+            if (currentView === 'month') {
+                renderMonthView(container);
+            } else {
+                renderListView(container);
+            }
+        }
+        
+        function renderMonthView(container) {
+            const eventsByMonth = {};
+            
+            filteredEvents.forEach(event => {
+                const month = event.fechaInicio.getMonth();
+                const year = event.fechaInicio.getFullYear();
+                const key = `${year}-${month}`;
+                
+                if (!eventsByMonth[key]) {
+                    eventsByMonth[key] = {
+                        month: month,
+                        year: year,
+                        events: []
+                    };
+                }
+                eventsByMonth[key].events.push(event);
+            });
+            
+            Object.values(eventsByMonth).forEach(monthData => {
+                const section = document.createElement('div');
+                section.className = 'month-section';
+                
+                section.innerHTML = `
+                    <div class="month-header">
+                        ${mesesES[monthData.month]} ${monthData.year}
+                    </div>
+                    <div class="events-grid">
+                        ${monthData.events.map(event => createEventCard(event)).join('')}
+                    </div>
+                `;
+                
+                container.appendChild(section);
+            });
+        }
+        
+        function renderListView(container) {
+            const grid = document.createElement('div');
+            grid.className = 'events-grid';
+            grid.innerHTML = filteredEvents.map(event => createEventCard(event)).join('');
+            container.appendChild(grid);
+        }
+        
+        function createEventCard(event) {
+            const fechaInicio = event.fechaInicio.toLocaleDateString('es-CL', { 
+                day: 'numeric', 
+                month: 'short' 
+            });
+            const fechaFin = event.fechaFin.toLocaleDateString('es-CL', { 
+                day: 'numeric', 
+                month: 'short' 
+            });
+            
+            return `
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">
+                            📅 ${fechaInicio} - ${fechaFin}
+                        </div>
+                        <div class="event-duration">${event.duracion}</div>
+                    </div>
+                    
+                    <div class="event-body">
+                        <h3 class="event-title">${event.cursoCorto}</h3>
+                        <div class="event-code">${event.codigo}</div>
+                        
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">📍</span>
+                                <span>${event.modalidad}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🏢</span>
+                                <span>${event.ubicacion}</span>
+                            </div>
+                        </div>
+                        
+                        ${event.observaciones ? `<p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.5rem;">${event.observaciones}</p>` : ''}
+                    </div>
+                    
+                    <div class="event-footer">
+                        <span class="event-status status-${event.estado.toLowerCase()}">${event.estado}</span>
+                        <div class="cupos-info">
+                            <span class="cupos-disponibles">${event.cuposDisponibles}</span>/${event.cupos} cupos
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function setView(view) {
+            currentView = view;
+            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderCalendar();
+        }
+        
+        document.getElementById('cursoFilter').addEventListener('change', applyFilters);
+        document.getElementById('estadoFilter').addEventListener('change', applyFilters);
+        document.getElementById('periodoFilter').addEventListener('change', applyFilters);
+        
+        function applyFilters() {
+            const cursoFilter = document.getElementById('cursoFilter').value;
+            const estadoFilter = document.getElementById('estadoFilter').value;
+            const periodoFilter = document.getElementById('periodoFilter').value;
+            
+            filteredEvents = allEvents.filter(event => {
+                const matchCurso = !cursoFilter || event.cursoCorto === cursoFilter;
+                const matchEstado = !estadoFilter || event.estado === estadoFilter;
+                
+                let matchPeriodo = true;
+                if (periodoFilter !== 'all') {
+                    const month = event.fechaInicio.getMonth();
+                    switch(periodoFilter) {
+                        case 'Q1': matchPeriodo = month >= 0 && month <= 2; break;
+                        case 'Q2': matchPeriodo = month >= 3 && month <= 5; break;
+                        case 'Q3': matchPeriodo = month >= 6 && month <= 8; break;
+                        case 'Q4': matchPeriodo = month >= 9 && month <= 11; break;
+                    }
+                }
+                
+                return matchCurso && matchEstado && matchPeriodo;
+            });
+            
+            renderCalendar();
+        }
+    </script>
 </body>
 </html>
