@@ -135,17 +135,22 @@
         }
         
         .clear-filters {
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1.25rem;
             background: var(--gray-100);
             color: var(--gray-700);
-            border: none;
-            border-radius: 12px;
+            border: 2px solid var(--gray-200);
+            border-radius: 25px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
         
-        .clear-filters:hover { background: var(--gray-200); }
+        .clear-filters:hover { 
+            background: var(--gray-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
         
         .results-info {
             display: flex;
@@ -391,10 +396,9 @@
                     <button class="estado-btn" data-estado="Abierto">Abierto</button>
                     <button class="estado-btn" data-estado="Planificado">Planificado</button>
                     <button class="estado-btn" data-estado="Finalizado">Finalizado</button>
+                    <button class="clear-filters" onclick="clearFilters()">Limpiar Filtros</button>
                 </div>
             </div>
-            
-            <button class="clear-filters" onclick="clearFilters()">Limpiar Filtros</button>
         </div>
         
         <div class="results-info">
