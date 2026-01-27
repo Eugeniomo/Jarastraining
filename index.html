@@ -55,6 +55,11 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            box-shadow: 0 4px 30px rgba(16, 185, 129, 0.2);
         }
         
         .nav {
@@ -65,7 +70,15 @@
             gap: 2rem;
         }
         
-        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover { transform: scale(1.05); }
         .logo img { height: 45px; width: auto; }
         
         .nav-menu {
@@ -88,11 +101,13 @@
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            transition: all 0.3s ease;
         }
         
         .nav-link:hover {
             color: var(--primary-color);
             background: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
         }
         
         /* Dropdown */
@@ -129,6 +144,7 @@
             color: var(--gray-700);
             text-decoration: none;
             font-size: 0.95rem;
+            transition: all 0.3s ease;
         }
         
         .dropdown-menu a:hover {
@@ -156,7 +172,10 @@
             border-radius: 8px;
             font-size: 1.2rem;
             cursor: pointer;
+            transition: transform 0.3s ease;
         }
+        
+        .mobile-menu-toggle:hover { transform: scale(1.1); }
 
         /* Hero */
         .hero {
@@ -195,7 +214,10 @@
             z-index: 1;
         }
         
-        .hero-content { position: relative; z-index: 2; }
+        .hero-content { 
+            position: relative; 
+            z-index: 2;
+        }
         
         .exclusive-badge {
             background: rgba(245, 158, 11, 0.9);
@@ -208,6 +230,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease;
         }
         
         .hero h1 {
@@ -215,6 +238,7 @@
             margin-bottom: 1rem;
             font-weight: 900;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease 0.2s both;
         }
         
         .hero .subtitle {
@@ -223,6 +247,7 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.4s both;
         }
         
         .cta-buttons {
@@ -231,6 +256,17 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 2rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .btn {
@@ -239,7 +275,23 @@
             border-radius: 12px;
             font-weight: 600;
             font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before { left: 100%; }
         
         .btn-primary {
             background: var(--accent-color);
@@ -247,13 +299,25 @@
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
         }
         
+        .btn-primary:hover {
+            background: #d97706;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+        }
+        
         .btn-secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px) scale(1.05);
+        }
 
-        /* Stats */
+        /* Stats with Counter Animation */
         .stats {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             padding: 4rem 0;
@@ -271,6 +335,19 @@
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .stat-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
         }
         
         .stat-number {
@@ -286,6 +363,40 @@
             color: var(--gray-600);
             margin-top: 0.5rem;
             font-weight: 500;
+        }
+
+        /* Fade-in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         /* About */
@@ -310,6 +421,7 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
         }
         
         .about-content h2 {
@@ -338,6 +450,14 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+        }
+        
+        .about-features li.animate {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .about-features li::before {
@@ -352,12 +472,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
         .about-image img {
             max-width: 100%;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05) rotate(2deg);
         }
 
         /* Credentials */
@@ -399,6 +525,13 @@
             border: 2px solid #e5e7eb;
             border-radius: 20px;
             background: white;
+            transition: all 0.4s ease;
+        }
+        
+        .credential-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
         }
         
         .credential-logo {
@@ -406,6 +539,11 @@
             width: 120px;
             object-fit: contain;
             margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .credential-card:hover .credential-logo {
+            transform: scale(1.1);
         }
         
         .credential-title {
@@ -456,6 +594,12 @@
             margin-bottom: 1.5rem;
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
             border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .facility-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.2);
         }
         
         .facility-item h3 {
@@ -501,6 +645,12 @@
             padding: 1.5rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
         }
         
         .contact-item h3 {
@@ -544,6 +694,15 @@
             border-radius: 12px;
             font-size: 1rem;
             font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
         
         .form-group textarea {
@@ -561,6 +720,12 @@
             border-radius: 8px;
             margin-bottom: 1rem;
             display: none;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .form-message.success {
@@ -602,6 +767,12 @@
         .footer-section ul li a {
             color: #d1d5db;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+            padding-left: 5px;
         }
         
         .footer-bottom {
@@ -628,6 +799,12 @@
             padding: 0.5rem 1rem;
             border-radius: 8px;
             font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cert-badge:hover {
+            background: var(--gray-700);
+            transform: translateY(-2px);
         }
 
         /* Responsive */
@@ -737,19 +914,19 @@
     <section class="stats">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">22+</span>
+                <div class="stat-item" data-delay="0">
+                    <span class="stat-number" data-target="22">0</span>
                     <div class="stat-label">Años Experiencia Jaras Diesel</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">100%</span>
+                <div class="stat-item" data-delay="100">
+                    <span class="stat-number" data-target="100">0</span>
                     <div class="stat-label">Capacitación Práctica</div>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">2</span>
+                <div class="stat-item" data-delay="200">
+                    <span class="stat-number" data-target="2">0</span>
                     <div class="stat-label">Años Validez Certificación</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item" data-delay="300">
                     <span class="stat-number">Clarke</span>
                     <div class="stat-label">Únicos Autorizados Latinoamérica</div>
                 </div>
@@ -760,7 +937,7 @@
     <section id="nosotros" class="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-content">
+                <div class="about-content slide-in-left">
                     <div class="heritage-badge">División Educativa de Jaras Diesel</div>
                     <h2>Capacitación Técnica Especializada</h2>
                     <p>
@@ -774,16 +951,16 @@
                         de experiencia práctica en el sector.
                     </p>
                     <ul class="about-features">
-                        <li>OTEC en proceso de certificación SENCE</li>
-                        <li>Únicos autorizados Clarke Fire en Latinoamérica</li>
-                        <li>Instructores con experiencia industrial real</li>
-                        <li>Metodología 100% práctica con equipos operativos</li>
-                        <li>Sala con motor Clarke y controlador Tornatech</li>
-                        <li>Respaldados por flota de Jaras Diesel</li>
+                        <li data-delay="0">OTEC en proceso de certificación SENCE</li>
+                        <li data-delay="100">Únicos autorizados Clarke Fire en Latinoamérica</li>
+                        <li data-delay="200">Instructores con experiencia industrial real</li>
+                        <li data-delay="300">Metodología 100% práctica con equipos operativos</li>
+                        <li data-delay="400">Sala con motor Clarke y controlador Tornatech</li>
+                        <li data-delay="500">Respaldados por flota de Jaras Diesel</li>
                     </ul>
                     <a href="https://jarasdiesel.cl" target="_blank" class="btn btn-primary">Conocer Jaras Diesel</a>
                 </div>
-                <div class="about-image">
+                <div class="about-image slide-in-right">
                     <img src="sala-bombas-general.jpg" alt="Sala de capacitación Clarke Fire">
                 </div>
             </div>
@@ -792,13 +969,13 @@
 
     <section id="credenciales" class="credentials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>Credenciales y Certificaciones</h2>
                 <p>Respaldos que garantizan calidad y reconocimiento</p>
             </div>
             
             <div class="credentials-grid">
-                <div class="credential-card">
+                <div class="credential-card fade-in" data-delay="0">
                     <img src="credenciales/clarke-logo.png" alt="Clarke Fire" class="credential-logo">
                     <h3 class="credential-title">Autorización Exclusiva Clarke Fire</h3>
                     <p class="credential-description">
@@ -806,7 +983,7 @@
                     </p>
                 </div>
                 
-                <div class="credential-card">
+                <div class="credential-card fade-in" data-delay="100">
                     <img src="credenciales/logo-sence.png" alt="SENCE" class="credential-logo">
                     <h3 class="credential-title">OTEC en Proceso SENCE</h3>
                     <p class="credential-description">
@@ -814,7 +991,7 @@
                     </p>
                 </div>
                 
-                <div class="credential-card">
+                <div class="credential-card fade-in" data-delay="200">
                     <img src="credenciales/logo-nfpa.jpg" alt="NFPA" class="credential-logo">
                     <h3 class="credential-title">Estándares NFPA 20 & 25</h3>
                     <p class="credential-description">
@@ -822,7 +999,7 @@
                     </p>
                 </div>
                 
-                <div class="credential-card">
+                <div class="credential-card fade-in" data-delay="300">
                     <img src="logo-jaras-diesel.png" alt="Jaras Diesel" class="credential-logo">
                     <h3 class="credential-title">22 Años Experiencia</h3>
                     <p class="credential-description">
@@ -836,7 +1013,7 @@
     <section id="instalaciones" class="facilities">
         <div class="container">
             <div class="facilities-grid">
-                <div class="facilities-content">
+                <div class="facilities-content slide-in-left">
                     <h2>Instalaciones de Capacitación</h2>
                     <p>Equipadas con los mismos sistemas que encontrarán en campo.</p>
                     
@@ -856,7 +1033,7 @@
                     </div>
                 </div>
                 
-                <div class="about-image">
+                <div class="about-image slide-in-right">
                     <img src="sala-bombas-general.jpg" alt="Instalaciones técnicas">
                 </div>
             </div>
@@ -866,7 +1043,7 @@
     <section id="contacto" class="contact">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info fade-in">
                     <h2>Contacto</h2>
                     <p>Solicite información sobre nuestros programas o cotice capacitación personalizada.</p>
                     
@@ -891,7 +1068,7 @@
                     </div>
                 </div>
                 
-                <div class="contact-form">
+                <div class="contact-form fade-in">
                     <div id="formMessage" class="form-message"></div>
                     <h3>Solicitar Información</h3>
                     <form id="contactForm">
@@ -994,10 +1171,22 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1009,6 +1198,77 @@
             });
         });
 
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                        entry.target.classList.add('animate');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate stat items
+        document.querySelectorAll('.stat-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate feature list items
+        document.querySelectorAll('.about-features li').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number[data-target]');
+                    statNumbers.forEach(el => {
+                        const target = parseInt(el.dataset.target);
+                        animateCounter(el, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // EmailJS Form submission
         let lastSubmit = 0;
         const SUBMIT_COOLDOWN = 30000;
 
