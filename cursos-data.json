@@ -9,7 +9,7 @@
       "descripcion": "Curso oficial diseñado para certificar personal técnico en comisionamiento y puesta en marcha de sistemas contra incendio con motores diesel Clarke Fire según norma NFPA 20.",
       "duracion": "16 horas",
       "duracionDias": 2,
-      "modalidad": "Presencial, online",
+      "modalidad": "Presencial",
       "dirigidoA": "Técnicos e Ingenieros",
       "validez": "2 años",
       "certificacion": "Clarke Fire Oficial",
@@ -51,7 +51,7 @@
       "descripcion": "Capacitación especializada para personal de mantenimiento, operaciones y brigadas de emergencia en procedimientos de inspecciones y pruebas semanales según norma NFPA 25.",
       "duracion": "16 horas",
       "duracionDias": 2,
-      "modalidad": "Presencial",
+      "modalidad": "Presencial, online",
       "dirigidoA": "Personal Operacional y Brigadas",
       "validez": "Continua",
       "certificacion": "NFPA 25",
@@ -67,8 +67,8 @@
       "precio": "Consultar",
       "fechasProgramadas": [
         {
-          "fechaInicio": "2026-01-29",
-          "fechaFin": "2026-01-30",
+          "fechaInicio": "2026-04-29",
+          "fechaFin": "2026-04-30",
           "estado": "Abierto",
           "cupos": 20,
           "cuposDisponibles": 15,
@@ -85,7 +85,7 @@
       "descripcion": "Programas de capacitación diseñados específicamente para las necesidades técnicas de su empresa, con posibilidad de realización en nuestras instalaciones o en sus propias dependencias.",
       "duracion": "Flexible",
       "duracionDias": 0,
-      "modalidad": "Presencial / In-company",
+      "modalidad": "Presencial, online / In-company",
       "dirigidoA": "Empresas",
       "validez": "N/A",
       "certificacion": "Personalizado",
@@ -101,40 +101,7 @@
       "precio": "A cotizar",
       "fechasProgramadas": []
     },
-    {
-      "id": "deteccion-alarma-nfpa",
-      "codigo": "JDT-DET-NFPA",
-      "nombre": "Tecnologías y Diseño de Sistemas de Detección y Alarma de Incendios basado en NFPA",
-      "nombreCorto": "Detección y Alarma NFPA",
-      "categoria": "Diseño y Tecnología",
-      "descripcion": "Capacitación avanzada en diseño, implementación y tecnologías de sistemas de detección y alarma de incendios según estándares NFPA.",
-      "duracion": "16 horas",
-      "duracionDias": 2,
-      "modalidad": "Presencial",
-      "dirigidoA": "Ingenieros, Proyectistas, Técnicos",
-      "validez": "N/A",
-      "certificacion": "Jaras Training",
-      "contenido": [
-        "Fundamentos de detección de incendios",
-        "Normativa NFPA 72 - Sistemas de alarma",
-        "Tecnologías de detectores (iónicos, fotoeléctricos, térmicos)",
-        "Diseño de sistemas de notificación",
-        "Integración con sistemas de control",
-        "Casos prácticos de diseño"
-      ],
-      "requisitos": "Conocimientos técnicos en sistemas eléctricos",
-      "precio": "Consultar",
-      "fechasProgramadas": [
-        {
-          "fechaInicio": "2026-04-14",
-          "fechaFin": "2026-04-15",
-          "estado": "Planificado",
-          "cupos": 20,
-          "cuposDisponibles": 20,
-          "ubicacion": "Quilicura, Santiago"
-        }
-      ]
-    },
+    
     {
       "id": "extincion-espuma-nfpa",
       "codigo": "JDT-ESP-NFPA",
@@ -144,7 +111,7 @@
       "descripcion": "Curso especializado en diseño e implementación de sistemas de extinción por espuma para protección contra incendios según normativa NFPA.",
       "duracion": "16 horas",
       "duracionDias": 2,
-      "modalidad": "Presencial",
+      "modalidad": "Presencial, online",
       "dirigidoA": "Ingenieros, Proyectistas",
       "validez": "N/A",
       "certificacion": "Jaras Training",
@@ -178,7 +145,7 @@
       "descripcion": "Capacitación integral en diseño de sistemas de rociadores automáticos según NFPA 13, incluyendo cálculos hidráulicos y selección de componentes.",
       "duracion": "16 horas",
       "duracionDias": 2,
-      "modalidad": "Presencial",
+      "modalidad": "Presencial, online",
       "dirigidoA": "Ingenieros, Proyectistas",
       "validez": "N/A",
       "certificacion": "Jaras Training",
@@ -212,7 +179,7 @@
       "descripcion": "Curso avanzado sobre diseño e integración de sistemas de seguridad electrónica incluyendo CCTV, control de accesos y sistemas integrados.",
       "duracion": "16 horas",
       "duracionDias": 2,
-      "modalidad": "Presencial",
+      "modalidad": "Presencial, online",
       "dirigidoA": "Ingenieros, Técnicos Especialistas",
       "validez": "N/A",
       "certificacion": "Jaras Training",
@@ -243,12 +210,12 @@
       "nombre": "Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales",
       "nombreCorto": "Detección Internacional",
       "categoria": "Estándares Internacionales",
-      "descripcion": "Programa modular de 4 sesiones enfocado en tecnologías avanzadas de detección de incendios según estándares internacionales (NFPA, EN, BS).",
+      "descripcion": "Programa modular de 4 sesiones especializado en sistemas de detección de incendios conforme a estándares internacionales (NFPA, EN, BS).",
       "duracion": "16 horas",
       "duracionDias": 4,
       "sesiones": 4,
       "duracionSesion": "4 horas",
-      "modalidad": "Presencial",
+      "modalidad": "Presencial, online",
       "dirigidoA": "Ingenieros, Instaladores Certificados",
       "validez": "N/A",
       "certificacion": "Jaras Training",
@@ -275,15 +242,15 @@
     {
       "id": "notificacion-incendios-internacional",
       "codigo": "JDT-NOTINT",
-      "nombre": "Diseño e Implementación de Tecnologías para la Notificación de Incendios basado en Estándares Internacionales",
+      "nombre": "Diseño e implementación de sistemas de notificación de incendios y tecnologías especiales para la detección basado en estándares internacionales",
       "nombreCorto": "Notificación Internacional",
       "categoria": "Estándares Internacionales",
-      "descripcion": "Programa modular de 4 sesiones especializado en sistemas de notificación y alarma de incendios conforme a estándares internacionales.",
+      "descripcion": "Programa modular de 4 sesiones especializado en sistemas de notificación y alarma de incendios conforme a estándares internacionales.(NFPA, EN, BS)",
       "duracion": "16 horas",
       "duracionDias": 4,
       "sesiones": 4,
       "duracionSesion": "4 horas",
-      "modalidad": "Presencial",
+      "modalidad": "Presencial, online",
       "dirigidoA": "Ingenieros, Instaladores Certificados",
       "validez": "N/A",
       "certificacion": "Jaras Training",
@@ -303,7 +270,7 @@
           "cupos": 15,
           "cuposDisponibles": 15,
           "ubicacion": "Quilicura, Santiago",
-          "observaciones": "4 sesiones: 8, 10, 22, 24 septiembre 2026"
+          "observaciones": "4 sesiones: 8, 10, 22, 24 septiembre 2026. Pueden activarse nuevos cursos de acuerdo a los requeremientos del Cliente."
         }
       ]
     }
