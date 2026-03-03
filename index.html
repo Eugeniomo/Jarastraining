@@ -68,7 +68,7 @@
             "longitude": "-70.745"
         },
         "telephone": "+56-9-81319416",
-        "email": "info@jarastraining.com",
+        "email": "info@jarastraining.cl",
         "areaServed": [
             {"@type": "Country", "name": "Chile"},
             {"@type": "Country", "name": "Argentina"},
@@ -1148,12 +1148,12 @@
                     
                     <div class="contact-item">
                         <h3>Email</h3>
-                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="abc2c5cdc4ebc1cad9cad8dfd9cac2c5c2c5cc85c8c4c6">[email&#160;protected]</a></p>
+                        <p>info@jarastraining.cl</p>
                     </div>
                     
                     <div class="contact-item">
                         <h3>Horario</h3>
-                        <p>Lunes a Viernes: 08:00 - 14:00 hrs</p>
+                        <p>Lunes a Viernes: 09:00 - 13:00 hrs</p>
                     </div>
                 </div>
                 
@@ -1247,7 +1247,7 @@
                     <ul>
                         <li><a href="#contacto">Información</a></li>
                         <li><a href="tel:+56981319416">+56 9 8131 9416</a></li>
-                        <li><a href="/cdn-cgi/l/email-protection#472e292128072d263526343335262e292e29206924282a"><span class="__cf_email__" data-cfemail="5c35323a331c363d2e3d2f282e3d353235323b723f3331">[email&#160;protected]</span></a></li>
+                        <li><a href="mailto:info@jarastraining.cl">info@jarastraining.cl</a></li>
                         <li>Quilicura, Santiago</li>
                     </ul>
                 </div>
@@ -1259,7 +1259,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
@@ -1306,22 +1306,18 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
         document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
             observer.observe(el);
         });
 
-        // Animate stat items
         document.querySelectorAll('.stat-item').forEach(el => {
             observer.observe(el);
         });
 
-        // Animate feature list items
         document.querySelectorAll('.about-features li').forEach(el => {
             observer.observe(el);
         });
 
-        // Counter animation for stats
         function animateCounter(element, target, duration = 2000) {
             const start = 0;
             const increment = target / (duration / 16);
@@ -1338,7 +1334,6 @@
             }, 16);
         }
 
-        // Trigger counter animation when stats section is visible
         const statsObserver = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1357,7 +1352,6 @@
             statsObserver.observe(statsSection);
         }
 
-        // EmailJS Form submission
         let lastSubmit = 0;
         const SUBMIT_COOLDOWN = 30000;
 
