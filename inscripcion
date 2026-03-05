@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción a Cursos | Jaras Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --blue: #3b82f6;
+            --accent: #f59e0b;
+            --red: #dc2626;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--gray-100);
+            min-height: 100vh;
+            color: var(--gray-800);
+            text-align: justify;
+        }
+
+        /* HEADER */
+        .page-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-bottom: 3px solid var(--primary);
+            padding: 1.1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-area img { height: 40px; width: auto; }
+        .logo-text {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.5rem; font-weight: 800;
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 0.04em; text-transform: uppercase;
+        }
+        .header-badge {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); border: 1px solid rgba(245,158,11,0.4);
+            padding: 0.35rem 0.8rem; border-radius: 4px;
+        }
+
+        /* SCHEDULE BANNER */
+        .schedule-banner {
+            background: linear-gradient(90deg, var(--primary-dark) 0%, #0369a1 100%);
+            padding: 1rem 2rem;
+        }
+        .schedule-inner {
+            max-width: 780px; margin: 0 auto;
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+        }
+        .schedule-dates { color: #fff; }
+        .schedule-dates .label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            opacity: 0.75; margin-bottom: 0.2rem;
+        }
+        .schedule-dates .dates {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+        }
+        .schedule-times { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+        .time-block {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px; padding: 0.5rem 1rem; text-align: center;
+        }
+        .time-block.highlight { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.45); }
+        .time-block.detected { background: rgba(245,158,11,0.22); border-color: rgba(245,158,11,0.5); }
+        .time-block .country {
+            font-size: 0.68rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            color: rgba(255,255,255,0.75); margin-bottom: 0.1rem;
+        }
+        .time-block.detected .country { color: var(--accent); }
+        .time-block .time {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.2rem; font-weight: 800; color: #fff;
+        }
+        .time-separator { color: rgba(255,255,255,0.4); font-size: 1.2rem; font-weight: 300; }
+
+        /* MAIN */
+        .page-wrap { max-width: 780px; margin: 2rem auto; padding: 0 1.5rem 3rem; }
+
+        .section-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+        /* COURSE CARDS */
+        .course-cards { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+        .course-card {
+            background: #fff; border: 2px solid var(--gray-200);
+            border-radius: 10px; padding: 1.2rem 1.4rem;
+            cursor: pointer; transition: all 0.2s ease;
+            display: flex; align-items: flex-start; gap: 1rem;
+            position: relative; overflow: hidden;
+        }
+        .course-card::before {
+            content: ''; position: absolute;
+            left: 0; top: 0; bottom: 0; width: 4px;
+            background: var(--gray-200); transition: background 0.2s;
+        }
+        .course-card:hover { border-color: var(--primary); box-shadow: 0 4px 20px rgba(16,185,129,0.12); }
+        .course-card:hover::before { background: var(--primary); }
+        .course-card.selected { border-color: var(--primary); background: rgba(16,185,129,0.03); box-shadow: 0 4px 20px rgba(16,185,129,0.15); }
+        .course-card.selected::before { background: var(--primary); }
+        .course-radio {
+            width: 20px; height: 20px; border: 2px solid var(--gray-300);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 0.15rem; transition: all 0.2s;
+        }
+        .course-card.selected .course-radio { border-color: var(--primary); background: var(--primary); }
+        .course-card.selected .course-radio::after { content: ''; width: 8px; height: 8px; background: #fff; border-radius: 50%; }
+        .course-info { flex: 1; }
+        .course-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.97rem; font-weight: 700;
+            color: var(--gray-800); line-height: 1.3;
+            text-transform: uppercase; letter-spacing: 0.02em;
+        }
+        .course-meta { display: flex; gap: 1rem; margin-top: 0.4rem; flex-wrap: wrap; }
+        .course-meta span { font-size: 0.78rem; color: var(--gray-600); }
+        .course-pricing { text-align: right; flex-shrink: 0; }
+        .price-top-line { display: flex; align-items: center; gap: 0.4rem; justify-content: flex-end; flex-wrap: wrap; }
+        .price-original { font-size: 0.78rem; color: var(--gray-600); text-decoration: line-through; }
+        .price-badge {
+            font-size: 0.68rem; font-weight: 700;
+            background: var(--accent); color: #fff;
+            padding: 0.15rem 0.45rem; border-radius: 3px;
+            display: inline-block;
+        }
+        .price-discount { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--primary-dark); margin-top: 0.2rem; }
+        .price-iva { font-size: 0.72rem; color: var(--gray-600); margin-top: 0.1rem; }
+        .price-total { font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--gray-800); }
+
+        /* FORM CARD */
+        .form-card {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            overflow: hidden; margin-bottom: 1.25rem;
+        }
+        .form-card-header {
+            background: var(--gray-800); padding: 0.85rem 1.4rem;
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .form-card-header .icon {
+            width: 28px; height: 28px; background: var(--primary);
+            border-radius: 5px; display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+        }
+        .form-card-header h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.95rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em; color: #fff;
+        }
+        .form-body { padding: 1.4rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+        .form-group.full { grid-column: 1 / -1; }
+
+        label {
+            font-size: 0.72rem; font-weight: 600;
+            color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        label .req { color: var(--red); margin-left: 2px; }
+
+        input, select, textarea {
+            border: 1.5px solid var(--gray-200); border-radius: 7px;
+            padding: 0.6rem 0.85rem; font-family: 'Barlow', sans-serif;
+            font-size: 0.9rem; color: var(--gray-800);
+            background: var(--gray-100); transition: all 0.2s; width: 100%;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none; border-color: var(--primary);
+            background: #fff; box-shadow: 0 0 0 3px rgba(16,185,129,0.1);
+        }
+        input:disabled { opacity: 0.6; cursor: not-allowed; }
+        input.error, select.error { border-color: var(--red); }
+        .field-error { font-size: 0.72rem; color: var(--red); min-height: 1rem; }
+        textarea { resize: vertical; min-height: 75px; }
+        .form-divider { height: 1px; background: var(--gray-200); margin: 1rem 0; grid-column: 1/-1; }
+        .sub-label { font-size: 0.78rem; font-weight: 600; color: var(--blue); grid-column: 1/-1; margin-bottom: -0.25rem; }
+
+        /* CHECKBOX MISMO PAGADOR */
+        .same-payer-check {
+            display: flex; align-items: center; gap: 0.65rem;
+            background: rgba(59,130,246,0.06);
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 8px; padding: 0.75rem 1rem;
+            cursor: pointer; grid-column: 1/-1; margin-top: 0.25rem;
+        }
+        .same-payer-check input[type="checkbox"] {
+            width: 17px; height: 17px; flex-shrink: 0;
+            accent-color: var(--blue); background: transparent;
+            border: none; box-shadow: none; padding: 0;
+        }
+        .same-payer-check input[type="checkbox"]:focus { box-shadow: none; }
+        .same-payer-check span { font-size: 0.83rem; color: var(--gray-700); line-height: 1.4; }
+
+        /* AVISO TRIBUTARIO */
+        .tax-notice {
+            background: rgba(245,158,11,0.08);
+            border: 1px solid rgba(245,158,11,0.3);
+            border-radius: 8px; padding: 0.85rem 1rem;
+            font-size: 0.8rem; color: var(--gray-700);
+            line-height: 1.55; grid-column: 1/-1;
+        }
+        .tax-notice strong { color: var(--gray-800); }
+
+        /* SUBMIT */
+        .submit-card {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06); padding: 1.4rem;
+        }
+        .terms-check {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            margin-bottom: 1.1rem; cursor: pointer;
+        }
+        .terms-check input[type="checkbox"] {
+            width: 17px; height: 17px; flex-shrink: 0;
+            margin-top: 0.1rem; accent-color: var(--primary);
+        }
+        .terms-check span { font-size: 0.82rem; color: var(--gray-600); line-height: 1.5; }
+        .terms-check a { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff; border: none; border-radius: 8px; padding: 0.85rem 2rem;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(16,185,129,0.35); }
+        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+        .submit-note { text-align: center; font-size: 0.76rem; color: var(--gray-600); margin-top: 0.65rem; line-height: 1.5; }
+
+        /* SUCCESS */
+        .success-screen {
+            display: none; background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            padding: 2.5rem 2rem; text-align: center;
+        }
+        .success-screen.visible { display: block; }
+        .success-icon {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem; font-size: 1.6rem;
+        }
+        .success-screen h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.7rem; font-weight: 800;
+            color: var(--gray-800); text-transform: uppercase; margin-bottom: 0.75rem;
+        }
+        .success-screen p { color: var(--gray-600); line-height: 1.6; margin-bottom: 0.4rem; }
+        .success-screen strong { color: var(--gray-800); }
+        .success-steps {
+            background: var(--gray-100); border-radius: 10px;
+            padding: 1.25rem 1.5rem; margin-top: 1.25rem; text-align: left;
+        }
+        .success-steps .step-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: 0.75rem;
+        }
+        .step {
+            display: flex; gap: 0.75rem; align-items: flex-start;
+            margin-bottom: 0.65rem;
+        }
+        .step:last-child { margin-bottom: 0; }
+        .step-num {
+            width: 22px; height: 22px; background: var(--primary);
+            border-radius: 50%; color: #fff; font-size: 0.72rem;
+            font-weight: 700; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0; margin-top: 0.05rem;
+        }
+        .step p { font-size: 0.83rem; color: var(--gray-700); line-height: 1.5; }
+
+        /* FOOTER */
+        .page-footer {
+            background: var(--gray-900); padding: 1.25rem 2rem;
+            text-align: center; margin-top: 1rem;
+        }
+        .page-footer p { font-size: 0.75rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
+        .page-footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full, .form-divider, .sub-label, .same-payer-check, .tax-notice { grid-column: 1; }
+            .schedule-inner { flex-direction: column; gap: 0.75rem; }
+            .page-header { flex-direction: column; gap: 0.75rem; text-align: center; }
+            .course-card { flex-direction: column; }
+            .course-pricing { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+    <a href="https://www.jarastraining.cl" class="logo-area">
+        <img src="logo-jdt.png" alt="Jaras Training" onerror="this.style.display='none'">
+        <span class="logo-text">Jaras Training</span>
+    </a>
+    <span class="header-badge">Inscripción Online</span>
+</header>
+
+<!-- SCHEDULE BANNER -->
+<div class="schedule-banner">
+    <div class="schedule-inner">
+        <div class="schedule-dates">
+            <div class="label">📅 Fechas del curso · Online</div>
+            <div class="dates">4 · 5 · 6 · 7 de mayo 2026 &nbsp;·&nbsp; 4 sesiones de 4 horas</div>
+        </div>
+        <div class="schedule-times">
+            <div class="time-block highlight">
+                <div class="country">🇨🇱 Chile</div>
+                <div class="time">10:00 AM</div>
+            </div>
+            <div class="time-separator" id="time-sep" style="display:none;">→</div>
+            <div class="time-block detected" id="local-time-block" style="display:none;">
+                <div class="country" id="local-country">Tu país</div>
+                <div class="time" id="local-time">--:--</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+
+    <!-- SELECCIÓN DE CURSO -->
+    <div class="section-label" id="lbl-curso">Selecciona tu curso</div>
+    <div class="course-cards" id="course-section">
+
+        <div class="course-card" id="card-1" onclick="selectCourse(1)">
+            <div class="course-radio" id="radio-1"></div>
+            <div class="course-info">
+                <div class="course-title">Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales</div>
+                <div class="course-meta">
+                    <span>📅 4 sesiones · 4 horas c/u</span>
+                    <span>🌐 Online</span>
+                    <span>📋 Certificado incluido</span>
+                </div>
+            </div>
+            <div class="course-pricing">
+                <div class="price-top-line">
+                    <span class="price-original">USD 330</span>
+                    <span class="price-badge">-25% LANZAMIENTO</span>
+                </div>
+                <div class="price-discount">USD 247.50</div>
+                <div class="price-iva">+ 19% IVA</div>
+                <div class="price-total">Total: USD 294.53</div>
+            </div>
+        </div>
+
+        <div class="course-card" id="card-2" onclick="selectCourse(2)">
+            <div class="course-radio" id="radio-2"></div>
+            <div class="course-info">
+                <div class="course-title">Diseño e Implementación de Sistemas de Notificación de Incendios y Tecnologías Especiales para la Detección basado en Estándares Internacionales</div>
+                <div class="course-meta">
+                    <span>📅 4 sesiones · 4 horas c/u</span>
+                    <span>🌐 Online</span>
+                    <span>📋 Certificado incluido</span>
+                </div>
+            </div>
+            <div class="course-pricing">
+                <div class="price-top-line">
+                    <span class="price-original">USD 330</span>
+                    <span class="price-badge">-25% LANZAMIENTO</span>
+                </div>
+                <div class="price-discount">USD 247.50</div>
+                <div class="price-iva">+ 19% IVA</div>
+                <div class="price-total">Total: USD 294.53</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DATOS DEL PARTICIPANTE -->
+    <div class="form-card" id="form-participante">
+        <div class="form-card-header">
+            <div class="icon">👤</div>
+            <h2>Datos del Participante</h2>
+        </div>
+        <div class="form-body">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nombre completo <span class="req">*</span></label>
+                    <input type="text" id="nombre" placeholder="Ej: Juan Pérez González">
+                    <span class="field-error" id="err-nombre"></span>
+                </div>
+                <div class="form-group">
+                    <label>RUT / Documento de identidad <span class="req">*</span></label>
+                    <input type="text" id="rut" placeholder="12.345.678-9 o pasaporte">
+                    <span class="field-error" id="err-rut"></span>
+                </div>
+                <div class="form-group">
+                    <label>Correo electrónico <span class="req">*</span></label>
+                    <input type="email" id="email" placeholder="correo@empresa.com">
+                    <span class="field-error" id="err-email"></span>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono / WhatsApp <span class="req">*</span></label>
+                    <input type="tel" id="telefono" placeholder="+56 9 1234 5678">
+                    <span class="field-error" id="err-telefono"></span>
+                </div>
+                <div class="form-group">
+                    <label>Cargo / Posición <span class="req">*</span></label>
+                    <input type="text" id="cargo" placeholder="Ej: Ingeniero de Proyectos">
+                    <span class="field-error" id="err-cargo"></span>
+                </div>
+                <div class="form-group">
+                    <label>País <span class="req">*</span></label>
+                    <select id="pais" onchange="updateLocalTime()">
+                        <option value="">Selecciona tu país</option>
+                        <option value="Chile">🇨🇱 Chile</option>
+                        <option value="Argentina">🇦🇷 Argentina</option>
+                        <option value="Bolivia">🇧🇴 Bolivia</option>
+                        <option value="Colombia">🇨🇴 Colombia</option>
+                        <option value="Ecuador">🇪🇨 Ecuador</option>
+                        <option value="Guatemala">🇬🇹 Guatemala</option>
+                        <option value="México">🇲🇽 México</option>
+                        <option value="Perú">🇵🇪 Perú</option>
+                        <option value="Otro">🌎 Otro</option>
+                    </select>
+                    <span class="field-error" id="err-pais"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATOS DE FACTURACIÓN -->
+    <div class="form-card" id="form-facturacion">
+        <div class="form-card-header">
+            <div class="icon">🧾</div>
+            <h2>Datos de Facturación</h2>
+        </div>
+        <div class="form-body">
+            <div class="form-grid">
+
+                <div class="tax-notice">
+                    <strong>Documento tributario:</strong> Jaras Diesel Training SpA emite factura electrónica en dólares estadounidenses (USD) según normativa tributaria chilena. El monto total a pagar incluye <strong>19% de IVA</strong> sobre el valor del curso.<br>
+                    Si tu empresa requiere un documento tributario local de tu país, te recomendamos consultar con tu área contable antes de inscribirte.
+                </div>
+
+                <label class="same-payer-check" style="cursor:pointer;">
+                    <input type="checkbox" id="mismo-pagador" onchange="togglePagador()">
+                    <span>El participante es también quien paga — usar mis datos para la factura</span>
+                </label>
+
+                <div class="form-divider"></div>
+                <div class="sub-label" id="lbl-factura">Empresa o persona que recibirá la factura</div>
+
+                <div class="form-group full">
+                    <label>Razón social / Nombre completo <span class="req">*</span></label>
+                    <input type="text" id="empresa" placeholder="Nombre legal de la empresa o persona natural">
+                    <span class="field-error" id="err-empresa"></span>
+                </div>
+                <div class="form-group">
+                    <label>RUT empresa / NIT / RFC / Pasaporte</label>
+                    <input type="text" id="rut-empresa" placeholder="Identificador tributario">
+                </div>
+                <div class="form-group">
+                    <label>Dirección</label>
+                    <input type="text" id="direccion" placeholder="Calle, número, ciudad, país">
+                </div>
+
+                <div class="form-divider"></div>
+                <div class="sub-label">Contacto que recibirá la factura y los datos de conexión al curso</div>
+
+                <div class="form-group">
+                    <label>Nombre del contacto <span class="req">*</span></label>
+                    <input type="text" id="contacto-nombre" placeholder="Nombre completo">
+                    <span class="field-error" id="err-contacto-nombre"></span>
+                </div>
+                <div class="form-group">
+                    <label>Correo electrónico del contacto <span class="req">*</span></label>
+                    <input type="email" id="contacto-email" placeholder="facturacion@empresa.com">
+                    <span class="field-error" id="err-contacto-email"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OBSERVACIONES -->
+    <div class="form-card" id="form-obs">
+        <div class="form-card-header">
+            <div class="icon">💬</div>
+            <h2>Observaciones</h2>
+        </div>
+        <div class="form-body">
+            <div class="form-group">
+                <label>Comentarios o preguntas (opcional)</label>
+                <textarea id="observaciones" placeholder="Ej: requerimientos especiales, consultas sobre el contenido, etc."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENVIAR -->
+    <div class="submit-card" id="submit-card">
+        <label class="terms-check">
+            <input type="checkbox" id="terminos">
+            <span>He leído y acepto la <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a> de Jaras Diesel Training SpA. Autorizo el uso de mis datos para procesar mi inscripción y recibir comunicaciones relacionadas con el curso.</span>
+        </label>
+        <button class="btn-submit" id="btn-submit" onclick="enviarFormulario()">
+            Enviar Inscripción →
+        </button>
+        <p class="submit-note">Una vez confirmado tu cupo recibirás las instrucciones de pago por correo electrónico</p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-screen" id="success-screen">
+        <div class="success-icon">✓</div>
+        <h2>¡Inscripción Recibida!</h2>
+        <p>Hemos registrado tu solicitud correctamente.</p>
+        <div class="success-steps">
+            <div class="step-label">¿Qué sigue?</div>
+            <div class="step">
+                <div class="step-num">1</div>
+                <p>Revisaremos tu solicitud y confirmaremos tu cupo en un plazo de <strong>24 horas hábiles</strong>.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <p>Recibirás un correo en <strong id="email-confirm"></strong> con el número de cuenta bancaria y el monto exacto a transferir (USD 247.50 + 19% IVA = <strong>USD 294.53</strong>).</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <p>Realiza la transferencia y envía tu comprobante a <strong>info@jarastraining.cl</strong>.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <p>Una vez confirmado el pago, recibirás los <strong>datos de conexión al curso</strong> y la factura electrónica.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <p>
+        Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br>
+        <a href="mailto:info@jarastraining.cl">info@jarastraining.cl</a> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
+        <a href="https://www.jarastraining.cl">www.jarastraining.cl</a> &nbsp;·&nbsp;
+        <a href="politica-privacidad.html">Política de Privacidad</a>
+    </p>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════
+// ZONA HORARIA
+// ═══════════════════════════════════════════════
+const CHILE_OFFSET = -4;
+const CHILE_UTC_HOUR = 10 - CHILE_OFFSET; // 14 UTC
+
+const COUNTRY_DATA = {
+    'Chile':     { offset: -4, flag: '🇨🇱' },
+    'Argentina': { offset: -3, flag: '🇦🇷' },
+    'Bolivia':   { offset: -4, flag: '🇧🇴' },
+    'Colombia':  { offset: -5, flag: '🇨🇴' },
+    'Ecuador':   { offset: -5, flag: '🇪🇨' },
+    'Guatemala': { offset: -6, flag: '🇬🇹' },
+    'México':    { offset: -6, flag: '🇲🇽' },
+    'Perú':      { offset: -5, flag: '🇵🇪' },
+};
+
+function formatHour(utcHour, offset) {
+    let h = utcHour + offset;
+    if (h < 0) h += 24;
+    if (h >= 24) h -= 24;
+    const suffix = h >= 12 ? 'PM' : 'AM';
+    const d = h > 12 ? h - 12 : (h === 0 ? 12 : h);
+    return `${d}:00 ${suffix}`;
+}
+
+function showLocalBlock(flag, name, timeStr) {
+    document.getElementById('local-country').textContent = flag + ' ' + name;
+    document.getElementById('local-time').textContent = timeStr;
+    document.getElementById('local-time-block').style.display = 'block';
+    document.getElementById('time-sep').style.display = 'block';
+}
+
+(function detectTZ() {
+    try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const tzMap = {
+            'America/Argentina/Buenos_Aires': { offset: -3, flag: '🇦🇷', name: 'Argentina' },
+            'America/La_Paz':    { offset: -4, flag: '🇧🇴', name: 'Bolivia' },
+            'America/Bogota':    { offset: -5, flag: '🇨🇴', name: 'Colombia' },
+            'America/Guayaquil': { offset: -5, flag: '🇪🇨', name: 'Ecuador' },
+            'America/Guatemala': { offset: -6, flag: '🇬🇹', name: 'Guatemala' },
+            'America/Mexico_City': { offset: -6, flag: '🇲🇽', name: 'México' },
+            'America/Lima':      { offset: -5, flag: '🇵🇪', name: 'Perú' },
+            'America/Caracas':   { offset: -4, flag: '🇻🇪', name: 'Venezuela' },
+            'America/Montevideo':{ offset: -3, flag: '🇺🇾', name: 'Uruguay' },
+            'America/Asuncion':  { offset: -4, flag: '🇵🇾', name: 'Paraguay' },
+            'America/Panama':    { offset: -5, flag: '🇵🇦', name: 'Panamá' },
+            'America/Costa_Rica':{ offset: -6, flag: '🇨🇷', name: 'Costa Rica' },
+            'America/Tegucigalpa':{ offset: -6, flag: '🇭🇳', name: 'Honduras' },
+            'America/Managua':   { offset: -6, flag: '🇳🇮', name: 'Nicaragua' },
+            'America/El_Salvador':{ offset: -6, flag: '🇸🇻', name: 'El Salvador' },
+        };
+        const loc = tzMap[tz];
+        if (loc) showLocalBlock(loc.flag, loc.name, formatHour(CHILE_UTC_HOUR, loc.offset));
+    } catch(e) {}
+})();
+
+function updateLocalTime() {
+    const val = document.getElementById('pais').value;
+    if (!val || !COUNTRY_DATA[val] || val === 'Chile') {
+        document.getElementById('local-time-block').style.display = 'none';
+        document.getElementById('time-sep').style.display = 'none';
+        return;
+    }
+    const d = COUNTRY_DATA[val];
+    showLocalBlock(d.flag, val, formatHour(CHILE_UTC_HOUR, d.offset));
+}
+
+// ═══════════════════════════════════════════════
+// MISMO PAGADOR
+// ═══════════════════════════════════════════════
+function togglePagador() {
+    const checked = document.getElementById('mismo-pagador').checked;
+    const campos = ['empresa', 'rut-empresa', 'direccion', 'contacto-nombre', 'contacto-email'];
+
+    if (checked) {
+        document.getElementById('empresa').value        = document.getElementById('nombre').value;
+        document.getElementById('rut-empresa').value    = document.getElementById('rut').value;
+        document.getElementById('direccion').value      = '';
+        document.getElementById('contacto-nombre').value = document.getElementById('nombre').value;
+        document.getElementById('contacto-email').value  = document.getElementById('email').value;
+        document.getElementById('lbl-factura').textContent = 'Datos del participante (como figura en la factura)';
+        campos.forEach(id => document.getElementById(id).disabled = true);
+    } else {
+        campos.forEach(id => {
+            document.getElementById(id).disabled = false;
+            document.getElementById(id).value = '';
+        });
+        document.getElementById('lbl-factura').textContent = 'Empresa o persona que recibirá la factura';
+    }
+}
+
+// ═══════════════════════════════════════════════
+// SELECCIÓN DE CURSO
+// ═══════════════════════════════════════════════
+let cursoSeleccionado = null;
+const CURSOS = {
+    1: 'Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales',
+    2: 'Diseño e Implementación de Sistemas de Notificación de Incendios y Tecnologías Especiales para la Detección basado en Estándares Internacionales',
+};
+
+function selectCourse(n) {
+    cursoSeleccionado = n;
+    document.querySelectorAll('.course-card').forEach(c => c.classList.remove('selected'));
+    document.getElementById('card-' + n).classList.add('selected');
+}
+
+// ═══════════════════════════════════════════════
+// VALIDACIÓN
+// ═══════════════════════════════════════════════
+const FIELDS = [
+    { id: 'nombre',          err: 'err-nombre' },
+    { id: 'rut',             err: 'err-rut' },
+    { id: 'email',           err: 'err-email' },
+    { id: 'telefono',        err: 'err-telefono' },
+    { id: 'cargo',           err: 'err-cargo' },
+    { id: 'pais',            err: 'err-pais' },
+    { id: 'empresa',         err: 'err-empresa' },
+    { id: 'contacto-nombre', err: 'err-contacto-nombre' },
+    { id: 'contacto-email',  err: 'err-contacto-email' },
+];
+
+function validate() {
+    let ok = true;
+    FIELDS.forEach(f => {
+        const el = document.getElementById(f.id);
+        const err = document.getElementById(f.err);
+        if (!el || el.disabled) return;
+        if (!el.value.trim()) {
+            el.classList.add('error');
+            err.textContent = 'Campo requerido';
+            ok = false;
+        } else {
+            el.classList.remove('error');
+            err.textContent = '';
+        }
+    });
+    if (!cursoSeleccionado) { alert('Por favor selecciona un curso.'); ok = false; }
+    if (!document.getElementById('terminos').checked) { alert('Debes aceptar la Política de Privacidad para continuar.'); ok = false; }
+    return ok;
+}
+
+// ═══════════════════════════════════════════════
+// ENVÍO A GOOGLE SHEETS
+// ═══════════════════════════════════════════════
+// ⚠️ Reemplazar con la URL del Google Apps Script desplegado
+const SCRIPT_URL = 'TU_SCRIPT_URL_AQUI';
+
+function enviarFormulario() {
+    if (!validate()) return;
+    const btn = document.getElementById('btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const email = document.getElementById('email').value.trim();
+    const pais = document.getElementById('pais').value;
+    const localTimeStr = COUNTRY_DATA[pais] ? formatHour(CHILE_UTC_HOUR, COUNTRY_DATA[pais].offset) : 'N/A';
+    const mismoPagador = document.getElementById('mismo-pagador').checked;
+
+    const payload = {
+        timestamp:        new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' }),
+        curso:            CURSOS[cursoSeleccionado],
+        fechas:           '4, 5, 6 y 7 de mayo 2026',
+        horario_chile:    '10:00 AM',
+        horario_local:    localTimeStr,
+        nombre:           document.getElementById('nombre').value.trim(),
+        rut:              document.getElementById('rut').value.trim(),
+        email:            email,
+        telefono:         document.getElementById('telefono').value.trim(),
+        cargo:            document.getElementById('cargo').value.trim(),
+        pais:             pais,
+        mismo_pagador:    mismoPagador ? 'Sí' : 'No',
+        empresa:          document.getElementById('empresa').value.trim(),
+        rut_empresa:      document.getElementById('rut-empresa').value.trim(),
+        direccion:        document.getElementById('direccion').value.trim(),
+        contacto_nombre:  document.getElementById('contacto-nombre').value.trim(),
+        contacto_email:   document.getElementById('contacto-email').value.trim(),
+        observaciones:    document.getElementById('observaciones').value.trim(),
+        precio_neto:      'USD 247.50',
+        iva:              '19%',
+        precio_total:     'USD 294.53',
+        estado_pago:      'Pendiente',
+        pago_confirmado:  'No',
+        informado:        'No',
+        datos_conexion:   'No enviados',
+        certificado:      'No',
+    };
+
+    fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+    })
+    .then(() => mostrarExito(email))
+    .catch(() => mostrarExito(email));
+}
+
+function mostrarExito(email) {
+    ['lbl-curso','course-section','form-participante','form-facturacion','form-obs','submit-card'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
+    document.getElementById('email-confirm').textContent = email;
+    document.getElementById('success-screen').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
