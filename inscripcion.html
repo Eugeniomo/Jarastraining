@@ -31,7 +31,7 @@
 
         /* HEADER */
         .page-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: #ffffff;
             border-bottom: 3px solid var(--primary);
             padding: 1.1rem 2rem;
             display: flex;
@@ -51,7 +51,7 @@
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 0.72rem; font-weight: 700;
             letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--accent); border: 1px solid rgba(245,158,11,0.4);
+            color: var(--primary-dark); border: 1px solid rgba(16,185,129,0.4);
             padding: 0.35rem 0.8rem; border-radius: 4px;
         }
 
@@ -323,8 +323,7 @@
 <!-- HEADER -->
 <header class="page-header">
     <a href="https://www.jarastraining.cl" class="logo-area">
-        <img src="logo-jdt.png" alt="Jaras Training" onerror="this.style.display='none'">
-        <span class="logo-text">Jaras Training</span>
+        <img src="logo-jdt.png" alt="Jaras Training">
     </a>
     <span class="header-badge">Inscripción Online</span>
 </header>
@@ -550,7 +549,7 @@
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <p>Realiza la transferencia y envía tu comprobante a <strong>info@jarastraining.cl</strong>.</p>
+                <p>Realiza la transferencia y envía tu comprobante a <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="84edeae2ebc4eee5f6e5f7f0f6e5edeaedeae3aae7e8">[email&#160;protected]</a></strong>.</p>
             </div>
             <div class="step">
                 <div class="step-num">4</div>
@@ -565,13 +564,13 @@
 <footer class="page-footer">
     <p>
         Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br>
-        <a href="mailto:info@jarastraining.cl">info@jarastraining.cl</a> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
+        <a href="/cdn-cgi/l/email-protection#472e292128072d263526343335262e292e292069242b"><span class="__cf_email__" data-cfemail="a4cdcac2cbe4cec5d6c5d7d0d6c5cdcacdcac38ac7c8">[email&#160;protected]</span></a> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
         <a href="https://www.jarastraining.cl">www.jarastraining.cl</a> &nbsp;·&nbsp;
         <a href="politica-privacidad.html">Política de Privacidad</a>
     </p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ═══════════════════════════════════════════════
 // ZONA HORARIA
 // ═══════════════════════════════════════════════
@@ -772,15 +771,4 @@ function enviarFormulario() {
 }
 
 function mostrarExito(email) {
-    ['lbl-curso','course-section','form-participante','form-facturacion','form-obs','submit-card'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.display = 'none';
-    });
-    document.getElementById('email-confirm').textContent = email;
-    document.getElementById('success-screen').classList.add('visible');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
-
-</body>
-</html>
+    ['lbl-curso','course-section','form-participante','form-fac
