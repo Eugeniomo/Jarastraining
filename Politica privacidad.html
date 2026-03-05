@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | Jaras Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --blue: #3b82f6;
+            --accent: #f59e0b;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--gray-100);
+            color: var(--gray-800);
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* HEADER */
+        .page-header {
+            background: #ffffff;
+            border-bottom: 3px solid var(--primary);
+            padding: 1.1rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-area img { height: 40px; width: auto; }
+        .logo-text {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.5rem; font-weight: 800;
+            background: linear-gradient(135deg, #10b981, #3b82f6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            letter-spacing: 0.04em; text-transform: uppercase;
+        }
+        .header-badge {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--primary-dark); border: 1px solid rgba(16,185,129,0.4);
+            padding: 0.35rem 0.8rem; border-radius: 4px;
+        }
+
+        /* HERO */
+        .doc-hero {
+            background: linear-gradient(90deg, var(--primary-dark), #0369a1);
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        .doc-hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.8rem; font-weight: 800;
+            color: #fff; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .doc-hero p { color: rgba(255,255,255,0.75); font-size: 0.85rem; margin-top: 0.3rem; }
+
+        /* CONTENT */
+        .doc-wrap {
+            max-width: 780px; margin: 2rem auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        .doc-card {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            padding: 2rem 2.5rem; margin-bottom: 1.25rem;
+        }
+
+        .doc-section { margin-bottom: 2rem; }
+        .doc-section:last-child { margin-bottom: 0; }
+
+        .section-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: 0.3rem;
+        }
+
+        h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.15rem; font-weight: 800;
+            color: var(--gray-800); text-transform: uppercase;
+            letter-spacing: 0.04em; margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-200);
+        }
+
+        p { font-size: 0.9rem; color: var(--gray-700); margin-bottom: 0.75rem; }
+        p:last-child { margin-bottom: 0; }
+
+        ul {
+            padding-left: 1.25rem; margin-bottom: 0.75rem;
+        }
+        ul li {
+            font-size: 0.9rem; color: var(--gray-700);
+            margin-bottom: 0.4rem; line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(16,185,129,0.06);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+            padding: 0.85rem 1rem;
+            margin: 0.75rem 0;
+            font-size: 0.88rem; color: var(--gray-700);
+        }
+
+        .contact-box {
+            background: var(--gray-100); border-radius: 8px;
+            padding: 1rem 1.25rem; margin-top: 0.75rem;
+            font-size: 0.88rem; color: var(--gray-700); line-height: 1.7;
+        }
+        .contact-box strong { color: var(--gray-800); }
+        .contact-box a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+        .update-date {
+            font-size: 0.78rem; color: var(--gray-600);
+            text-align: center; margin-top: 1.5rem;
+            padding-top: 1.5rem; border-top: 1px solid var(--gray-200);
+        }
+
+        /* FOOTER */
+        .page-footer {
+            background: var(--gray-900); padding: 1.25rem 2rem;
+            text-align: center; margin-top: 1rem;
+        }
+        .page-footer p { font-size: 0.75rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
+        .page-footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .doc-card { padding: 1.5rem; }
+            .page-header { flex-direction: column; gap: 0.75rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+    <a href="https://www.jarastraining.cl" class="logo-area">
+        <img src="logo-jdt.png" alt="Jaras Training" onerror="this.style.display='none'">
+    </a>
+    <span class="header-badge">Documento Legal</span>
+</header>
+
+<!-- HERO -->
+<div class="doc-hero">
+    <h1>Política de Privacidad</h1>
+    <p>Jaras Diesel Training SpA · Vigente desde mayo de 2026</p>
+</div>
+
+<!-- CONTENT -->
+<div class="doc-wrap">
+    <div class="doc-card">
+
+        <div class="doc-section">
+            <div class="section-num">Sección 1</div>
+            <h2>Responsable del Tratamiento</h2>
+            <p>Jaras Diesel Training SpA, RUT [COMPLETAR], con domicilio en Alcalde Guzmán 1431, Quilicura, Región Metropolitana, Chile, en adelante <strong>"Jaras Training"</strong>, es el responsable del tratamiento de los datos personales recabados a través del sitio web <a href="https://www.jarastraining.cl" style="color:var(--primary);">www.jarastraining.cl</a> y sus formularios asociados.</p>
+            <p>El tratamiento de datos se rige por la Ley N° 19.628 sobre Protección de la Vida Privada de la República de Chile y sus modificaciones posteriores.</p>
+        </div>
+
+        <div class="doc-section">
+            <div class="section-num">Sección 2</div>
+            <h2>Datos que recopilamos</h2>
+            <p>Al completar el formulario de inscripción, recopilamos los siguientes datos personales:</p>
+            <ul>
+                <li>Nombre completo y RUT o documento de identidad del participante</li>
+                <li>Correo electrónico y teléfono del participante</li>
+                <li>Cargo o posición y país de residencia</li>
+                <li>Razón social, RUT y dirección de la empresa o persona que factura</li>
+                <li>Nombre y correo electrónico del contacto de facturación</li>
+                <li>Observaciones o comentarios ingresados voluntariamente</li>
+            </ul>
+            <div class="highlight-box">
+                No recopilamos datos sensibles como información de salud, filiación política, creencias religiosas ni datos biométricos.
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <div class="section-num">Sección 3</div>
+            <h2>Finalidad del tratamiento</h2>
+            <p>Los datos recopilados se utilizan exclusivamente para:</p>
+            <ul>
+                <li>Procesar y confirmar la inscripción al curso seleccionado</li>
+                <li>Enviar instrucciones de pago y datos de conexión al curso</li>
+                <li>Emitir la factura electrónica correspondiente</li>
+                <li>Enviar el certificado de participación al término del curso</li>
+                <li>Comunicar información relevante sobre el curso (horarios, materiales, cambios)</li>
+                <li>Llevar el registro de asistencia y los informes de formación requeridos como OTEC</li>
+            </ul>
+            <p>No utilizamos los datos para publicidad de terceros ni los cedemos a empresas de marketing.</p>
+        </div>
+
+        <div class="doc-section">
+            <div class="section-num">Sección 4</div>
+            <h2>Conservación de los datos</h2>
+            <p>Los datos se conservan durante el tiempo necesario para cumplir las finalidades descritas y, como mínimo, durante el período exigido por la normativa tributaria y laboral chilena aplicable a organismos de capacitación (OTEC).</p>
+            <p>Una vez vencidos los plazos legales, los datos serán eliminados de forma segura.</p>
+        </div>
+
+        <div class="doc-section">
+            <div class="section-num">Sección 5</div>
+            <h2>Comunicación a terceros</h2>
+            <p>Jaras Training no vende ni cede datos personales a terceros. Los datos podrán ser comunicados únicamente en los siguientes casos:</p>
+            <ul>
+                <li>Al Servicio de Impuestos Internos (SII) en cumplimiento de obligaciones tributarias</li>
+                <li>A SENCE u organismos reguladores, en cumplimiento de obligaciones como OTEC</li>
+                <li>A proveedores tecnológicos que prestan servicios de almacenamiento o gestión de datos bajo acuerdos de confidencialidad (ej. Google Workspace)</li>
+                <li>Cuando sea requerido por mandato legal o resolución judicial</li>
+            </ul>
+        </div>
+
+        <div class="doc-section">
+            <div class="section-num">Sección 6</div>
+            <h2>Derechos del titular</h2>
+            <p>De conformidad con la Ley N° 19.628, el titular de los datos tiene derecho a:</p>
+            <ul>
+                <li><strong>Acceso:</strong> solicitar información sobre los datos que tenemos sobre usted</li>
+                <li><strong>Rectificación:</strong> corregir datos inexactos o incompletos</li>
+                <li><strong>Cancelación:</strong> solicitar la eliminación de sus datos cuando ya no sean necesarios</li>
+                <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos para fines de comunicaciones comerciales</li>
+            </ul>
+            <p>Para ejercer estos derechos, puede contactarnos por correo electrónico indicando claramente su solicitud:</p>
+            <div class="contact-box">
+                <strong>Jaras Diesel Training SpA</strong><br>
+                <a href="/cdn-cgi/l/email-protection#d0b9beb6bf90bab1a2b1a3a4a2b1b9beb9beb7feb3bc"><span class="__cf_email__" data-cfemail="87eee9e1e8c7ede6f5e6f4f3f5e6eee9eee9e0a9e4eb">[email&#160;protected]</span></a><br>
+                Alcalde Guzmán 1431, Quilicura, Santiago, Chile<br>
+                Lunes a viernes, 09:00 a 13:00 hrs.
+            </div>
+        </div>
+
+        <div class="doc-section">
+            <div class="section-num">Sección 7</div>
+            <h2>Seguridad de los datos</h2>
+            <p>Jaras Training implementa medidas técnicas y organizativas razonables para proteger los datos personales contra acceso no autorizado, pérdida, alteración o divulgación. Los datos del formulario de inscripción se almacenan en plataformas con acceso restringido y autenticación.</p>
+        </div>
+
+        <div class="doc-section">
+            <div class="section-num">Sección 8</div>
+            <h2>Modificaciones</h2>
+            <p>Esta política podrá ser actualizada para reflejar cambios legales o en nuestros procesos. La versión vigente estará siempre disponible en <a href="https://www.jarastraining.cl/politica-privacidad.html" style="color:var(--primary);">www.jarastraining.cl/politica-privacidad.html</a>. Los cambios sustanciales serán comunicados por correo electrónico a quienes tengan inscripciones activas.</p>
+        </div>
+
+        <div class="update-date">
+            Última actualización: mayo de 2026 &nbsp;·&nbsp; Jaras Diesel Training SpA
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <p>
+        Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br>
+        <a href="/cdn-cgi/l/email-protection#6f060109002f050e1d0e1c1b1d0e0601060108410c03"><span class="__cf_email__" data-cfemail="8ae3e4ece5cae0ebf8ebf9fef8
