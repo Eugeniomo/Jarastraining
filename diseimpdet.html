@@ -244,8 +244,15 @@
             .course-hero h1 { font-size: 1.4rem; }
             .docente-grid { grid-template-columns: 1fr; }
             .docente-item.full { grid-column: 1; }
-            .pricing-block { flex-direction: column; }
             .page-header { flex-direction: column; gap: 0.75rem; text-align: center; }
+            .pricing-block { flex-direction: column; }
+            /* colapsar grid de precios en móvil */
+            .card-body > div[style*="grid-template-columns:1fr 2px 1fr 2px 1fr"] {
+                display: flex !important; flex-direction: column; gap: 1rem;
+            }
+            .card-body > div[style*="grid-template-columns:1fr 2px 1fr 2px 1fr"] > div[style*="background:var(--gray-200)"] {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -480,38 +487,60 @@
     <div class="card">
         <div class="card-header"><div class="icon">💰</div><h2>Valor del curso y proceso de pago</h2></div>
         <div class="card-body">
-            <div class="pricing-block">
-                <div class="pricing-left">
+            <div style="display:grid; grid-template-columns:1fr 1px 1fr 1px 1fr; gap:0; align-items:stretch;">
+
+                <!-- PRECIO USD -->
+                <div style="padding:0 1.25rem 0 0;">
+                    <div class="pago-title" style="margin-bottom:0.75rem;">Dólares (USD)</div>
                     <div class="price-top">
                         <span class="price-original">USD 330</span>
-                        <span class="price-badge">−25% LANZAMIENTO</span>
+                        <span class="price-badge">−25%</span>
                     </div>
                     <div class="price-main">USD 247.50</div>
                     <div class="price-iva">+ 19% IVA (USD 47.03)</div>
-                    <div class="price-total">Total a pagar: USD 294.53</div>
+                    <div class="price-total" style="margin-top:0.5rem;">Total: USD 294.53</div>
                 </div>
-                <div class="pricing-right">
-                    <div class="pago-title">Proceso de pago</div>
+
+                <!-- SEPARADOR -->
+                <div style="background:var(--gray-200); width:1px;"></div>
+
+                <!-- PRECIO CLP -->
+                <div style="padding:0 1.25rem;">
+                    <div class="pago-title" style="margin-bottom:0.75rem;">Pesos chilenos (CLP)</div>
+                    <div class="price-top">
+                        <span class="price-original">$233.375 CLP</span>
+                        <span class="price-badge">−25%</span>
+                    </div>
+                    <div class="price-main" style="font-size:1.85rem;">$240.075 CLP</div>
+                    <div class="price-iva">+ 19% IVA ($45.614 CLP)</div>
+                    <div class="price-total" style="margin-top:0.5rem;">Total: $285.694 CLP</div>
+                    <div style="font-size:0.7rem; color:var(--gray-600); margin-top:0.4rem; text-align:left;">Tipo de cambio referencial al 1 de mayo 2026</div>
+                </div>
+
+                <!-- SEPARADOR -->
+                <div style="background:var(--gray-200); width:1px;"></div>
+
+                <!-- PROCESO DE PAGO -->
+                <div style="padding:0 0 0 1.25rem;">
+                    <div class="pago-title" style="margin-bottom:0.75rem;">Proceso de pago</div>
                     <div class="pago-step">
                         <div class="pago-num">1</div>
                         <p>Completa el formulario de inscripción.</p>
                     </div>
                     <div class="pago-step">
                         <div class="pago-num">2</div>
-                        <p>Confirmamos tu cupo y te enviamos los datos para la transferencia bancaria.</p>
+                        <p>Confirmamos tu cupo y te enviamos los datos de transferencia.</p>
                     </div>
                     <div class="pago-step">
                         <div class="pago-num">3</div>
-                        <p>Realizas la transferencia y envías el comprobante a <strong>info@jarastraining.cl</strong>.</p>
+                        <p>Transfieres y envías el comprobante a <strong>info@jarastraining.cl</strong>.</p>
                     </div>
                     <div class="pago-step">
                         <div class="pago-num">4</div>
-                        <p>Confirmado el pago, recibes los datos de acceso al curso y la factura electrónica.</p>
+                        <p>Recibes acceso al curso y la factura electrónica.</p>
                     </div>
                 </div>
-            </div>
-            <div class="tax-notice">
-                <strong>Documento tributario:</strong> Jaras Diesel Training SpA emite factura electrónica en USD según normativa tributaria chilena. El precio incluye 19% de IVA. Si tu empresa requiere documento tributario local, consulta con tu área contable antes de inscribirte.
+
             </div>
         </div>
     </div>
@@ -529,12 +558,4 @@
 <!-- FOOTER -->
 <footer class="page-footer">
     <p>
-        Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br>
-        <a href="mailto:info@jarastraining.cl">info@jarastraining.cl</a> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
-        <a href="https://www.jarastraining.cl">www.jarastraining.cl</a> &nbsp;·&nbsp;
-        <a href="politica-privacidad.html">Política de Privacidad</a>
-    </p>
-</footer>
-
-</body>
-</html>
+        Jaras Diesel Training SpA &nbsp;·&nbsp;
