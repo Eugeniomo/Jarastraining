@@ -548,11 +548,12 @@
 
 </div>
 
+</div>
+
 <!-- FOOTER -->
 <footer class="page-footer">
     <p>
-        Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br>
-        <script>document.write('info@jara'+('straining.cl'))</script> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
+        Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br> +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
         <a href="https://www.jarastraining.cl">www.jarastraining.cl</a> &nbsp;·&nbsp;
         <a href="politica-privacidad.html">Política de Privacidad</a>
     </p>
@@ -774,14 +775,27 @@ function mostrarExito(email) {
 }
 
 // ═══════════════════════════════════════════════
-// PRESELECCIÓN DE CURSO VIA PARÁMETRO URL (?curso=1 o ?curso=2)
+// PRESELECCIÓN DE CURSO VIA PARÁMETRO URL
 // ═══════════════════════════════════════════════
-(function preseleccionarCurso() {
+document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const curso = params.get('curso');
     if (curso === '1' || curso === '2') {
         const n = parseInt(curso);
-        // Ocultar el otro curso
         const otro = n === 1 ? 2 : 1;
+        // Ocultar la card del otro curso
         const otroCard = document.getElementById('card-' + otro);
-        if (
+        if (otroCard) otroCard.style.display = 'none';
+        // Seleccionar este curso
+        selectCourse(n);
+        // Scroll al formulario
+        setTimeout(() => {
+            const form = document.getElementById('form-participante');
+            if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400);
+    }
+});
+</script>
+
+</body>
+</html>
