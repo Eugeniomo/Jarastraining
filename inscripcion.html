@@ -760,12 +760,17 @@ function enviarFormulario() {
         certificado:      'No',
     };
 
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-    })
+    const timeout = new Promise(resolve => setTimeout(resolve, 8000));
+
+    Promise.race([
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        }),
+        timeout
+    ])
     .then(() => mostrarExito(email))
     .catch(() => mostrarExito(email));
 }
@@ -784,4 +789,24 @@ function mostrarExito(email) {
 // PRESELECCIÓN DE CURSO VIA PARÁMETRO URL (?curso=1 o ?curso=2)
 // ═══════════════════════════════════════════════
 (function preseleccionarCurso() {
-    const params = new URLSearchParams(window.loca
+    const params = new URLSearchParams(window.location.search);
+    const curso = params.get('curso');
+    if (curso === '1' || curso === '2') {
+        const n = parseInt(curso);
+        // Ocultar el otro curso
+        const otro = n === 1 ? 2 : 1;
+        const otroCard = document.getElementById('card-' + otro);
+        if (otroCard) otroCard.style.display = 'none';
+        // Seleccionar este curso
+        selectCourse(n);
+        // Scroll al formulario
+        setTimeout(() => {
+            const form = document.getElementById('form-participante');
+            if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    }
+})();
+</script>
+
+</body>
+</html>
