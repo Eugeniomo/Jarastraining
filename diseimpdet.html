@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño e Implementación de Tecnologías para la Detección de Incendios | Jaras Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --blue: #3b82f6;
+            --accent: #f59e0b;
+            --red: #dc2626;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--gray-100);
+            min-height: 100vh;
+            color: var(--gray-800);
+            text-align: justify;
+        }
+
+        /* HEADER */
+        .page-header {
+            background: #ffffff;
+            border-bottom: 3px solid var(--primary);
+            padding: 1.1rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-area img { height: 40px; width: auto; }
+        .header-badge {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--primary-dark); border: 1px solid rgba(16,185,129,0.4);
+            padding: 0.35rem 0.8rem; border-radius: 4px;
+        }
+
+        /* HERO */
+        .course-hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-bottom: 3px solid var(--primary);
+            padding: 2.5rem 2rem;
+        }
+        .course-hero-inner { max-width: 780px; margin: 0 auto; }
+        .course-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .course-tag::before { content: ''; width: 20px; height: 2px; background: var(--primary); }
+        .course-hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.9rem; font-weight: 800;
+            color: #fff; text-transform: uppercase;
+            letter-spacing: 0.03em; line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+        .hero-meta { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .hero-chip {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px; padding: 0.35rem 0.85rem;
+            font-size: 0.8rem; color: rgba(255,255,255,0.8);
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+
+        /* MAIN WRAP */
+        .page-wrap { max-width: 780px; margin: 2rem auto; padding: 0 1.5rem 3rem; }
+
+        .section-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: 0.85rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+        /* CARDS */
+        .card {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            overflow: hidden; margin-bottom: 1.25rem;
+        }
+        .card-header {
+            background: var(--gray-800); padding: 0.85rem 1.4rem;
+            display: flex; align-items: center; gap: 0.75rem;
+        }
+        .card-header .icon {
+            width: 28px; height: 28px; background: var(--primary);
+            border-radius: 5px; display: flex; align-items: center;
+            justify-content: center; font-size: 0.9rem; flex-shrink: 0;
+        }
+        .card-header h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.95rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em; color: #fff;
+        }
+        .card-body { padding: 1.4rem; }
+
+        /* DESCRIPCIÓN */
+        .card-body p { font-size: 0.9rem; color: var(--gray-700); line-height: 1.7; }
+
+        /* TEMARIO */
+        .module { margin-bottom: 1.25rem; }
+        .module:last-child { margin-bottom: 0; }
+        .module-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.92rem; font-weight: 800;
+            color: var(--gray-800); text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: flex; align-items: center; gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .module-num {
+            background: var(--primary); color: #fff;
+            font-size: 0.72rem; font-weight: 700;
+            padding: 0.2rem 0.5rem; border-radius: 3px;
+            flex-shrink: 0;
+        }
+        .module-items {
+            padding-left: 1.1rem;
+            border-left: 2px solid var(--gray-200);
+            margin-left: 0.4rem;
+        }
+        .module-item {
+            font-size: 0.84rem; color: var(--gray-600);
+            padding: 0.2rem 0 0.2rem 0.75rem;
+            line-height: 1.5; text-align: left;
+        }
+        .module-divider { height: 1px; background: var(--gray-200); margin: 1rem 0; }
+
+        /* DOCENTE */
+        .docente-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .docente-item { }
+        .docente-label {
+            font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: 0.2rem;
+        }
+        .docente-value { font-size: 0.88rem; color: var(--gray-700); line-height: 1.5; }
+        .docente-item.full { grid-column: 1/-1; }
+
+        /* PRECIO */
+        .pricing-block {
+            display: flex; align-items: flex-start;
+            justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+        }
+        .pricing-left { flex: 1; }
+        .price-top {
+            display: flex; align-items: center; gap: 0.5rem;
+            margin-bottom: 0.3rem; flex-wrap: wrap;
+        }
+        .price-original { font-size: 0.9rem; color: var(--gray-600); text-decoration: line-through; }
+        .price-badge {
+            font-size: 0.68rem; font-weight: 700;
+            background: var(--accent); color: #fff;
+            padding: 0.15rem 0.5rem; border-radius: 3px;
+        }
+        .price-main {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 2.4rem; font-weight: 800;
+            color: var(--primary-dark); line-height: 1;
+        }
+        .price-iva { font-size: 0.8rem; color: var(--gray-600); margin-top: 0.2rem; }
+        .price-total {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1rem; font-weight: 700;
+            color: var(--gray-800); margin-top: 0.4rem;
+        }
+        .pricing-right { min-width: 200px; }
+        .pago-title {
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--gray-600); margin-bottom: 0.6rem;
+        }
+        .pago-step {
+            display: flex; gap: 0.65rem; align-items: flex-start;
+            margin-bottom: 0.55rem;
+        }
+        .pago-num {
+            width: 20px; height: 20px; background: var(--blue);
+            border-radius: 50%; color: #fff; font-size: 0.68rem;
+            font-weight: 700; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0; margin-top: 0.1rem;
+        }
+        .pago-step p { font-size: 0.82rem; color: var(--gray-700); line-height: 1.5; text-align: left; }
+        .tax-notice {
+            background: rgba(245,158,11,0.08);
+            border: 1px solid rgba(245,158,11,0.3);
+            border-radius: 8px; padding: 0.75rem 1rem;
+            font-size: 0.78rem; color: var(--gray-700);
+            line-height: 1.55; margin-top: 1rem;
+        }
+        .tax-notice strong { color: var(--gray-800); }
+
+        /* CTA */
+        .cta-card {
+            background: linear-gradient(135deg, var(--primary-dark), #0369a1);
+            border-radius: 12px; padding: 2rem 1.75rem;
+            text-align: center;
+        }
+        .cta-card h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.5rem; font-weight: 800;
+            color: #fff; text-transform: uppercase;
+            letter-spacing: 0.04em; margin-bottom: 0.5rem;
+        }
+        .cta-card p { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 1.25rem; text-align: center; }
+        .btn-cta {
+            display: inline-block;
+            background: #fff; color: var(--primary-dark);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.1rem; font-weight: 800;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 0.85rem 2.5rem; border-radius: 8px;
+            text-decoration: none; transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+        .cta-note { font-size: 0.76rem; color: rgba(255,255,255,0.6); margin-top: 0.75rem; text-align: center; }
+
+        /* FOOTER */
+        .page-footer {
+            background: var(--gray-900); padding: 1.25rem 2rem;
+            text-align: center;
+        }
+        .page-footer p { font-size: 0.75rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
+        .page-footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .course-hero h1 { font-size: 1.4rem; }
+            .docente-grid { grid-template-columns: 1fr; }
+            .docente-item.full { grid-column: 1; }
+            .pricing-block { flex-direction: column; }
+            .page-header { flex-direction: column; gap: 0.75rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+    <a href="https://www.jarastraining.cl" class="logo-area">
+        <img src="logo-jdt.png" alt="Jaras Training" onerror="this.style.display='none'">
+    </a>
+    <span class="header-badge">Programa de Formación</span>
+</header>
+
+<!-- HERO -->
+<div class="course-hero">
+    <div class="course-hero-inner">
+        <div class="course-tag">Protección Contra Incendios · NFPA 72</div>
+        <h1>Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales</h1>
+        <div class="hero-meta">
+            <span class="hero-chip">📅 4, 5, 6 y 7 de mayo 2026</span>
+            <span class="hero-chip">⏱ 4 sesiones · 4 horas c/u</span>
+            <span class="hero-chip">🌐 Online · Toda Latinoamérica</span>
+            <span class="hero-chip">📋 Certificado incluido</span>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+
+    <!-- DESCRIPCIÓN -->
+    <div class="section-label">Descripción del curso</div>
+    <div class="card" style="margin-bottom:1.25rem;">
+        <div class="card-body">
+            <p>El estudiante adquiere conciencia y conocimientos para la selección, distribución e instalación de dispositivos de detección, notificación y audio evacuación de incendios en base a las condiciones estructurales y ambientales en el recinto a proteger y los materiales combustibles que participan en el proceso de combustión, así como también, la integración y lógica de operación que debe tener el sistema de detección de incendios con las otras especialidades participantes en las acciones de evacuación o reubicación de personas.</p>
+        </div>
+    </div>
+
+    <!-- DOCENTE -->
+    <div class="section-label">Docente</div>
+    <div class="card">
+        <div class="card-header"><div class="icon">👨‍🏫</div><h2>Profesorado</h2></div>
+        <div class="card-body">
+            <div class="docente-grid">
+                <div class="docente-item full">
+                    <div class="docente-label">Nombre</div>
+                    <div class="docente-value">D. Francisco Sobarzo Castro</div>
+                </div>
+                <div class="docente-item">
+                    <div class="docente-label">Formación</div>
+                    <div class="docente-value">Ingeniero Electrónico — Escuela de Electrónica, Universidad Tecnológica Metropolitana. Certificación internacional para programación y configuración de paneles de Detección de Incendios.</div>
+                </div>
+                <div class="docente-item">
+                    <div class="docente-label">Experiencia profesional</div>
+                    <div class="docente-value">Gerente Regional División Global Fire Detection Products — Johnson Controls.</div>
+                </div>
+                <div class="docente-item full">
+                    <div class="docente-label">Experiencia docente</div>
+                    <div class="docente-value">Docente en el Máster en Detección y Supresión de Incendios, Universidad de San José de Costa Rica · Docente en el Máster en Posgrado Internacional — ESSIIF y U11.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEMARIO -->
+    <div class="section-label" style="margin-top:1.25rem;">Temario</div>
+    <div class="card">
+        <div class="card-header"><div class="icon">📚</div><h2>Revisión de contenido</h2></div>
+        <div class="card-body">
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">01</span> Creando conciencia</div>
+                <div class="module-items">
+                    <div class="module-item">1.1 Tragedias, Causas y Resultados</div>
+                    <div class="module-item">1.2 Recreaciones de Incendios en Espacios Habitacionales</div>
+                    <div class="module-item">1.3 Efecto Flashover, Rollover y Backdraft</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">02</span> Características y comportamiento del proceso de combustión</div>
+                <div class="module-items">
+                    <div class="module-item">2.1 El Fuego · 2.2 Clasificación del Fuego · 2.3 Energía de Ignición</div>
+                    <div class="module-item">2.4 Clasificación del Proceso de Combustión</div>
+                    <div class="module-item">2.5 Transferencia y Propagación del Fuego · 2.6 Identidad del Fuego</div>
+                    <div class="module-item">2.7 El Fuego y su Efecto en las Personas</div>
+                    <div class="module-item">2.8 Gases Presentes en un Incendio y sus Efectos</div>
+                    <div class="module-item">2.9 Etapas del Proceso de Combustión y Carga Combustible</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">03</span> Sistemas de detección y alarma de incendios</div>
+                <div class="module-items">
+                    <div class="module-item">3.1 Propósito de un Sistema de Detección de Incendios</div>
+                    <div class="module-item">3.2 Tipos de Tecnologías de los Sistemas de Detección</div>
+                    <div class="module-item">3.3 Módulo Monitor, Control NAC, Control Relé y Descarga</div>
+                    <div class="module-item">3.4 Señales Básicas · 3.5 Composición Básica · 3.6 Supervivencia y Cálculo de Baterías</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">04</span> Funciones complementarias</div>
+                <div class="module-items">
+                    <div class="module-item">4.1 Funciones de Control de Emergencias · 4.2 Captura de Elevadores</div>
+                    <div class="module-item">4.3 Fases en la Captura de Elevadores · 4.4 Puertas Corta Fuego</div>
+                    <div class="module-item">4.5 Control de Humo y Gases Tóxicos</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">05</span> Tipos de cableado de los sistemas</div>
+                <div class="module-items">
+                    <div class="module-item">5.1 Clase A para Sistemas Convencionales e Inteligentes</div>
+                    <div class="module-item">5.2 Clase B para Sistemas Convencionales · 5.3 Clase B para Sistemas Inteligentes</div>
+                    <div class="module-item">5.4 Clase B Estilo 4 · 5.5 Clase A Estilo 6 · 5.6 Clase A Estilo 7 para Sistemas Inteligentes</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">06</span> Éxito de un sistema de detección y alarma</div>
+                <div class="module-items">
+                    <div class="module-item">6.1 Prioridades de un Sistema de Detección y Alarma</div>
+                    <div class="module-item">6.2 Sistema Seguro y Confiable · 6.3 Clave del Éxito de un Sistema</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">07</span> Definiciones importantes</div>
+                <div class="module-items">
+                    <div class="module-item">7.1 Estándar, Norma y Código · 7.2 NFPA, NFPA 72 y Otros Códigos</div>
+                    <div class="module-item">7.3 UL, ULC y Factory Mutual (FM Global)</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">08</span> Consideraciones generales de diseño</div>
+                <div class="module-items">
+                    <div class="module-item">8.1 Responsabilidad del Ingeniero · 8.2 Características y Distribución de la Instalación</div>
+                    <div class="module-item">8.3 Ocupación · 8.4 Alcance del Diseño · 8.5 Proceso de Selección · 8.6 Resguardos</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">09</span> Estaciones manuales de alarma — Ubicación y espaciamiento</div>
+                <div class="module-items">
+                    <div class="module-item">9.1 Generalidades · 9.2 Lineamientos ADA · 9.3 Uso y Color según NFPA 72</div>
+                    <div class="module-item">9.4 Ubicación y Espaciamiento según NFPA 72 · 9.5 Diferencias con EN-54</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">10</span> Sensores de calor — Ubicación y espaciamiento según NFPA 72</div>
+                <div class="module-items">
+                    <div class="module-item">10.1 Generalidades · 10.2 Clasificación del Detector de Calor</div>
+                    <div class="module-item">10.3 Ubicación en Muros y Cielorrasos · 10.4 Espaciamiento en Áreas Rectangulares y Corredores</div>
+                    <div class="module-item">10.5 Análisis de Espacios Irregulares · 10.6 Cielorrasos Elevados</div>
+                    <div class="module-item">10.7 Techos con Vigas · 10.8 Áreas con Tabiques · 10.9 Techos Inclinados · 10.10 Techos Curvos</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">11</span> Sensores de humo — Ubicación y espaciamiento según NFPA 72</div>
+                <div class="module-items">
+                    <div class="module-item">11.1 Generalidades · 11.2 Efecto de Estratificación</div>
+                    <div class="module-item">11.3 Etapa de Instalación y Sensibilidad · 11.4 Visión General</div>
+                    <div class="module-item">11.5 Ubicación en Cielorrasos y Muros · 11.6 Área de Cobertura</div>
+                    <div class="module-item">11.7 Reducción de Espaciamiento · 11.8 Pisos Técnicos y Cielos Suspendidos</div>
+                    <div class="module-item">11.9 Espaciamiento Regular · 11.10 Áreas Rectangulares · 11.11 Espacios Irregulares</div>
+                    <div class="module-item">11.12 Áreas de Cocina · 11.13 Techos con Vigas · 11.14 Espacios Ventilados</div>
+                    <div class="module-item">11.15 Grillas y Entre Techos · 11.16 Techos Elevados</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">12</span> Detectores de rayos lineales</div>
+                <div class="module-items">
+                    <div class="module-item">12.1 Generalidades · 12.2 Alcance y Cobertura · 12.3 Ubicación y Espaciamiento</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">13</span> Detector lineal de temperatura</div>
+                <div class="module-items">
+                    <div class="module-item">13.1 Descripción General · 13.2 Ubicación y Espaciamiento</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">14</span> Sensores de humo en ductos según NFPA 72</div>
+                <div class="module-items">
+                    <div class="module-item">14.1 Ubicación y Espaciamiento de Sensores en Ducto</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">15</span> Aplicación en correas transportadoras</div>
+                <div class="module-items">
+                    <div class="module-item">15.1 Descripción General · 15.2 Principales Causas de Incendio</div>
+                    <div class="module-item">15.3 Detección de Incendios Mediante LHD</div>
+                </div>
+            </div>
+            <div class="module-divider"></div>
+
+            <div class="module">
+                <div class="module-title"><span class="module-num">16</span> Ejercicios de repaso</div>
+                <div class="module-items">
+                    <div class="module-item">16.1 Ejercicio (a) Detectores / Sensores de Calor</div>
+                    <div class="module-item">16.2 Ejercicio (b) Detectores / Detectores de Humo</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PRECIO Y PAGO -->
+    <div class="section-label" style="margin-top:1.25rem;">Inversión y medios de pago</div>
+    <div class="card">
+        <div class="card-header"><div class="icon">💰</div><h2>Valor del curso y proceso de pago</h2></div>
+        <div class="card-body">
+            <div class="pricing-block">
+                <div class="pricing-left">
+                    <div class="price-top">
+                        <span class="price-original">USD 330</span>
+                        <span class="price-badge">−25% LANZAMIENTO</span>
+                    </div>
+                    <div class="price-main">USD 247.50</div>
+                    <div class="price-iva">+ 19% IVA (USD 47.03)</div>
+                    <div class="price-total">Total a pagar: USD 294.53</div>
+                </div>
+                <div class="pricing-right">
+                    <div class="pago-title">Proceso de pago</div>
+                    <div class="pago-step">
+                        <div class="pago-num">1</div>
+                        <p>Completa el formulario de inscripción.</p>
+                    </div>
+                    <div class="pago-step">
+                        <div class="pago-num">2</div>
+                        <p>Confirmamos tu cupo y te enviamos los datos para la transferencia bancaria.</p>
+                    </div>
+                    <div class="pago-step">
+                        <div class="pago-num">3</div>
+                        <p>Realizas la transferencia y envías el comprobante a <strong>info@jarastraining.cl</strong>.</p>
+                    </div>
+                    <div class="pago-step">
+                        <div class="pago-num">4</div>
+                        <p>Confirmado el pago, recibes los datos de acceso al curso y la factura electrónica.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tax-notice">
+                <strong>Documento tributario:</strong> Jaras Diesel Training SpA emite factura electrónica en USD según normativa tributaria chilena. El precio incluye 19% de IVA. Si tu empresa requiere documento tributario local, consulta con tu área contable antes de inscribirte.
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+        <h3>¿Listo para inscribirte?</h3>
+        <p>Cupos limitados · Curso online para toda Latinoamérica · 4, 5, 6 y 7 de mayo 2026</p>
+        <a href="inscripcion.html?curso=1" class="btn-cta">Inscribirse ahora →</a>
+        <p class="cta-note">Al hacer clic serás dirigido al formulario con este curso preseleccionado</p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+    <p>
+        Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br>
+        <a href="mailto:info@jarastraining.cl">info@jarastraining.cl</a> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
+        <a href="https://www.jarastraining.cl">www.jarastraining.cl</a> &nbsp;·&nbsp;
+        <a href="politica-privacidad.html">Política de Privacidad</a>
+    </p>
+</footer>
+
+</body>
+</html>
