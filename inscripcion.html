@@ -549,7 +549,7 @@
             </div>
             <div class="step">
                 <div class="step-num">3</div>
-                <p>Realiza la transferencia y envía tu comprobante a <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="84edeae2ebc4eee5f6e5f7f0f6e5edeaedeae3aae7e8">[email&#160;protected]</a></strong>.</p>
+                <p>Realiza la transferencia y envía tu comprobante a <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f59c9b939ab59f948794868187949c9b9c9b92db9699">[email&#160;protected]</a></strong>.</p>
             </div>
             <div class="step">
                 <div class="step-num">4</div>
@@ -564,7 +564,7 @@
 <footer class="page-footer">
     <p>
         Jaras Diesel Training SpA &nbsp;·&nbsp; Quilicura, Santiago, Chile<br>
-        <a href="/cdn-cgi/l/email-protection#472e292128072d263526343335262e292e292069242b"><span class="__cf_email__" data-cfemail="a4cdcac2cbe4cec5d6c5d7d0d6c5cdcacdcac38ac7c8">[email&#160;protected]</span></a> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
+        <a href="/cdn-cgi/l/email-protection#167f787079567c776477656264777f787f787138757a"><span class="__cf_email__" data-cfemail="cda4a3aba28da7acbfacbeb9bfaca4a3a4a3aae3aea1">[email&#160;protected]</span></a> &nbsp;·&nbsp; +56 9 8131 9416 &nbsp;·&nbsp; Lun–Vie 09:00–13:00<br>
         <a href="https://www.jarastraining.cl">www.jarastraining.cl</a> &nbsp;·&nbsp;
         <a href="politica-privacidad.html">Política de Privacidad</a>
     </p>
@@ -718,7 +718,7 @@ function validate() {
 // ENVÍO A GOOGLE SHEETS
 // ═══════════════════════════════════════════════
 // ⚠️ Reemplazar con la URL del Google Apps Script desplegado
-const SCRIPT_URL = 'TU_SCRIPT_URL_AQUI';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxP8Zy_GOuSHXjJ8vISbRlzlerqaKjnM0Tr2uoKSTCE9hJrB1ml2tUmjqBw3AXZ8xLj/exec';
 
 function enviarFormulario() {
     if (!validate()) return;
@@ -771,4 +771,17 @@ function enviarFormulario() {
 }
 
 function mostrarExito(email) {
-    ['lbl-curso','course-section','form-participante','form-fac
+    ['lbl-curso','course-section','form-participante','form-facturacion','form-obs','submit-card'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
+    document.getElementById('email-confirm').textContent = email;
+    document.getElementById('success-screen').classList.add('visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════════════════
+// PRESELECCIÓN DE CURSO VIA PARÁMETRO URL (?curso=1 o ?curso=2)
+// ═══════════════════════════════════════════════
+(function preseleccionarCurso() {
+    const params = new URLSearchParams(window.loca
