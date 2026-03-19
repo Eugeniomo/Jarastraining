@@ -136,11 +136,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .legend-item { display: flex; align-items: center; gap: 0.5rem; }
         
         .legend-badge {
             padding: 0.4rem 1rem;
@@ -153,13 +149,9 @@
         .badge-planificado { background: #dbeafe; color: #1e40af; }
         .badge-finalizado { background: #e5e7eb; color: #374151; }
         
-        .timeline {
-            position: relative;
-        }
+        .timeline { position: relative; }
         
-        .month-section {
-            margin-bottom: 3rem;
-        }
+        .month-section { margin-bottom: 3rem; }
         
         .month-header {
             background: var(--gradient-primary);
@@ -200,10 +192,8 @@
         .event-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
             background: var(--gradient-primary);
         }
         
@@ -222,14 +212,9 @@
             margin-bottom: 0.5rem;
         }
         
-        .event-duration {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-        }
+        .event-duration { color: var(--gray-600); font-size: 0.9rem; }
         
-        .event-body {
-            padding: 1.5rem;
-        }
+        .event-body { padding: 1.5rem; }
         
         .event-title {
             font-size: 1.2rem;
@@ -282,14 +267,8 @@
         .status-planificado { background: #dbeafe; color: #1e40af; }
         .status-finalizado { background: #e5e7eb; color: #374151; }
         
-        .cupos-info {
-            font-weight: 600;
-            color: var(--gray-700);
-        }
-        
-        .cupos-disponibles {
-            color: var(--primary-color);
-        }
+        .cupos-info { font-weight: 600; color: var(--gray-700); }
+        .cupos-disponibles { color: var(--primary-color); }
         
         .empty-state {
             text-align: center;
@@ -298,12 +277,7 @@
             border-radius: 20px;
         }
         
-        .empty-state h3 {
-            font-size: 1.5rem;
-            color: var(--gray-700);
-            margin-bottom: 0.5rem;
-        }
-        
+        .empty-state h3 { font-size: 1.5rem; color: var(--gray-700); margin-bottom: 0.5rem; }
         .empty-state p { color: var(--gray-600); }
         
         .loading {
@@ -311,6 +285,36 @@
             padding: 4rem;
             font-size: 1.2rem;
             color: var(--gray-600);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 0.85rem 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            background: #1ebe5d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+        }
+        .whatsapp-float svg { width: 24px; height: 24px; flex-shrink: 0; }
+        @media (max-width: 480px) {
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 0.9rem; border-radius: 50%; }
         }
         
         @media (max-width: 768px) {
@@ -336,7 +340,6 @@
                         <option value="">Todos los cursos</option>
                     </select>
                 </div>
-                
                 <div class="control-group">
                     <label for="estadoFilter">Filtrar por estado</label>
                     <select id="estadoFilter">
@@ -346,7 +349,6 @@
                         <option value="Finalizado">Finalizado</option>
                     </select>
                 </div>
-                
                 <div class="control-group">
                     <label for="periodoFilter">Período</label>
                     <select id="periodoFilter">
@@ -358,29 +360,28 @@
                     </select>
                 </div>
             </div>
-            
             <div class="view-toggle">
-                <button class="view-btn active" onclick="setView('month')">Vista Mensual</button>
-                <button class="view-btn" onclick="setView('list')">Vista Lista</button>
+                <button class="view-btn active" onclick="setView('month', this)">Vista Mensual</button>
+                <button class="view-btn" onclick="setView('list', this)">Vista Lista</button>
             </div>
         </div>
         
         <div class="legend">
-            <div class="legend-item">
-                <span class="legend-badge badge-abierto">Abierto para Inscripción</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-badge badge-planificado">Planificado</span>
-            </div>
-            <div class="legend-item">
-                <span class="legend-badge badge-finalizado">Finalizado</span>
-            </div>
+            <div class="legend-item"><span class="legend-badge badge-abierto">Abierto para Inscripción</span></div>
+            <div class="legend-item"><span class="legend-badge badge-planificado">Planificado</span></div>
+            <div class="legend-item"><span class="legend-badge badge-finalizado">Finalizado</span></div>
         </div>
         
-        <div id="calendarContainer" class="loading">
-            Cargando calendario...
-        </div>
+        <div id="calendarContainer" class="loading">Cargando calendario...</div>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/56981319416" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span>WhatsApp</span>
+    </a>
 
     <script>
         let cursosData = [];
@@ -388,10 +389,7 @@
         let filteredEvents = [];
         let currentView = 'month';
         
-        const mesesES = [
-            'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-        ];
+        const mesesES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
         
         fetch('cursos-data.json')
             .then(response => response.json())
@@ -413,11 +411,10 @@
         
         function processEvents() {
             allEvents = [];
-            
             cursosData.forEach(curso => {
                 if (curso.fechasProgramadas && curso.fechasProgramadas.length > 0) {
                     curso.fechasProgramadas.forEach(fecha => {
-                        const event = {
+                        allEvents.push({
                             curso: curso.nombre,
                             cursoCorto: curso.nombreCorto,
                             codigo: curso.codigo,
@@ -431,12 +428,10 @@
                             duracion: curso.duracion,
                             modalidad: curso.modalidad,
                             observaciones: fecha.observaciones || ''
-                        };
-                        allEvents.push(event);
+                        });
                     });
                 }
             });
-            
             allEvents.sort((a, b) => a.fechaInicio - b.fechaInicio);
             filteredEvents = allEvents;
         }
@@ -444,7 +439,6 @@
         function populateCursoFilter() {
             const select = document.getElementById('cursoFilter');
             const uniqueCursos = [...new Set(cursosData.map(c => c.nombreCorto))];
-            
             uniqueCursos.forEach(curso => {
                 const option = document.createElement('option');
                 option.value = curso;
@@ -455,20 +449,12 @@
         
         function renderCalendar() {
             const container = document.getElementById('calendarContainer');
-            
             if (filteredEvents.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <h3>No hay eventos programados</h3>
-                        <p>Intenta ajustar los filtros</p>
-                    </div>
-                `;
+                container.innerHTML = `<div class="empty-state"><h3>No hay eventos programados</h3><p>Intenta ajustar los filtros</p></div>`;
                 return;
             }
-            
             container.innerHTML = '';
             container.className = 'timeline';
-            
             if (currentView === 'month') {
                 renderMonthView(container);
             } else {
@@ -478,35 +464,20 @@
         
         function renderMonthView(container) {
             const eventsByMonth = {};
-            
             filteredEvents.forEach(event => {
-                const month = event.fechaInicio.getMonth();
-                const year = event.fechaInicio.getFullYear();
-                const key = `${year}-${month}`;
-                
+                const key = `${event.fechaInicio.getFullYear()}-${event.fechaInicio.getMonth()}`;
                 if (!eventsByMonth[key]) {
-                    eventsByMonth[key] = {
-                        month: month,
-                        year: year,
-                        events: []
-                    };
+                    eventsByMonth[key] = { month: event.fechaInicio.getMonth(), year: event.fechaInicio.getFullYear(), events: [] };
                 }
                 eventsByMonth[key].events.push(event);
             });
-            
             Object.values(eventsByMonth).forEach(monthData => {
                 const section = document.createElement('div');
                 section.className = 'month-section';
-                
                 section.innerHTML = `
-                    <div class="month-header">
-                        ${mesesES[monthData.month]} ${monthData.year}
-                    </div>
-                    <div class="events-grid">
-                        ${monthData.events.map(event => createEventCard(event)).join('')}
-                    </div>
+                    <div class="month-header">${mesesES[monthData.month]} ${monthData.year}</div>
+                    <div class="events-grid">${monthData.events.map(event => createEventCard(event)).join('')}</div>
                 `;
-                
                 container.appendChild(section);
             });
         }
@@ -519,56 +490,35 @@
         }
         
         function createEventCard(event) {
-            const fechaInicio = event.fechaInicio.toLocaleDateString('es-CL', { 
-                day: 'numeric', 
-                month: 'short' 
-            });
-            const fechaFin = event.fechaFin.toLocaleDateString('es-CL', { 
-                day: 'numeric', 
-                month: 'short' 
-            });
-            
+            const fechaInicio = event.fechaInicio.toLocaleDateString('es-CL', { day: 'numeric', month: 'short' });
+            const fechaFin = event.fechaFin.toLocaleDateString('es-CL', { day: 'numeric', month: 'short' });
             return `
                 <div class="event-card">
                     <div class="event-header">
-                        <div class="event-date">
-                            📅 ${fechaInicio} - ${fechaFin}
-                        </div>
+                        <div class="event-date">📅 ${fechaInicio} - ${fechaFin}</div>
                         <div class="event-duration">${event.duracion}</div>
                     </div>
-                    
                     <div class="event-body">
                         <h3 class="event-title">${event.cursoCorto}</h3>
                         <div class="event-code">${event.codigo}</div>
-                        
                         <div class="event-details">
-                            <div class="detail-item">
-                                <span class="detail-icon">📍</span>
-                                <span>${event.modalidad}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">🏢</span>
-                                <span>${event.ubicacion}</span>
-                            </div>
+                            <div class="detail-item"><span class="detail-icon">📍</span><span>${event.modalidad}</span></div>
+                            <div class="detail-item"><span class="detail-icon">🏢</span><span>${event.ubicacion}</span></div>
                         </div>
-                        
-                        ${event.observaciones ? `<p style="font-size: 0.85rem; color: var(--gray-600); margin-top: 0.5rem;">${event.observaciones}</p>` : ''}
+                        ${event.observaciones ? `<p style="font-size:0.85rem;color:var(--gray-600);margin-top:0.5rem;">${event.observaciones}</p>` : ''}
                     </div>
-                    
                     <div class="event-footer">
                         <span class="event-status status-${event.estado.toLowerCase()}">${event.estado}</span>
-                        <div class="cupos-info">
-                            <span class="cupos-disponibles">${event.cuposDisponibles}</span>/${event.cupos} cupos
-                        </div>
+                        <div class="cupos-info"><span class="cupos-disponibles">${event.cuposDisponibles}</span>/${event.cupos} cupos</div>
                     </div>
                 </div>
             `;
         }
         
-        function setView(view) {
+        function setView(view, btn) {
             currentView = view;
-            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
             renderCalendar();
         }
         
@@ -580,11 +530,9 @@
             const cursoFilter = document.getElementById('cursoFilter').value;
             const estadoFilter = document.getElementById('estadoFilter').value;
             const periodoFilter = document.getElementById('periodoFilter').value;
-            
             filteredEvents = allEvents.filter(event => {
                 const matchCurso = !cursoFilter || event.cursoCorto === cursoFilter;
                 const matchEstado = !estadoFilter || event.estado === estadoFilter;
-                
                 let matchPeriodo = true;
                 if (periodoFilter !== 'all') {
                     const month = event.fechaInicio.getMonth();
@@ -595,10 +543,8 @@
                         case 'Q4': matchPeriodo = month >= 9 && month <= 11; break;
                     }
                 }
-                
                 return matchCurso && matchEstado && matchPeriodo;
             });
-            
             renderCalendar();
         }
     </script>
