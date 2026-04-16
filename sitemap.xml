@@ -3,46 +3,46 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     
     <url>
-        <loc>https://eugeniomo.github.io/Jarastraining/</loc>
+        <loc>https://jarastraining.cl/</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://eugeniomo.github.io/Jarastraining/hero-jaras.png</image:loc>
+            <image:loc>https://jarastraining.cl/hero-jaras.png</image:loc>
             <image:title>Capacitación Clarke Fire Chile</image:title>
         </image:image>
     </url>
     
     <url>
-        <loc>https://eugeniomo.github.io/Jarastraining/#nosotros</loc>
+        <loc>https://jarastraining.cl/#nosotros</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://eugeniomo.github.io/Jarastraining/#cursos</loc>
+        <loc>https://jarastraining.cl/#cursos</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://eugeniomo.github.io/Jarastraining/#credenciales</loc>
+        <loc>https://jarastraining.cl/#credenciales</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://eugeniomo.github.io/Jarastraining/#instalaciones</loc>
+        <loc>https://jarastraining.cl/#instalaciones</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://eugeniomo.github.io/Jarastraining/#contacto</loc>
+        <loc>https://jarastraining.cl/#contacto</loc>
         <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
