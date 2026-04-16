@@ -25,12 +25,12 @@
     <title>Contacto | Jaras Training Chile</title>
     <meta name="description" content="Contáctenos para información sobre cursos Clarke Fire, NFPA 25 y capacitación corporativa. OTEC en proceso SENCE. Quilicura, Santiago.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://eugeniomo.github.io/Jarastraining/contacto.html">
+    <link rel="canonical" href="https://jarastraining.cl/contacto.html">
     <meta property="og:title" content="Contacto | Jaras Training Chile">
     <meta property="og:description" content="Solicite información sobre nuestros programas de capacitación en sistemas contra incendios.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://eugeniomo.github.io/Jarastraining/contacto.html">
-    <meta property="og:image" content="https://eugeniomo.github.io/Jarastraining/hero-jaras.jpg">
+    <meta property="og:url" content="https://jarastraining.cl/contacto.html">
+    <meta property="og:image" content="https://jarastraining.cl/hero-jaras.jpg">
     <meta property="og:locale" content="es_CL">
     <meta property="og:site_name" content="Jaras Diesel Training SpA">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -175,6 +175,7 @@
                     <h3>Solicitar Informaci&#243;n</h3>
                     <p class="form-subtitle">Le responderemos a la brevedad.</p>
                     <form id="contactForm">
+                        <input type="hidden" name="origen" value="contacto">
                         <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
                         <div class="form-group"><label for="nombre">Nombre Completo *</label><input type="text" id="nombre" name="nombre" required placeholder="Su nombre"></div>
                         <div class="form-group"><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa"></div>
@@ -204,7 +205,7 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/56981319416" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/56981319416?text=Hola%2C%20vengo%20del%20sitio%20web%20(contacto)" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span>WhatsApp</span>
     </a>
@@ -233,6 +234,23 @@
             const originalText = button.textContent;
             button.textContent = 'Enviando...';
             button.disabled = true;
+            // Envío paralelo: EmailJS (email) + CRM webhook (directo a la app)
+            const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
+            const crmPayload = {
+                nombre: formData.nombre || '',
+                email: formData.email || '',
+                telefono: formData.telefono || '',
+                empresa: formData.empresa || '',
+                notas: formData.mensaje || '',
+                origen: formData.origen || 'contacto',
+            };
+            // CRM — fire and forget (no bloquea el flujo)
+            fetch('https://jt.grupoabante.com/api/formulario.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(crmPayload),
+            }).catch(() => {});
+
             emailjs.sendForm('service_p8d52if', 'template_azbils9', this)
                 .then(function() {
                     lastSubmit = Date.now();
@@ -254,6 +272,21 @@
             msg.className = 'form-message ' + type + ' show';
             setTimeout(() => msg.classList.remove('show'), 5000);
         }
+
+        // Pre-fill from ?curso= parameter
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const curso = params.get('curso');
+            if (curso) {
+                var textarea = document.getElementById('mensaje');
+                if (textarea) textarea.value = 'Consulta sobre: ' + curso;
+                var badge = document.createElement('div');
+                badge.style.cssText = 'background:#d1fae5;color:#065f46;border:1px solid #10b981;padding:0.75rem 1rem;border-radius:10px;margin-bottom:1rem;font-weight:500;font-size:0.95rem;';
+                badge.textContent = 'Consultando sobre: ' + curso;
+                var formSide = document.querySelector('.contact-form-side');
+                if (formSide) formSide.insertBefore(badge, formSide.firstChild);
+            }
+        })();
     </script>
 </body>
 </html>
