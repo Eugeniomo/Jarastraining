@@ -2,6 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <!-- Google Ads tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17951689812"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17951689812');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscripción a Cursos | Jaras Training</title>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -596,6 +604,19 @@
 </footer>
 
 <script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') { window.location = url; }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17951689812/YrcmCNGWwYocENSYhPBC',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+<script>
 // ═══════════════════════════════════════════════
 // ZONA HORARIA
 // ═══════════════════════════════════════════════
@@ -826,6 +847,7 @@ function enviarFormulario() {
 }
 
 function mostrarExito(email) {
+    gtag_report_conversion();
     ['lbl-curso','course-section','form-participante','form-facturacion','form-obs','submit-card'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
