@@ -1178,7 +1178,40 @@
         </div>
     </section>
 
-    
+    <section id="contacto" style="padding: 5rem 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div class="container" style="max-width: 600px;">
+            <div class="contact-form">
+                <div id="formMessage" class="form-message"></div>
+                <h3>Solicitar Información</h3>
+                <p style="color: var(--gray-600); margin-bottom: 2rem;">Cuéntenos qué necesita y le responderemos a la brevedad.</p>
+                <form id="contactForm">
+                    <input type="hidden" name="origen" value="home">
+                    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Su nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="correo@empresa.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">¿En qué podemos ayudarle?</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Curso que le interesa, cantidad de participantes, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container">
@@ -1329,6 +1362,9 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Honeypot anti-spam
+            if (this.querySelector('[name="website"]').value !== '') return false;
+
             const now = Date.now();
             if (now - lastSubmit < SUBMIT_COOLDOWN) {
                 showMessage('Por favor espere 30 segundos entre envíos', 'error');
@@ -1357,6 +1393,21 @@
             button.textContent = 'Enviando...';
             button.disabled = true;
             
+            // Envío paralelo al CRM
+            const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
+            fetch('https://jt.grupoabante.com/api/formulario.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nombre: formData.nombre || '',
+                    email: formData.email || '',
+                    telefono: formData.telefono || '',
+                    empresa: formData.empresa || '',
+                    notas: formData.mensaje || '',
+                    origen: formData.origen || 'home',
+                }),
+            }).catch(() => {});
+
             emailjs.sendForm('service_8rqehck', 'template_azbils9', this)
                 .then(function() {
                     lastSubmit = Date.now();
