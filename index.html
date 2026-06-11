@@ -1395,7 +1395,7 @@
             
             // Envío paralelo al CRM
             const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
-            fetch('https://jt.grupoabante.com/api/formulario.php', {
+            fetch('https://crm.sercloud.cl/api/formulario.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
