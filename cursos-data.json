@@ -35,7 +35,7 @@
         {
           "fechaInicio": "2026-03-17",
           "fechaFin": "2026-03-18",
-          "estado": "Abierto",
+          "estado": "Finalizado",
           "cupos": 15,
           "cuposDisponibles": 12,
           "ubicacion": "Quilicura, Santiago"
@@ -69,7 +69,7 @@
         {
           "fechaInicio": "2026-04-29",
           "fechaFin": "2026-04-30",
-          "estado": "Abierto",
+          "estado": "Finalizado",
           "cupos": 20,
           "cuposDisponibles": 15,
           "ubicacion": "Quilicura, Santiago"
@@ -129,7 +129,7 @@
         {
           "fechaInicio": "2026-05-19",
           "fechaFin": "2026-05-20",
-          "estado": "Planificado",
+          "estado": "Finalizado",
           "cupos": 15,
           "cuposDisponibles": 15,
           "ubicacion": "Quilicura, Santiago"
