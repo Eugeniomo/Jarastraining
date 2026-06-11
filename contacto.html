@@ -245,7 +245,7 @@
                 origen: formData.origen || 'contacto',
             };
             // CRM — fire and forget (no bloquea el flujo)
-            fetch('https://jt.grupoabante.com/api/formulario.php', {
+            fetch('https://crm.sercloud.cl/api/formulario.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(crmPayload),
