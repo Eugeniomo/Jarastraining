@@ -273,6 +273,58 @@
           "observaciones": "4 sesiones: 8, 10, 22, 24 septiembre 2026. Pueden activarse nuevos cursos de acuerdo a los requeremientos del Cliente."
         }
       ]
+    },
+    {
+      "id": "operacion-salas-bomba-8h",
+      "codigo": "JDT-OSB8",
+      "nombre": "Introducción a la Operación de Salas de Bomba de Sistemas Contra Incendios",
+      "nombreCorto": "Operación Salas de Bomba (8h)",
+      "categoria": "Operación y Mantenimiento",
+      "descripcion": "Curso introductorio para personal que opera salas de bomba de sistemas contra incendios accionadas por motores diésel. Entrega los conocimientos básicos para identificar componentes, comprender el funcionamiento del sistema motor-bomba-controlador y reconocer cuándo se requiere servicio técnico certificado, con énfasis en equipos Clarke Fire y controladores Tornatech.",
+      "duracion": "8 horas",
+      "duracionDias": 1,
+      "modalidad": "Presencial",
+      "dirigidoA": "Operadores y Personal Técnico",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Marco normativo NFPA 13, 20, 25, 30 y 72 aplicado a salas de bomba",
+        "Componentes del sistema: motor Clarke Fire, bomba y controlador Tornatech",
+        "Válvulas principales, instrumentación y sistemas de protección de la sala",
+        "Tipos de motores y sistema de combustible según NFPA 30",
+        "Tipos de bombas y operación del controlador (modos AUTO/MANUAL, parada de emergencia)",
+        "Reconocimiento de condiciones anormales que requieren servicio técnico certificado"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "Consultar",
+      "fechasProgramadas": []
+    },
+    {
+      "id": "operacion-salas-bomba-16h",
+      "codigo": "JDT-OSB16",
+      "nombre": "Introducción a la Operación y Mantenimiento de Salas de Bomba de Sistemas Contra Incendios",
+      "nombreCorto": "Operación y Mantenimiento Salas de Bomba (16h)",
+      "categoria": "Operación y Mantenimiento",
+      "descripcion": "Capacitación completa de 2 días en operación y mantenimiento básico de salas de bomba de sistemas contra incendios con motores diésel Clarke Fire y controladores Tornatech. Incluye inspecciones visuales según NFPA 25, operación segura, procedimientos de emergencia y taller práctico con equipos operativos, conforme a las normas NFPA 13, 20, 25, 30 y 72.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Operadores y Personal de Mantenimiento",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Marco normativo NFPA 13, 20, 25, 30 y 72 y componentes de la sala de bomba",
+        "Sistema motor-bomba-controlador: Clarke Fire y Tornatech",
+        "Sistema de combustible, eléctrico y de refrigeración del motor diésel",
+        "Inspecciones visuales según NFPA 25 con checklists y bitácoras",
+        "Operación en modo manual y procedimientos de emergencia",
+        "Identificación de situaciones anormales y alarmas del controlador",
+        "Taller práctico con motor Clarke Fire y controlador Tornatech operativos",
+        "Evaluación teórica y certificación (asistencia 100% y nota ≥ 70%)"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "Consultar",
+      "fechasProgramadas": []
     }
   ],
   "categorias": [
@@ -281,7 +333,8 @@
     "Corporativo",
     "Diseño y Tecnología",
     "Seguridad Integral",
-    "Estándares Internacionales"
+    "Estándares Internacionales",
+    "Operación y Mantenimiento"
   ],
   "estados": [
     "Abierto",
