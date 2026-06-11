@@ -1406,7 +1406,7 @@
                     notas: formData.mensaje || '',
                     origen: formData.origen || 'home',
                 }),
-            }).catch(() => {});
+            }).catch(err => console.error('[CRM]', err));
 
             emailjs.sendForm('service_8rqehck', 'template_azbils9', this)
                 .then(function() {

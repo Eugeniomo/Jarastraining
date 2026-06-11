@@ -820,7 +820,7 @@ function enviarFormulario() {
             notas: (payload.observaciones || '') + (payload.cargo ? '\nCargo: ' + payload.cargo : ''),
             origen: 'inscripcion',
         }),
-    }).catch(() => {});
+    }).catch(err => console.error('[CRM]', err));
 
     function sendToSheets() {
         return Promise.race([
