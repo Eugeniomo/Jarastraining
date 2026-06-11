@@ -101,7 +101,6 @@
       "precio": "A cotizar",
       "fechasProgramadas": []
     },
-    
     {
       "id": "extincion-espuma-nfpa",
       "codigo": "JDT-ESP-NFPA",
@@ -163,7 +162,7 @@
         {
           "fechaInicio": "2026-06-23",
           "fechaFin": "2026-06-24",
-          "estado": "Planificado",
+          "estado": "Finalizado",
           "cupos": 18,
           "cuposDisponibles": 18,
           "ubicacion": "Quilicura, Santiago"
@@ -197,7 +196,7 @@
         {
           "fechaInicio": "2026-07-14",
           "fechaFin": "2026-07-15",
-          "estado": "Planificado",
+          "estado": "Finalizado",
           "cupos": 20,
           "cuposDisponibles": 20,
           "ubicacion": "Quilicura, Santiago"
@@ -267,7 +266,7 @@
         {
           "fechaInicio": "2026-09-08",
           "fechaFin": "2026-09-29",
-          "estado": "Planificado",
+          "estado": "Finalizado",
           "cupos": 15,
           "cuposDisponibles": 15,
           "ubicacion": "Quilicura, Santiago",
