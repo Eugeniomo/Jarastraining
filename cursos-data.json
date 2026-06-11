@@ -325,6 +325,41 @@
       "requisitos": "Ninguno",
       "precio": "Consultar",
       "fechasProgramadas": []
+    },
+    {
+      "id": "fundamentos-bombas-incendio",
+      "codigo": "JDT-FSB",
+      "nombre": "Fundamentos de Sistemas de Bombas de Incendio",
+      "nombreCorto": "Fundamentos Bombas de Incendio",
+      "categoria": "Certificación NFPA",
+      "descripcion": "Curso introductorio sobre los fundamentos de los sistemas de bombas contra incendio, basado en la norma NFPA 25. Combina 4 horas de teoría sobre componentes, funcionamiento y requisitos normativos, con 4 horas de práctica en sala de bombas: inspección visual, pruebas y reconocimiento de condiciones operativas.",
+      "duracion": "8 horas (4 teoría + 4 práctica)",
+      "duracionDias": 1,
+      "modalidad": "Presencial",
+      "dirigidoA": "Técnicos, Operadores y Personal de Mantenimiento",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Teoría: fundamentos de sistemas de bombas contra incendio según NFPA 25",
+        "Teoría: componentes del sistema (bomba, impulsor y controlador)",
+        "Teoría: requisitos de inspección, prueba y mantenimiento (NFPA 25)",
+        "Teoría: tipos de pruebas — sin flujo (churn) y con flujo",
+        "Práctica: inspección visual en sala de bombas",
+        "Práctica: lectura de instrumentación y reconocimiento de condiciones operativas"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "",
+          "fechaFin": "",
+          "estado": "Abierto",
+          "cupos": 15,
+          "cuposDisponibles": 15,
+          "ubicacion": "Quilicura, Santiago",
+          "observaciones": "Fecha por confirmar"
+        }
+      ]
     }
   ],
   "categorias": [
