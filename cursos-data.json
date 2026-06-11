@@ -353,7 +353,7 @@
         {
           "fechaInicio": "",
           "fechaFin": "",
-          "estado": "Abierto",
+          "estado": "Planificado",
           "cupos": 15,
           "cuposDisponibles": 15,
           "ubicacion": "Quilicura, Santiago",
