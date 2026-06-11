@@ -371,7 +371,7 @@
     <div class="schedule-inner">
         <div class="schedule-dates">
             <div class="label">📅 Fechas del curso · Online</div>
-            <div class="dates">Por confirmar &nbsp;·&nbsp; 4 sesiones de 4 horas</div>
+            <div class="dates">10, 13, 17 y 20 de agosto 2026 &nbsp;·&nbsp; 4 sesiones de 4 horas</div>
         </div>
         <div class="schedule-times">
             <div class="time-block highlight">
@@ -497,7 +497,7 @@
             <div class="form-grid">
 
                 <div class="tax-notice">
-                    <strong>Documento tributario:</strong> Jaras Diesel Training SpA emite factura electrónica en dólares estadounidenses (USD) según normativa tributaria chilena. El monto total a pagar incluye <strong>19% de IVA</strong> sobre el valor del curso.<br>
+                    <strong>Documento tributario:</strong> Jaras Diesel Training SpA emite factura electrónica en dólares estadounidenses (USD) según normativa tributaria chilena. Los servicios de capacitación están <strong>exentos de IVA</strong> en Chile.<br>
                     Si tu empresa requiere un documento tributario local de tu país, te recomendamos consultar con tu área contable antes de inscribirte.
                 </div>
 
@@ -780,7 +780,7 @@ function enviarFormulario() {
     const payload = {
         timestamp:        new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' }),
         curso:            CURSOS[cursoSeleccionado],
-        fechas:           'Por confirmar',
+        fechas:           '10, 13, 17 y 20 de agosto 2026',
         horario_chile:    '10:00 AM',
         horario_local:    localTimeStr,
         nombre:           document.getElementById('nombre').value.trim(),
@@ -797,8 +797,8 @@ function enviarFormulario() {
         contacto_email:   document.getElementById('contacto-email').value.trim(),
         observaciones:    document.getElementById('observaciones').value.trim(),
         precio_neto:      'USD 247.50',
-        iva:              '19%',
-        precio_total:     'USD 294.53',
+        iva:              'Exento',
+        precio_total:     'USD 247.50',
         estado_pago:      'Pendiente',
         pago_confirmado:  'No',
         informado:        'No',
