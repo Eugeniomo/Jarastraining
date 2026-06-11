@@ -236,6 +236,7 @@
             button.disabled = true;
             // Envío paralelo: EmailJS (email) + CRM webhook (directo a la app)
             const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
+            const cursoParam = new URLSearchParams(window.location.search).get('curso');
             const crmPayload = {
                 nombre: formData.nombre || '',
                 email: formData.email || '',
@@ -244,6 +245,7 @@
                 notas: formData.mensaje || '',
                 origen: formData.origen || 'contacto',
             };
+            if (cursoParam) crmPayload.curso_interes = cursoParam;
             // CRM — fire and forget (no bloquea el flujo)
             fetch('https://crm.sercloud.cl/api/formulario.php', {
                 method: 'POST',
