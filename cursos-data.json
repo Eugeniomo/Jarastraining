@@ -209,6 +209,7 @@
       "codigo": "JDT-DETINT",
       "nombre": "Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales",
       "nombreCorto": "Detección Internacional",
+      "paginaDetalle": "diseimpdet.html",
       "categoria": "Estándares Internacionales",
       "descripcion": "Programa modular de 4 sesiones especializado en sistemas de detección de incendios conforme a estándares internacionales (NFPA, EN, BS).",
       "duracion": "16 horas",
