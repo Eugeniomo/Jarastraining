@@ -369,7 +369,7 @@
             color: var(--gray-600);
         }
         
-        .btn-contact {
+        .btn-contact, .btn-inscribir {
             padding: 0.75rem 1.5rem;
             background: var(--gradient-primary);
             color: white;
@@ -377,6 +377,13 @@
             border-radius: 12px;
             font-weight: 600;
             transition: all 0.3s ease;
+        }
+        .btn-inscribir {
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+        }
+        .btn-inscribir:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.35);
         }
         
         .btn-contact:hover {
@@ -614,13 +621,14 @@
                 <div class="course-footer">
                     <div class="course-price${esMonto ? '' : ' consultar'}">${curso.precio}</div>
                     <div class="course-actions">
-                        <a href="contacto.html?curso=${encodeURIComponent(curso.nombreCorto)}" class="btn-contact">Consultar</a>
+                        ${curso.paginaInscripcion ? `<a href="${curso.paginaInscripcion}" class="btn-inscribir">Inscribirse</a>` : ''}
+                        <a href="contacto.html?curso=${encodeURIComponent(curso.nombreCorto)}" class="${curso.paginaInscripcion ? 'btn-detalle' : 'btn-contact'}">Consultar</a>
                     </div>
                 </div>
             `;
 
-            // Toda la tarjeta es clickeable: lleva al detalle del curso (o a Consultar si no tiene página propia)
-            const destino = curso.paginaDetalle || ('contacto.html?curso=' + encodeURIComponent(curso.nombreCorto));
+            // Toda la tarjeta es clickeable: inscripción si existe, si no su detalle, si no Consultar
+            const destino = curso.paginaInscripcion || curso.paginaDetalle || ('contacto.html?curso=' + encodeURIComponent(curso.nombreCorto));
             card.style.cursor = 'pointer';
             card.addEventListener('click', function(e) {
                 if (e.target.closest('a')) return; // respeta los enlaces internos (botón Consultar)
