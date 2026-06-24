@@ -234,7 +234,7 @@
             const originalText = button.textContent;
             button.textContent = 'Enviando...';
             button.disabled = true;
-            // Envío paralelo: EmailJS (email) + CRM webhook (directo a la app)
+            // Envío: el CRM es la fuente de verdad; EmailJS queda como respaldo
             const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
             const cursoParam = new URLSearchParams(window.location.search).get('curso');
             const crmPayload = {
@@ -246,26 +246,38 @@
                 origen: formData.origen || 'contacto',
             };
             if (cursoParam) crmPayload.curso_interes = cursoParam;
-            // CRM — fire and forget (no bloquea el flujo)
+
+            // EmailJS — respaldo silencioso (ya no controla el estado visible)
+            emailjs.sendForm('service_p8d52if', 'template_azbils9', this)
+                .catch(function(err) { console.error('EmailJS error:', err); });
+
+            // CRM — fuente de verdad: su respuesta define éxito/error para el usuario
             fetch('https://crm.sercloud.cl/api/formulario.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(crmPayload),
-            }).catch(() => {});
-
-            emailjs.sendForm('service_p8d52if', 'template_azbils9', this)
-                .then(function() {
-                    lastSubmit = Date.now();
-                    gtag_report_conversion();
-                    showMessage('Mensaje enviado. Le contactaremos pronto.', 'success');
-                    document.getElementById('contactForm').reset();
+            })
+                .then(function(r) {
+                    return r.json().catch(function() { return {}; })
+                        .then(function(j) { return { ok: r.ok && j.ok !== false }; });
+                })
+                .then(function(res) {
+                    if (res.ok) {
+                        lastSubmit = Date.now();
+                        gtag_report_conversion();
+                        showMessage('Mensaje enviado. Le contactaremos pronto.', 'success');
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        showMessage('Error al enviar. Intente nuevamente o llamenos.', 'error');
+                    }
                     button.textContent = originalText;
                     button.disabled = false;
-                }, function(error) {
+                })
+                .catch(function(error) {
                     showMessage('Error al enviar. Intente nuevamente o llamenos.', 'error');
                     button.textContent = originalText;
                     button.disabled = false;
-                    console.error('EmailJS error:', error);
+                    console.error('CRM error:', error);
                 });
         });
         function showMessage(text, type) {

@@ -761,88 +761,66 @@ function validate() {
 }
 
 // ═══════════════════════════════════════════════
-// ENVÍO A GOOGLE SHEETS
+// ENVÍO AL CRM (jaras-crm-php) — fuente única de verdad
 // ═══════════════════════════════════════════════
-// ⚠️ Reemplazar con la URL del Google Apps Script desplegado
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxP8Zy_GOuSHXjJ8vISbRlzlerqaKjnM0Tr2uoKSTCE9hJrB1ml2tUmjqBw3AXZ8xLj/exec';
-
 function enviarFormulario() {
     if (!validate()) return;
     const btn = document.getElementById('btn-submit');
+    const originalText = btn.textContent;
     btn.disabled = true;
     btn.textContent = 'Enviando...';
 
-    const email = document.getElementById('email').value.trim();
+    const g = id => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    const email = g('email');
     const pais = document.getElementById('pais').value;
-    const localTimeStr = COUNTRY_DATA[pais] ? formatHour(CHILE_UTC_HOUR, COUNTRY_DATA[pais].offset) : 'N/A';
     const mismoPagador = document.getElementById('mismo-pagador').checked;
+    const curso = CURSOS[cursoSeleccionado];
+
+    const notas =
+        'INSCRIPCIÓN CURSO: ' + curso +
+        '\nRUT participante: ' + g('rut') +
+        '\nCargo: ' + g('cargo') +
+        '\nPaís: ' + pais +
+        '\nMismo pagador participante/factura: ' + (mismoPagador ? 'Sí' : 'No') +
+        '\nRUT empresa: ' + g('rut-empresa') +
+        '\nDirección facturación: ' + g('direccion') +
+        '\nContacto factura: ' + g('contacto-nombre') + ' / ' + g('contacto-email') +
+        (g('observaciones') ? '\nObservaciones: ' + g('observaciones') : '');
 
     const payload = {
-        timestamp:        new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago' }),
-        curso:            CURSOS[cursoSeleccionado],
-        fechas:           '10, 13, 17 y 20 de agosto 2026',
-        horario_chile:    '10:00 AM',
-        horario_local:    localTimeStr,
-        nombre:           document.getElementById('nombre').value.trim(),
-        rut:              document.getElementById('rut').value.trim(),
-        email:            email,
-        telefono:         document.getElementById('telefono').value.trim(),
-        cargo:            document.getElementById('cargo').value.trim(),
-        pais:             pais,
-        mismo_pagador:    mismoPagador ? 'Sí' : 'No',
-        empresa:          document.getElementById('empresa').value.trim(),
-        rut_empresa:      document.getElementById('rut-empresa').value.trim(),
-        direccion:        document.getElementById('direccion').value.trim(),
-        contacto_nombre:  document.getElementById('contacto-nombre').value.trim(),
-        contacto_email:   document.getElementById('contacto-email').value.trim(),
-        observaciones:    document.getElementById('observaciones').value.trim(),
-        precio_neto:      'USD 247.50',
-        iva:              'Exento',
-        precio_total:     'USD 247.50',
-        estado_pago:      'Pendiente',
-        pago_confirmado:  'No',
-        informado:        'No',
-        datos_conexion:   'No enviados',
-        certificado:      'No',
+        nombre:        g('nombre'),
+        email:         email,
+        telefono:      g('telefono'),
+        empresa:       g('empresa'),
+        pais:          pais,
+        curso_interes: curso,
+        origen:        'inscripcion',
+        notas:         notas,
     };
 
-    // Envío paralelo al CRM
     fetch('https://crm.sercloud.cl/api/formulario.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            nombre: payload.nombre,
-            email: payload.email,
-            telefono: payload.telefono,
-            empresa: payload.empresa,
-            pais: payload.pais,
-            curso_interes: payload.curso,
-            notas: (payload.observaciones || '') + (payload.cargo ? '\nCargo: ' + payload.cargo : ''),
-            origen: 'inscripcion',
-        }),
-    }).catch(err => console.error('[CRM]', err));
-
-    function sendToSheets() {
-        return Promise.race([
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-            }),
-            new Promise(resolve => setTimeout(resolve, 8000))
-        ]);
-    }
-
-    sendToSheets()
-        .then(() => mostrarExito(email))
-        .catch(() => {
-            // Retry once after 3 seconds
-            setTimeout(() => {
-                sendToSheets()
-                    .then(() => mostrarExito(email))
-                    .catch(() => mostrarExito(email));
-            }, 3000);
+        body: JSON.stringify(payload),
+    })
+        .then(function(r) {
+            return r.json().catch(function() { return {}; })
+                .then(function(j) { return r.ok && j.ok !== false; });
+        })
+        .then(function(ok) {
+            if (ok) {
+                mostrarExito(email);
+            } else {
+                btn.disabled = false;
+                btn.textContent = originalText;
+                alert('Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp al +56 9 8131 9416.');
+            }
+        })
+        .catch(function(err) {
+            console.error('[CRM]', err);
+            btn.disabled = false;
+            btn.textContent = originalText;
+            alert('Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp al +56 9 8131 9416.');
         });
 }
 
