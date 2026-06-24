@@ -201,18 +201,40 @@
             box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
         }
         
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
+        .course-image {
+            position: relative;
+            height: 170px;
+            overflow: hidden;
         }
-        
-        .course-header { padding: 2rem 2rem 1rem; }
-        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .course-card:hover .course-image img { transform: scale(1.06); }
+        .course-image .badge-categoria-float {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.95);
+            color: var(--gray-700);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .course-image .badge-estado {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+
+        .course-header { padding: 1.4rem 1.75rem 0.5rem; }
+
         .course-badges {
             display: flex;
             gap: 0.5rem;
@@ -239,11 +261,16 @@
         .badge-cancelado { background: #dc2626; }
         
         .course-title {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             color: var(--gray-800);
             margin-bottom: 0.5rem;
             font-weight: 700;
             line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 3.25rem;
         }
         
         .course-code {
@@ -253,12 +280,17 @@
             margin-bottom: 1rem;
         }
         
-        .course-body { padding: 0 2rem; }
-        
+        .course-body { padding: 0 1.75rem; }
+
         .course-description {
             color: var(--gray-600);
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
         .course-info {
@@ -318,6 +350,13 @@
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        .course-price.consultar {
+            font-size: 1rem;
+            font-weight: 600;
+            background: none;
+            -webkit-text-fill-color: initial;
+            color: var(--gray-600);
         }
         
         .btn-contact {
@@ -455,8 +494,8 @@
             <div class="filter-group">
                 <label>Estado</label>
                 <div class="estado-filters">
-                    <button class="estado-btn active" data-estado="">Todos</button>
-                    <button class="estado-btn" data-estado="Planificado">Planificado</button>
+                    <button class="estado-btn" data-estado="">Todos</button>
+                    <button class="estado-btn active" data-estado="Planificado">Planificado</button>
                     <button class="estado-btn" data-estado="Finalizado">Finalizado</button>
                     <button class="clear-filters" onclick="clearFilters()">Limpiar Filtros</button>
                 </div>
@@ -484,14 +523,25 @@
     <script>
         let cursosData = [];
         let filteredCursos = [];
-        
+
+        // Imagen de cabecera por categoría (un curso puede sobrescribir con su campo "imagen")
+        const IMAGEN_DEFAULT = 'capacitacion-practica.jpg';
+        const IMAGEN_POR_CATEGORIA = {
+            'Certificación Oficial': 'sala-bombas-general.jpg',
+            'Normas NFPA': 'sala-bombas-general.jpg',
+            'Operación y Mantenimiento': 'sala-bombas-general.jpg',
+            'Estándares Internacionales': 'capacitacion-practica.jpg',
+            'Diseño y Tecnología': 'capacitacion-practica.jpg',
+            'Seguridad Integral': 'capacitacion-practica.jpg',
+            'Corporativo': 'sala-jaras.png',
+        };
+
         fetch('cursos-data.json')
             .then(response => response.json())
             .then(data => {
                 cursosData = data.cursos;
-                filteredCursos = cursosData;
                 populateCategorias(data.categorias);
-                renderCursos();
+                applyFilters();
             })
             .catch(error => {
                 console.error('Error cargando cursos:', error);
@@ -544,29 +594,30 @@
         function createCourseCard(curso) {
             const card = document.createElement('div');
             card.className = 'course-card';
-            
+
             let estado = 'Planificado';
             if (curso.fechasProgramadas && curso.fechasProgramadas.length > 0) {
                 estado = curso.fechasProgramadas[0].estado;
             }
-            
-            const contentItems = curso.contenido.slice(0, 4).map(item => 
-                `<li>${item}</li>`
-            ).join('');
-            
+
+            const imagen = curso.imagen || IMAGEN_POR_CATEGORIA[curso.categoria] || IMAGEN_DEFAULT;
+            const esMonto = /\d/.test(curso.precio || '');
+
             card.innerHTML = `
+                <div class="course-image">
+                    <img src="${imagen}" alt="${curso.nombreCorto}" loading="lazy">
+                    <span class="badge-categoria-float">${curso.categoria}</span>
+                    <span class="badge badge-estado badge-${estado.toLowerCase()}">${estado}</span>
+                </div>
+
                 <div class="course-header">
-                    <div class="course-badges">
-                        <span class="badge badge-categoria">${curso.categoria}</span>
-                        <span class="badge badge-estado badge-${estado.toLowerCase()}">${estado}</span>
-                    </div>
                     <h3 class="course-title">${curso.nombre}</h3>
                     <div class="course-code">Código: ${curso.codigo}</div>
                 </div>
-                
+
                 <div class="course-body">
                     <p class="course-description">${curso.descripcion}</p>
-                    
+
                     <div class="course-info">
                         <div class="info-item">
                             <span class="info-icon">⏱️</span>
@@ -585,18 +636,10 @@
                             <span>${curso.certificacion}</span>
                         </div>
                     </div>
-                    
-                    <div class="course-content-preview">
-                        <div class="content-title">Contenido del curso:</div>
-                        <ul class="content-list">
-                            ${contentItems}
-                            ${curso.contenido.length > 4 ? '<li>Y más...</li>' : ''}
-                        </ul>
-                    </div>
                 </div>
-                
+
                 <div class="course-footer">
-                    <div class="course-price">${curso.precio}</div>
+                    <div class="course-price${esMonto ? '' : ' consultar'}">${curso.precio}</div>
                     <div class="course-actions">
                         ${curso.paginaDetalle ? `<a href="${curso.paginaDetalle}" class="btn-detalle">Ver detalle</a>` : ''}
                         <a href="contacto.html?curso=${encodeURIComponent(curso.nombreCorto)}" class="btn-contact">Consultar</a>
@@ -650,10 +693,9 @@
             document.getElementById('modalidadFilter').value = '';
             document.getElementById('searchInput').value = '';
             document.querySelectorAll('.estado-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.estado-btn[data-estado=""]').classList.add('active');
-            
-            filteredCursos = cursosData;
-            renderCursos();
+            document.querySelector('.estado-btn[data-estado="Planificado"]').classList.add('active');
+
+            applyFilters();
         }
     </script>
 </body>
