@@ -329,10 +329,12 @@
     {
       "id": "fundamentos-bombas-incendio",
       "codigo": "JDT-FSB",
+      "codigoSENCE": "1238095641",
       "nombre": "Fundamentos de Sistemas de Bombas de Incendio",
       "nombreCorto": "Fundamentos Bombas de Incendio",
+      "paginaDetalle": "inscripcion-bombas.html",
       "categoria": "Normas NFPA",
-      "descripcion": "Curso introductorio sobre los fundamentos de los sistemas de bombas contra incendio, basado en la norma NFPA 25. Combina 4 horas de teoría sobre componentes, funcionamiento y requisitos normativos, con 4 horas de práctica en sala de bombas: inspección visual, pruebas y reconocimiento de condiciones operativas.",
+      "descripcion": "Curso introductorio sobre los fundamentos de los sistemas de bombas contra incendio, basado en la norma NFPA 20. Combina 4 horas de teoría sobre componentes, funcionamiento y requisitos normativos, con 4 horas de práctica en sala de bombas: inspección visual, pruebas y reconocimiento de condiciones operativas.",
       "duracion": "8 horas (4 teoría + 4 práctica)",
       "duracionDias": 1,
       "modalidad": "Presencial",
@@ -348,16 +350,17 @@
         "Práctica: lectura de instrumentación y reconocimiento de condiciones operativas"
       ],
       "requisitos": "Ninguno",
-      "precio": "Consultar",
+      "precio": "$275.000",
+      "precioTexto": "Exento de IVA · Bonificable franquicia SENCE",
       "fechasProgramadas": [
         {
-          "fechaInicio": "",
-          "fechaFin": "",
+          "fechaInicio": "2026-07-17",
+          "fechaFin": "2026-07-17",
           "estado": "Planificado",
           "cupos": 15,
           "cuposDisponibles": 15,
           "ubicacion": "Quilicura, Santiago",
-          "observaciones": "Fecha por confirmar"
+          "observaciones": "08:00 a 16:30 hrs · Inscripción y pago hasta el 8 de julio"
         }
       ]
     }
