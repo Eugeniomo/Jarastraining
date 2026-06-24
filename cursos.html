@@ -468,37 +468,12 @@
         </div>
 
         <div class="filters-section">
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label for="categoriaFilter">Categoría</label>
-                    <select id="categoriaFilter">
-                        <option value="">Todas las categorías</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="modalidadFilter">Modalidad</label>
-                    <select id="modalidadFilter">
-                        <option value="">Todas las modalidades</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="Online">Online</option>
-                        <option value="Híbrido">Híbrido</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="searchInput">Buscar curso</label>
-                    <input type="text" id="searchInput" placeholder="Nombre o código...">
-                </div>
-            </div>
-            
             <div class="filter-group">
                 <label>Estado</label>
                 <div class="estado-filters">
                     <button class="estado-btn" data-estado="">Todos</button>
                     <button class="estado-btn active" data-estado="Planificado">Planificado</button>
                     <button class="estado-btn" data-estado="Finalizado">Finalizado</button>
-                    <button class="clear-filters" onclick="clearFilters()">Limpiar Filtros</button>
                 </div>
             </div>
         </div>
@@ -541,7 +516,6 @@
             .then(response => response.json())
             .then(data => {
                 cursosData = data.cursos;
-                populateCategorias(data.categorias);
                 applyFilters();
             })
             .catch(error => {
@@ -555,16 +529,6 @@
                     </div>
                 `;
             });
-        
-        function populateCategorias(categorias) {
-            const select = document.getElementById('categoriaFilter');
-            categorias.forEach(cat => {
-                const option = document.createElement('option');
-                option.value = cat;
-                option.textContent = cat;
-                select.appendChild(option);
-            });
-        }
         
         function renderCursos() {
             const container = document.getElementById('coursesContainer');
@@ -651,10 +615,6 @@
             return card;
         }
         
-        document.getElementById('categoriaFilter').addEventListener('change', applyFilters);
-        document.getElementById('modalidadFilter').addEventListener('change', applyFilters);
-        document.getElementById('searchInput').addEventListener('input', applyFilters);
-        
         document.querySelectorAll('.estado-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.estado-btn').forEach(b => b.classList.remove('active'));
@@ -662,41 +622,17 @@
                 applyFilters();
             });
         });
-        
-        function applyFilters() {
-            const categoria = document.getElementById('categoriaFilter').value;
-            const modalidad = document.getElementById('modalidadFilter').value;
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const estado = document.querySelector('.estado-btn.active').dataset.estado;
-            
-            filteredCursos = cursosData.filter(curso => {
-                const matchCategoria = !categoria || curso.categoria === categoria;
-                const matchModalidad = !modalidad || curso.modalidad.includes(modalidad);
-                const matchSearch = !searchTerm || 
-                    curso.nombre.toLowerCase().includes(searchTerm) ||
-                    curso.codigo.toLowerCase().includes(searchTerm) ||
-                    curso.nombreCorto.toLowerCase().includes(searchTerm);
-                
-                let matchEstado = true;
-                if (estado) {
-                    matchEstado = curso.fechasProgramadas && 
-                        curso.fechasProgramadas.some(fecha => fecha.estado === estado);
-                }
-                
-                return matchCategoria && matchModalidad && matchSearch && matchEstado;
-            });
-            
-            renderCursos();
-        }
-        
-        function clearFilters() {
-            document.getElementById('categoriaFilter').value = '';
-            document.getElementById('modalidadFilter').value = '';
-            document.getElementById('searchInput').value = '';
-            document.querySelectorAll('.estado-btn').forEach(b => b.classList.remove('active'));
-            document.querySelector('.estado-btn[data-estado="Planificado"]').classList.add('active');
 
-            applyFilters();
+        function applyFilters() {
+            const estado = document.querySelector('.estado-btn.active').dataset.estado;
+
+            filteredCursos = cursosData.filter(curso => {
+                if (!estado) return true;
+                return curso.fechasProgramadas &&
+                    curso.fechasProgramadas.some(fecha => fecha.estado === estado);
+            });
+
+            renderCursos();
         }
     </script>
 </body>
