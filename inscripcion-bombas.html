@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción · Fundamentos de Sistemas de Bombas de Incendio — Jaras Training</title>
+<style>
+  :root { --rojo:#c0392b; --negro:#1a1a1a; --gris:#888; --linea:#e0e0e0; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#f4f4f4; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:#222; line-height:1.5; }
+  .wrap { max-width:640px; margin:0 auto; padding:20px; }
+  .card { background:#fff; border:1px solid var(--linea); border-radius:12px; overflow:hidden; }
+  .top { background:#fff; padding:18px 24px; border-bottom:1px solid var(--linea); display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .top img.jt  { height:40px; }
+  .top img.jd  { height:30px; }
+  .top img.ck  { height:18px; }
+  .hero { background:var(--negro); color:#fff; padding:26px 28px; }
+  .hero .eyebrow { margin:0 0 10px; font-size:12px; letter-spacing:2px; color:#e74c3c; font-weight:700; text-transform:uppercase; font-family:'Courier New',monospace; }
+  .hero h1 { margin:0; font-size:21px; font-weight:500; line-height:1.3; }
+  .hero .meta { margin:14px 0 0; font-size:13px; color:#ccc; }
+  .hero .meta b { color:#fff; }
+  form { padding:24px 28px 28px; }
+  .sec { margin:0 0 6px; font-size:12px; letter-spacing:1.5px; color:var(--gris); text-transform:uppercase; font-family:'Courier New',monospace; padding-top:18px; border-top:1px solid var(--linea); }
+  .sec:first-of-type { border-top:none; padding-top:0; }
+  label { display:block; font-size:13px; font-weight:600; margin:14px 0 4px; }
+  label .req { color:var(--rojo); }
+  input, select, textarea { width:100%; padding:11px 12px; font-size:15px; border:1px solid #ccc; border-radius:8px; font-family:inherit; }
+  input:focus, select:focus, textarea:focus { outline:none; border-color:var(--rojo); }
+  .row { display:flex; gap:12px; }
+  .row > div { flex:1; }
+  .pago { display:flex; flex-direction:column; gap:8px; margin-top:6px; }
+  .pago label { display:flex; align-items:center; gap:8px; font-weight:400; margin:0; cursor:pointer; }
+  .pago input { width:auto; }
+  button { margin-top:24px; width:100%; background:var(--rojo); color:#fff; border:0; padding:15px; font-size:15px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; border-radius:8px; cursor:pointer; }
+  button:disabled { opacity:.6; cursor:default; }
+  .nota { font-size:12px; color:var(--gris); margin-top:12px; text-align:center; }
+  .ok, .err { display:none; padding:16px 20px; border-radius:8px; margin-top:16px; font-size:15px; }
+  .ok { background:#eafaf0; color:#1a7a45; border:1px solid #b6e6c8; }
+  .err { background:#fdecec; color:#a11; border:1px solid #f3c0c0; }
+  .foot { background:var(--negro); color:#bbb; text-align:center; padding:14px; font-size:11px; font-family:'Courier New',monospace; letter-spacing:1px; }
+  .foot a { color:#fff; }
+  @media(max-width:480px){
+    .row { flex-direction:column; gap:0; }
+    .hero h1 { font-size:18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="top">
+      <img class="jt" src="logo-jdt.png" alt="Jaras Training">
+      <img class="jd" src="logo-jaras-diesel.png" alt="Jaras Diesel">
+      <img class="ck" src="credenciales/clarke-logo.png" alt="Clarke Fire">
+    </div>
+    <div class="hero">
+      <p class="eyebrow">Inscripción · Curso con franquicia SENCE</p>
+      <h1>Fundamentos de Sistemas de Bombas de Incendio</h1>
+      <p class="meta"><b>Jueves 17 de julio 2026</b> · 08:00 a 16:30 hrs · Quilicura, Santiago · 8 horas<br>
+      <b>$275.000</b> (exento de IVA) — bonificable franquicia SENCE · Cupos limitados · <b>Inscripción y pago hasta el 8 de julio</b></p>
+    </div>
+
+    <form id="f">
+      <p class="sec">Datos del participante</p>
+      <label>Nombre completo <span class="req">*</span></label>
+      <input name="nombre" required>
+      <div class="row">
+        <div><label>RUT <span class="req">*</span></label><input name="rut" required placeholder="12.345.678-9"></div>
+        <div><label>Cargo</label><input name="cargo"></div>
+      </div>
+      <div class="row">
+        <div><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+        <div><label>Teléfono / WhatsApp <span class="req">*</span></label><input name="telefono" required placeholder="+56 9 ..."></div>
+      </div>
+
+      <p class="sec">Empresa y facturación</p>
+      <label>Empresa / Razón social <span class="req">*</span></label>
+      <input name="empresa" required>
+      <div class="row">
+        <div><label>RUT empresa</label><input name="rut_empresa" placeholder="76.123.456-7"></div>
+        <div><label>Giro</label><input name="giro"></div>
+      </div>
+      <label>Dirección de facturación</label>
+      <input name="direccion">
+      <label>Email de facturación</label>
+      <input type="email" name="email_factura">
+
+      <p class="sec">Forma de pago</p>
+      <p style="margin:6px 0 10px;font-size:13px;font-weight:600;color:var(--rojo)">⚠️ Sin el pago (o la gestión SENCE confirmada) antes del 8 de julio, el cupo no queda asegurado y se libera.</p>
+      <div class="pago">
+        <label><input type="radio" name="forma_pago" value="Franquicia SENCE" checked> Franquicia SENCE (gestión vía OTIC antes del curso)</label>
+        <label><input type="radio" name="forma_pago" value="Transferencia total antes del 8 de julio"> Pago total por transferencia (antes del 8 de julio)</label>
+      </div>
+
+      <label>Comentarios (opcional)</label>
+      <textarea name="comentarios" rows="3"></textarea>
+
+      <button type="submit" id="btn">Enviar inscripción</button>
+      <p class="nota">Al enviar, un ejecutivo de Jaras Training te contactará para confirmar tu cupo.</p>
+      <div class="ok" id="ok">✅ ¡Inscripción recibida! Te contactaremos a la brevedad para confirmar tu cupo.</div>
+      <div class="err" id="err">Hubo un problema al enviar. Intenta de nuevo o escríbenos por WhatsApp al +56 9 8131 9416.</div>
+    </form>
+
+    <div class="foot"><a href="https://jarastraining.cl">www.jarastraining.cl</a> · Centro Certificado Clarke Fire para Latinoamérica</div>
+  </div>
+</div>
+
+<script>
+const CURSO = 'Fundamentos de Sistemas de Bombas de Incendio (SENCE) — 17 jul 2026';
+const API   = 'https://crm.sercloud.cl/api/formulario.php';
+document.getElementById('f').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btn');
+  const ok  = document.getElementById('ok');
+  const err = document.getElementById('err');
+  ok.style.display = err.style.display = 'none';
+  const g = n => (document.querySelector('[name="'+n+'"]:checked') || document.querySelector('[name="'+n+'"]') || {}).value || '';
+  const d = {
+    nombre:       g('nombre').trim(),
+    email:        g('email').trim(),
+    telefono:     g('telefono').trim(),
+    empresa:      g('empresa').trim(),
+    curso_interes: CURSO,
+    origen:       'inscripcion',
+    notas:
+      'INSCRIPCIÓN CURSO: ' + CURSO +
+      '\nRUT participante: ' + g('rut') +
+      '\nCargo: ' + g('cargo') +
+      '\nRUT empresa: ' + g('rut_empresa') +
+      '\nGiro: ' + g('giro') +
+      '\nDirección facturación: ' + g('direccion') +
+      '\nEmail facturación: ' + g('email_factura') +
+      '\nForma de pago: ' + g('forma_pago') +
+      (g('comentarios').trim() ? '\nComentarios: ' + g('comentarios').trim() : '')
+  };
+  if (!d.nombre || !d.email || !d.telefono || !d.empresa || !g('rut')) {
+    err.textContent = 'Completa los campos obligatorios (*).';
+    err.style.display = 'block';
+    return;
+  }
+  btn.disabled = true; btn.textContent = 'Enviando...';
+  try {
+    const r = await fetch(API, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(d)
+    });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.ok !== false) {
+      document.getElementById('f').reset();
+      ok.style.display = 'block';
+      btn.style.display = 'none';
+    } else {
+      err.textContent = (j.error ? 'Error: ' + j.error : 'Hubo un problema al enviar.') + ' Si persiste, escríbenos por WhatsApp al +56 9 8131 9416.';
+      err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Enviar inscripción';
+    }
+  } catch (ex) {
+    err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Enviar inscripción';
+  }
+});
+</script>
+</body>
+</html>
