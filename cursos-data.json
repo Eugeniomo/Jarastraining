@@ -332,7 +332,7 @@
       "codigoSENCE": "1238095641",
       "nombre": "Fundamentos de Sistemas de Bombas de Incendio",
       "nombreCorto": "Fundamentos Bombas de Incendio",
-      "paginaDetalle": "inscripcion-bombas.html",
+      "paginaInscripcion": "inscripcion-bombas.html",
       "categoria": "Normas NFPA",
       "descripcion": "Curso introductorio sobre los fundamentos de los sistemas de bombas contra incendio, basado en la norma NFPA 20. Combina 4 horas de teoría sobre componentes, funcionamiento y requisitos normativos, con 4 horas de práctica en sala de bombas: inspección visual, pruebas y reconocimiento de condiciones operativas.",
       "duracion": "8 horas (4 teoría + 4 práctica)",
