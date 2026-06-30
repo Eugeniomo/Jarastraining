@@ -41,7 +41,7 @@
       "codigo": "JDT-OSB8",
       "nombre": "Introducción a la Operación de Salas de Bomba de Sistemas Contra Incendios",
       "nombreCorto": "Operación Salas de Bomba (8h)",
-      "categoria": "Operación y Mantenimiento",
+      "categoria": "Salas de Bomba",
       "descripcion": "Curso introductorio para personal que opera salas de bomba de sistemas contra incendios accionadas por motores diésel. Entrega los conocimientos básicos para identificar componentes, comprender el funcionamiento del sistema motor-bomba-controlador y reconocer cuándo se requiere servicio técnico certificado, con énfasis en equipos Clarke Fire y controladores Tornatech.",
       "duracion": "8 horas",
       "duracionDias": 1,
@@ -66,12 +66,12 @@
       "codigo": "JDT-OSB16",
       "nombre": "Introducción a la Operación e Inspección de Salas de Bomba de Sistemas Contra Incendios",
       "nombreCorto": "Operación e Inspección Salas de Bomba (16h)",
-      "categoria": "Operación y Mantenimiento",
-      "descripcion": "Capacitación completa de 2 días en operación y mantenimiento básico de salas de bomba de sistemas contra incendios con motores diésel Clarke Fire y controladores Tornatech. Incluye inspecciones visuales según NFPA 25, operación segura, procedimientos de emergencia y taller práctico con equipos operativos, conforme a las normas NFPA 13, 20, 25, 30 y 72.",
+      "categoria": "Salas de Bomba",
+      "descripcion": "Capacitación completa de 2 días en operación e inspección de salas de bomba de sistemas contra incendios con motores diésel Clarke Fire y controladores Tornatech. Incluye inspecciones visuales según NFPA 25, operación segura, procedimientos de emergencia y taller práctico con equipos operativos, conforme a las normas NFPA 13, 20, 25, 30 y 72.",
       "duracion": "16 horas",
       "duracionDias": 2,
       "modalidad": "Presencial",
-      "dirigidoA": "Operadores y Personal de Mantenimiento",
+      "dirigidoA": "Operadores y Personal Técnico",
       "validez": "N/A",
       "certificacion": "Jaras Training",
       "contenido": [
@@ -181,7 +181,7 @@
   ],
   "categorias": [
     "Estándares Internacionales",
-    "Operación y Mantenimiento",
+    "Salas de Bomba",
     "Brigadas de Emergencia"
   ],
   "estados": [
