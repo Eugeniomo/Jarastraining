@@ -486,11 +486,6 @@
                 <h1>Catálogo de Cursos</h1>
                 <p>Capacitación especializada en sistemas contra incendios y seguridad</p>
             </div>
-            <div class="estado-filters">
-                <button class="estado-btn" data-estado="">Todos</button>
-                <button class="estado-btn active" data-estado="Planificado">Planificado</button>
-                <button class="estado-btn" data-estado="Finalizado">Finalizado</button>
-            </div>
         </div>
 
         <div class="results-info">
@@ -524,6 +519,7 @@
             'Estándares Internacionales': 'capacitacion-practica.jpg',
             'Diseño y Tecnología': 'capacitacion-practica.jpg',
             'Seguridad Integral': 'capacitacion-practica.jpg',
+            'Brigadas de Emergencia': 'capacitacion-practica.jpg',
             'Corporativo': 'sala-jaras.png',
         };
 
@@ -638,23 +634,8 @@
             return card;
         }
         
-        document.querySelectorAll('.estado-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.estado-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                applyFilters();
-            });
-        });
-
         function applyFilters() {
-            const estado = document.querySelector('.estado-btn.active').dataset.estado;
-
-            filteredCursos = cursosData.filter(curso => {
-                if (!estado) return true;
-                return curso.fechasProgramadas &&
-                    curso.fechasProgramadas.some(fecha => fecha.estado === estado);
-            });
-
+            filteredCursos = cursosData;
             renderCursos();
         }
     </script>

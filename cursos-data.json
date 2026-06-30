@@ -363,6 +363,96 @@
           "observaciones": "08:00 a 16:30 hrs · Inscripción y pago hasta el 8 de julio"
         }
       ]
+    },
+    {
+      "id": "brigada-formacion",
+      "codigo": "JDT-BRIG-FORM",
+      "nombre": "Formación de Brigada de Emergencia",
+      "nombreCorto": "Formación de Brigada",
+      "categoria": "Brigadas de Emergencia",
+      "descripcion": "Curso de formación inicial para integrantes de brigadas de emergencia. Entrega los conocimientos y habilidades básicas para actuar de forma organizada y segura ante incendios, evacuaciones y emergencias en el lugar de trabajo.",
+      "duracion": "8 horas",
+      "duracionDias": 1,
+      "modalidad": "Presencial",
+      "dirigidoA": "Trabajadores e Integrantes de Brigada",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Organización y roles de la brigada de emergencia",
+        "Teoría del fuego y métodos de extinción",
+        "Procedimientos de evacuación y zonas de seguridad",
+        "Primeros auxilios básicos",
+        "Comunicación y coordinación durante la emergencia",
+        "Práctica de control de amago de incendio"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "estado": "Planificado",
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "brigada-especializacion",
+      "codigo": "JDT-BRIG-ESP",
+      "nombre": "Especialización de Brigada de Emergencia",
+      "nombreCorto": "Especialización de Brigada",
+      "categoria": "Brigadas de Emergencia",
+      "descripcion": "Curso avanzado para brigadistas con formación previa. Profundiza en técnicas de control de incendios, uso de equipos especializados y manejo de emergencias complejas, fortaleciendo la capacidad de respuesta de la brigada.",
+      "duracion": "16 horas",
+      "duracionDias": 2,
+      "modalidad": "Presencial",
+      "dirigidoA": "Brigadistas con Formación Previa",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Técnicas avanzadas de control y extinción de incendios",
+        "Uso de equipos de protección respiratoria (ERA)",
+        "Manejo de mangueras, pitones y líneas de ataque",
+        "Rescate y evacuación de víctimas",
+        "Materiales peligrosos: identificación y respuesta inicial",
+        "Simulacros y ejercicios prácticos de emergencia"
+      ],
+      "requisitos": "Curso de Formación de Brigada o experiencia equivalente",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "estado": "Planificado",
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
+    },
+    {
+      "id": "uso-manejo-extintores",
+      "codigo": "JDT-EXT",
+      "nombre": "Uso y Manejo de Extintores",
+      "nombreCorto": "Uso y Manejo de Extintores",
+      "categoria": "Brigadas de Emergencia",
+      "descripcion": "Curso teórico-práctico orientado a capacitar al personal en el uso correcto de extintores portátiles para el control de amagos de incendio, según la clase de fuego y el agente extintor adecuado.",
+      "duracion": "4 horas",
+      "duracionDias": 1,
+      "modalidad": "Presencial",
+      "dirigidoA": "Todo el Personal",
+      "validez": "N/A",
+      "certificacion": "Jaras Training",
+      "contenido": [
+        "Teoría del fuego y clases de fuego (A, B, C, D, K)",
+        "Tipos de extintores y agentes de extinción",
+        "Selección del extintor según la clase de fuego",
+        "Técnica de uso (método PASA) y distancia segura",
+        "Inspección y mantención básica de extintores",
+        "Práctica de extinción con fuego controlado"
+      ],
+      "requisitos": "Ninguno",
+      "precio": "Consultar",
+      "fechasProgramadas": [
+        {
+          "estado": "Planificado",
+          "ubicacion": "Quilicura, Santiago"
+        }
+      ]
     }
   ],
   "categorias": [
@@ -372,7 +462,8 @@
     "Diseño y Tecnología",
     "Seguridad Integral",
     "Estándares Internacionales",
-    "Operación y Mantenimiento"
+    "Operación y Mantenimiento",
+    "Brigadas de Emergencia"
   ],
   "estados": [
     "Abierto",
