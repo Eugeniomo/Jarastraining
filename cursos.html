@@ -264,6 +264,8 @@
             color: var(--gray-700);
         }
         
+        .course-image .badge-clarke-float { position: absolute; bottom: 10px; left: 10px; background: #fff; border-radius: 8px; padding: 5px 9px; box-shadow: 0 2px 8px rgba(0,0,0,0.18); display: flex; align-items: center; }
+        .course-image .badge-clarke-float img { height: 16px; width: auto; display: block; }
         .badge-estado { color: white; }
         .badge-abierto { background: #10b981; }
         .badge-planificado { background: #3b82f6; }
@@ -580,6 +582,7 @@
                     <img src="${imagen}" alt="${curso.nombreCorto}" loading="lazy">
                     <span class="badge-categoria-float">${curso.categoria}</span>
                     <span class="badge badge-estado badge-${estado.toLowerCase()}">${estado}</span>
+                    ${curso.clarke ? '<span class="badge-clarke-float" title="Certificado por Clarke Fire"><img src="clarke-logo.png" alt="Clarke Fire Certified"></span>' : ''}
                 </div>
 
                 <div class="course-header">
