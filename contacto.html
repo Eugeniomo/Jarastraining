@@ -33,8 +33,6 @@
     <meta property="og:image" content="https://jarastraining.cl/hero-jaras.jpg">
     <meta property="og:locale" content="es_CL">
     <meta property="og:site_name" content="Jaras Diesel Training SpA">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>(function(){ emailjs.init("C6E1dGjepERgIWja0"); })();</script>
     <style>
         :root {
             --primary-color: #10b981;
@@ -237,7 +235,7 @@
             const originalText = button.textContent;
             button.textContent = 'Enviando...';
             button.disabled = true;
-            // Envío: el CRM es la fuente de verdad; EmailJS queda como respaldo
+            // Envío: el CRM es la única fuente de verdad (sin copia por correo — evita leads duplicados)
             const formData = Object.fromEntries(new FormData(document.getElementById('contactForm')));
             const cursoParam = new URLSearchParams(window.location.search).get('curso');
             const crmPayload = {
@@ -249,10 +247,6 @@
                 origen: formData.origen || 'contacto',
             };
             if (cursoParam) crmPayload.curso_interes = cursoParam;
-
-            // EmailJS — respaldo silencioso (ya no controla el estado visible)
-            emailjs.sendForm('service_p8d52if', 'template_azbils9', this)
-                .catch(function(err) { console.error('EmailJS error:', err); });
 
             // CRM — fuente de verdad: su respuesta define éxito/error para el usuario
             fetch('https://crm.sercloud.cl/api/formulario.php', {
