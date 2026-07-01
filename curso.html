@@ -12,7 +12,14 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso | Jaras Training</title>
-    <meta name="description" content="Información e inscripción de cursos de capacitación en sistemas contra incendios - Jaras Training">
+    <meta name="description" id="metaDesc" content="Información e inscripción de cursos de capacitación en sistemas contra incendios - Jaras Training">
+    <link rel="canonical" id="metaCanonical" href="https://jarastraining.cl/cursos.html">
+    <!-- Open Graph (preview al compartir el link, ej. WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Jaras Training">
+    <meta property="og:title" id="ogTitle" content="Cursos | Jaras Training">
+    <meta property="og:description" id="ogDesc" content="Capacitación en sistemas contra incendios - Jaras Training">
+    <meta property="og:image" id="ogImage" content="https://jarastraining.cl/hero-jaras.png">
 
     <style>
         :root {
@@ -279,6 +286,16 @@
         function renderCurso(c) {
             document.title = `${c.nombreCorto || c.nombre} | Jaras Training`;
             const imagen = c.imagen || IMAGEN_POR_CATEGORIA[c.categoria] || IMAGEN_DEFAULT;
+
+            // SEO / preview del link (canónica, descripción y Open Graph)
+            const canonical = c.url || ('https://jarastraining.cl/curso.html?slug=' + (c.id || ''));
+            const desc = (c.descripcion || '').slice(0, 180);
+            const setAttr = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
+            setAttr('metaDesc', 'content', desc);
+            setAttr('metaCanonical', 'href', canonical);
+            setAttr('ogTitle', 'content', `${c.nombreCorto || c.nombre} | Jaras Training`);
+            setAttr('ogDesc', 'content', desc);
+            setAttr('ogImage', 'content', new URL(imagen, location.href).href);
             let estado = 'Planificado';
             if (c.fechasProgramadas && c.fechasProgramadas.length > 0 && c.fechasProgramadas[0].estado) {
                 estado = c.fechasProgramadas[0].estado;

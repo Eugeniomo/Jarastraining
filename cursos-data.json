@@ -2,6 +2,7 @@
   "cursos": [
     {
       "id": "deteccion-incendios-internacional",
+      "url": "https://jarastraining.cl/curso.html?slug=deteccion-incendios-internacional",
       "codigo": "JDT-DETINT",
       "nombre": "Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales",
       "nombreCorto": "Detección Internacional",
@@ -39,6 +40,7 @@
     },
     {
       "id": "operacion-salas-bomba-8h",
+      "url": "https://jarastraining.cl/curso.html?slug=operacion-salas-bomba-8h",
       "codigo": "JDT-OSB8",
       "nombre": "Introducción a la Operación de Salas de Bomba de Sistemas Contra Incendios",
       "nombreCorto": "Operación Salas de Bomba (8h)",
@@ -64,6 +66,7 @@
     },
     {
       "id": "operacion-salas-bomba-16h",
+      "url": "https://jarastraining.cl/curso.html?slug=operacion-salas-bomba-16h",
       "codigo": "JDT-OSB16",
       "nombre": "Introducción a la Operación e Inspección de Salas de Bomba de Sistemas Contra Incendios",
       "nombreCorto": "Operación e Inspección Salas de Bomba (16h)",
@@ -92,6 +95,7 @@
     },
     {
       "id": "brigada-formacion",
+      "url": "https://jarastraining.cl/curso.html?slug=brigada-formacion",
       "codigo": "JDT-BRIG-FORM",
       "nombre": "Formación de Brigada de Emergencia",
       "nombreCorto": "Formación de Brigada",
@@ -123,6 +127,7 @@
     },
     {
       "id": "brigada-especializacion",
+      "url": "https://jarastraining.cl/curso.html?slug=brigada-especializacion",
       "codigo": "JDT-BRIG-ESP",
       "nombre": "Especialización de Brigada de Emergencia",
       "nombreCorto": "Especialización de Brigada",
@@ -154,6 +159,7 @@
     },
     {
       "id": "uso-manejo-extintores",
+      "url": "https://jarastraining.cl/curso.html?slug=uso-manejo-extintores",
       "codigo": "JDT-EXT",
       "nombre": "Uso y Manejo de Extintores",
       "nombreCorto": "Uso y Manejo de Extintores",
