@@ -95,6 +95,11 @@
       <label>Comentarios (opcional)</label>
       <textarea name="comentarios" rows="3"></textarea>
 
+      <div style="display:flex;align-items:flex-start;gap:8px;margin-top:14px;">
+        <input type="checkbox" id="aceptaPrivacidad" required style="margin-top:3px;width:auto;">
+        <label for="aceptaPrivacidad" style="font-weight:normal;font-size:13px;margin:0;">He leído y acepto la <a href="politica-privacidad.html" target="_blank" style="color:var(--rojo)">Política de Privacidad</a> de Jaras Diesel Training SpA. Autorizo el uso de mis datos para procesar mi inscripción, emitir factura y recibir comunicaciones relacionadas con el curso.</label>
+      </div>
+
       <button type="submit" id="btn">Enviar inscripción</button>
       <p class="nota">Al enviar, un ejecutivo de Jaras Training te contactará para confirmar tu cupo.</p>
       <div class="ok" id="ok">✅ ¡Inscripción recibida! Te contactaremos a la brevedad para confirmar tu cupo.</div>
@@ -135,6 +140,11 @@ document.getElementById('f').addEventListener('submit', async (e) => {
   };
   if (!d.nombre || !d.email || !d.telefono || !d.empresa || !g('rut')) {
     err.textContent = 'Completa los campos obligatorios (*).';
+    err.style.display = 'block';
+    return;
+  }
+  if (!document.getElementById('aceptaPrivacidad').checked) {
+    err.textContent = 'Debes aceptar la Política de Privacidad para continuar.';
     err.style.display = 'block';
     return;
   }

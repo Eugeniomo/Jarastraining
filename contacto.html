@@ -9,6 +9,7 @@
       gtag('js', new Date());
       gtag('config', 'AW-17951689812');
     </script>
+    <script src="cookie-banner.js" defer></script>
     <script>
     function gtag_report_conversion(url) {
       var callback = function () {
@@ -183,6 +184,10 @@
                             <div class="form-group"><label for="telefono">Tel&#233;fono</label><input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX"></div>
                         </div>
                         <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="&#191;En qu&#233; podemos ayudarle?"></textarea></div>
+                        <div class="form-group" style="display:flex;align-items:flex-start;gap:0.5rem;">
+                            <input type="checkbox" id="aceptaPrivacidad" required style="margin-top:0.3rem;width:auto;">
+                            <label for="aceptaPrivacidad" style="font-weight:normal;font-size:0.85rem;">He le&#237;do y acepto la <a href="politica-privacidad.html" target="_blank">Pol&#237;tica de Privacidad</a>. Autorizo el uso de mis datos para responder esta consulta.</label>
+                        </div>
                         <button type="submit" class="btn-submit">Enviar Solicitud</button>
                     </form>
                 </div>
@@ -231,6 +236,7 @@
                 else { field.style.borderColor = '#10b981'; }
             });
             if (!isValid) { showMessage('Complete todos los campos obligatorios', 'error'); return false; }
+            if (!document.getElementById('aceptaPrivacidad').checked) { showMessage('Debe aceptar la Pol&#237;tica de Privacidad para continuar', 'error'); return false; }
             const button = this.querySelector('button[type="submit"]');
             const originalText = button.textContent;
             button.textContent = 'Enviando...';
