@@ -172,19 +172,39 @@
         .page-header p { font-size: 1.1rem; color: var(--gray-600); }
         .document-section {
             background: white;
-            padding: 3rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
         }
+        .document-section summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.75rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            user-select: none;
+        }
+        .document-section summary::-webkit-details-marker { display: none; }
+        .document-section .doc-body { padding: 0 3rem 3rem; }
         .document-section h2 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 2rem;
             font-weight: 700;
+            margin: 0;
         }
+        .doc-chevron {
+            flex-shrink: 0;
+            width: 22px; height: 22px;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        .document-section[open] .doc-chevron { transform: rotate(180deg); }
+        .document-section summary:hover { background: rgba(16,185,129,0.04); }
         .pdf-embed {
             width: 100%;
             height: 800px;
@@ -214,22 +234,7 @@
         .footer-bottom a { color: var(--accent-color); text-decoration: none; }
         .footer-certifications { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
         .cert-badge { background: var(--gray-800); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; border: 1px solid var(--gray-600); }
-        .privacy-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-        .privacy-section h2 {
-            font-size: 2rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
+        .privacy-section { line-height: 1.8; }
         .privacy-section h3 { color: var(--gray-800); font-size: 1.3rem; margin-top: 2rem; margin-bottom: 1rem; font-weight: 600; }
         .privacy-section p { color: var(--gray-600); margin-bottom: 1.5rem; text-align: justify; }
         .privacy-section ol { color: var(--gray-600); margin-left: 2rem; margin-bottom: 1.5rem; }
@@ -326,40 +331,46 @@
                 <h1>Política de Calidad y Certificaciones</h1>
                 <p>Documentación oficial de Jaras Training</p>
             </div>
-            <div class="document-section">
-                <h2>Política de la Calidad</h2>
-                <embed src="DO-01 Política de la Calidad rev01.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=70" type="application/pdf" class="pdf-embed">
-                <p style="text-align: center; margin-top: 1rem; color: var(--gray-600);">Su navegador no puede mostrar PDFs correctamente.</p>
-            </div>
-            <div class="document-section">
-                <h2>Certificación Clarke Fire</h2>
-                <embed src="Carta jaras clarke Chile.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=70" type="application/pdf" class="pdf-embed">
-                <p style="text-align: center; margin-top: 1rem; color: var(--gray-600);">Su navegador no puede mostrar PDFs correctamente.</p>
-            </div>
-            <div class="privacy-section">
-                <h2>Política de Privacidad para Formularios de Generación de Contactos</h2>
-                <p>En Jaras Diesel Training, valoramos profundamente tu privacidad y la confianza que depositas en nosotros al interactuar con nuestros formularios de generación de contactos en LinkedIn. Esta política describe cómo recopilamos, utilizamos y protegemos tus datos.</p>
-                <h3>Tu privacidad es importante para nosotros</h3>
-                <p>Entendemos que la transparencia es fundamental. Nuestro objetivo, y el de LinkedIn, es conectar a los profesionales de todo el mundo para ayudarles a ser más productivos y a alcanzar sus metas laborales.</p>
-                <h3>¿Cómo utilizaremos tus datos?</h3>
-                <p>Al completar nuestros formularios de generación de contactos en LinkedIn, tus datos serán utilizados con los siguientes propósitos:</p>
-                <ol>
-                    <li><strong>Para procesar tu solicitud de información:</strong> Utilizaremos los datos proporcionados para gestionar y responder a cualquier consulta, solicitud de cotización o información específica que nos hayas enviado a través del formulario.</li>
-                    <li><strong>Para registrarte y enviarte newsletters:</strong> Si has optado por recibir nuestras comunicaciones, utilizaremos tus datos para registrarte en nuestra lista de correo y enviarte newsletters. Puedes darte de baja en cualquier momento.</li>
-                </ol>
-                <h3>Tus Opciones y Control</h3>
-                <p>Ofrecemos a nuestros usuarios distintas opciones acerca de los datos que recopilamos, utilizamos y compartimos, según se describe en esta Política de privacidad y en la Política de cookies de LinkedIn.</p>
-                <div class="privacy-highlight">
-                    <h3 style="margin-top: 0;">Compromiso de Jaras Diesel Training</h3>
-                    <p style="margin-bottom: 1rem;">En Jaras Diesel, nos comprometemos a:</p>
-                    <ul>
-                        <li>Utilizar tus datos de manera responsable y ética.</li>
-                        <li>Proteger tu información personal con medidas de seguridad adecuadas.</li>
-                        <li>No compartir tus datos con terceros no autorizados sin tu consentimiento explícito, salvo que sea requerido por ley.</li>
-                    </ul>
+            <details class="document-section" open>
+                <summary><h2>Política de la Calidad</h2><svg class="doc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></summary>
+                <div class="doc-body">
+                    <embed src="DO-01 Política de la Calidad rev01.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=70" type="application/pdf" class="pdf-embed">
+                    <p style="text-align: center; margin-top: 1rem; color: var(--gray-600);">Su navegador no puede mostrar PDFs correctamente.</p>
                 </div>
-                <p>Para cualquier duda o consulta adicional sobre nuestra política de privacidad, no dudes en contactarnos a través de los canales disponibles en <a href="https://jarastraining.cl/" class="privacy-link">https://jarastraining.cl/</a></p>
-            </div>
+            </details>
+            <details class="document-section">
+                <summary><h2>Certificación Clarke Fire</h2><svg class="doc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></summary>
+                <div class="doc-body">
+                    <embed src="Carta jaras clarke Chile.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=70" type="application/pdf" class="pdf-embed">
+                    <p style="text-align: center; margin-top: 1rem; color: var(--gray-600);">Su navegador no puede mostrar PDFs correctamente.</p>
+                </div>
+            </details>
+            <details class="document-section privacy-section">
+                <summary><h2>Política de Privacidad para Formularios de Generación de Contactos</h2><svg class="doc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg></summary>
+                <div class="doc-body">
+                    <p>En Jaras Diesel Training, valoramos profundamente tu privacidad y la confianza que depositas en nosotros al interactuar con nuestros formularios de generación de contactos en LinkedIn. Esta política describe cómo recopilamos, utilizamos y protegemos tus datos.</p>
+                    <h3>Tu privacidad es importante para nosotros</h3>
+                    <p>Entendemos que la transparencia es fundamental. Nuestro objetivo, y el de LinkedIn, es conectar a los profesionales de todo el mundo para ayudarles a ser más productivos y a alcanzar sus metas laborales.</p>
+                    <h3>¿Cómo utilizaremos tus datos?</h3>
+                    <p>Al completar nuestros formularios de generación de contactos en LinkedIn, tus datos serán utilizados con los siguientes propósitos:</p>
+                    <ol>
+                        <li><strong>Para procesar tu solicitud de información:</strong> Utilizaremos los datos proporcionados para gestionar y responder a cualquier consulta, solicitud de cotización o información específica que nos hayas enviado a través del formulario.</li>
+                        <li><strong>Para registrarte y enviarte newsletters:</strong> Si has optado por recibir nuestras comunicaciones, utilizaremos tus datos para registrarte en nuestra lista de correo y enviarte newsletters. Puedes darte de baja en cualquier momento.</li>
+                    </ol>
+                    <h3>Tus Opciones y Control</h3>
+                    <p>Ofrecemos a nuestros usuarios distintas opciones acerca de los datos que recopilamos, utilizamos y compartimos, según se describe en esta Política de privacidad y en la Política de cookies de LinkedIn.</p>
+                    <div class="privacy-highlight">
+                        <h3 style="margin-top: 0;">Compromiso de Jaras Diesel Training</h3>
+                        <p style="margin-bottom: 1rem;">En Jaras Diesel, nos comprometemos a:</p>
+                        <ul>
+                            <li>Utilizar tus datos de manera responsable y ética.</li>
+                            <li>Proteger tu información personal con medidas de seguridad adecuadas.</li>
+                            <li>No compartir tus datos con terceros no autorizados sin tu consentimiento explícito, salvo que sea requerido por ley.</li>
+                        </ul>
+                    </div>
+                    <p>Para cualquier duda o consulta adicional sobre nuestra política de privacidad, no dudes en contactarnos a través de los canales disponibles en <a href="https://jarastraining.cl/" class="privacy-link">https://jarastraining.cl/</a></p>
+                </div>
+            </details>
         </div>
     </div>
 
