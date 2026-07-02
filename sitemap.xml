@@ -49,8 +49,19 @@
     </url>
 
     <url>
+        <loc>https://jarastraining.cl/certificacion-clarke-fire.html</loc>
+        <lastmod>2026-07-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://jarastraining.cl/credenciales/clarke-logo.png</image:loc>
+            <image:title>Centro de Capacitación Certificado de Clarke Fire para Latinoamérica</image:title>
+        </image:image>
+    </url>
+
+    <url>
         <loc>https://jarastraining.cl/cursos.html</loc>
-        <lastmod>2026-07-01</lastmod>
+        <lastmod>2026-07-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
