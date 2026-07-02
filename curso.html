@@ -10,6 +10,7 @@
       gtag('js', new Date());
       gtag('config', 'AW-17951689812');
     </script>
+    <script src="cookie-banner.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso | Jaras Training</title>
     <meta name="description" id="metaDesc" content="Información e inscripción de cursos de capacitación en sistemas contra incendios - Jaras Training">
@@ -422,6 +423,10 @@
                                     <label for="mensaje">Mensaje</label>
                                     <textarea id="mensaje" name="mensaje" placeholder="¿Cuántas personas? ¿Fecha preferida?"></textarea>
                                 </div>
+                                <div class="form-group" style="display:flex;align-items:flex-start;gap:0.5rem;">
+                                    <input type="checkbox" id="aceptaPrivacidad" required style="margin-top:0.3rem;width:auto;">
+                                    <label for="aceptaPrivacidad" style="font-weight:normal;font-size:0.85rem;">He leído y acepto la <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a>. Autorizo el uso de mis datos para responder esta consulta.</label>
+                                </div>
                                 <button type="submit" class="btn-submit">Enviar consulta</button>
                                 <div id="formMessage" class="form-message"></div>
                                 <p class="form-hint">o escríbenos por <a href="${waLink}" target="_blank" rel="noopener" style="color:#059669;font-weight:600;">WhatsApp</a></p>
@@ -453,6 +458,7 @@
             let ok = true;
             required.forEach(f => { if (!f.value.trim()) { ok = false; f.style.borderColor = '#dc2626'; } else { f.style.borderColor = '#10b981'; } });
             if (!ok) { showMessage('Completa los campos obligatorios.', 'error'); return; }
+            if (!document.getElementById('aceptaPrivacidad').checked) { showMessage('Debes aceptar la Política de Privacidad para continuar.', 'error'); return; }
 
             const btn = form.querySelector('button[type="submit"]');
             const original = btn.textContent;
