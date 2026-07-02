@@ -1,0 +1,21 @@
+/* Jaras Training — texto de contenido justificado (todo el sitio).
+   Se carga al final del <head> para ganar en empates de especificidad. */
+p, li, .faq-body, .cert-strip .cert-txt {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: none;
+}
+
+/* Excepciones: contextos centrados, de navegación o de UI donde
+   justificar se ve mal. Vuelven a heredar la alineación del contenedor. */
+.hero p, .hero-text p, .hero-content p, .hero-corporate p, .hero-subtitle, .milestone-subtitle,
+.banner p, .cta-final p, .cta-note, .cta-card p, .cta-buttons p,
+.page-header p, .doc-hero p,
+.footer-bottom, .footer-bottom p, .footer-section p, .footer-section li,
+.form-hint, .form-subtitle, .nota, .foot, .submit-note,
+.empty-state p, .loading, .update-date,
+.nav-menu li, .dropdown-menu li,
+[class*="badge"], .whatsapp-float span, button, .btn, .nav-link, a.btn {
+    text-align: inherit;
+    text-justify: auto;
+}
