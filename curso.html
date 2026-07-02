@@ -459,14 +459,16 @@
                     <!-- Columna formulario -->
                     <div class="card form-card">
                         <div class="form-head">
-                            <h2>Consultar / Inscribirse</h2>
-                            <p>Te contactamos con toda la información</p>
+                            <h2>Inscríbete o consulta</h2>
+                            <p>Reserva tu cupo o pide más información</p>
                         </div>
                         <div class="form-body">
                             <div class="price-row">
                                 <span class="label">Valor</span>
                                 <span class="price${esMonto ? '' : ' consultar'}">${esc(c.precio || 'Consultar')}</span>
                             </div>
+                            <a href="inscripcion.html?slug=${encodeURIComponent(c.id)}" class="btn-submit" style="display:block;text-align:center;text-decoration:none;margin-bottom:1rem;">Inscribirme ahora →</a>
+                            <div style="text-align:center;color:#94a3b8;font-size:0.82rem;margin-bottom:1rem;">— o déjanos tus datos y te contactamos —</div>
                             <form id="cursoForm">
                                 <div class="form-group">
                                     <label for="nombre">Nombre completo *</label>

@@ -396,45 +396,7 @@
     <!-- SELECCIÓN DE CURSO -->
     <div class="section-label" id="lbl-curso">Selecciona tu curso</div>
     <div class="course-cards" id="course-section">
-
-        <div class="course-card" id="card-1" onclick="selectCourse(1)">
-            <div class="course-radio" id="radio-1"></div>
-            <div class="course-info">
-                <div class="course-title">Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales</div>
-                <div class="course-meta">
-                    <span>📅 4 sesiones · 4 horas c/u</span>
-                    <span>🌐 Online</span>
-                    <span>📋 Certificado incluido</span>
-                </div>
-            </div>
-            <div class="course-pricing" style="display:flex;gap:1rem;align-items:flex-start;">
-               <div style="text-align:right;">
-    <div class="price-discount" style="font-size:1.1rem;">$285.694 CLP</div>
-    <div class="price-iva">Exento de IVA en Chile</div>
-    <div class="price-iva">En otros países pueden aplicar impuestos locales</div>
-</div>
-            </div>
-        </div>
-
-        <div class="course-card" id="card-2" onclick="selectCourse(2)">
-            <div class="course-radio" id="radio-2"></div>
-            <div class="course-info">
-                <div class="course-title">Diseño e Implementación de Sistemas de Notificación de Incendios y Tecnologías Especiales para la Detección basado en Estándares Internacionales</div>
-                <div class="course-meta">
-                    <span>📅 4 sesiones · 4 horas c/u</span>
-                    <span>🌐 Online</span>
-                    <span>📋 Certificado incluido</span>
-                </div>
-            </div>
-            <div class="course-pricing" style="display:flex;gap:1rem;align-items:flex-start;">
-                <div style="text-align:right;">
-    <div class="price-discount" style="font-size:1.1rem;">$285.694 CLP</div>
-    <div class="price-iva">Exento de IVA en Chile</div>
-    <div class="price-iva">En otros países pueden aplicar impuestos locales</div>
-</div>
-            </div>
-        </div>
-
+        <div id="course-loading" style="padding:1rem 0;color:#64748b;">Cargando cursos…</div>
     </div>
 
     <!-- DATOS DEL PARTICIPANTE -->
@@ -716,17 +678,81 @@ function togglePagador() {
 // ═══════════════════════════════════════════════
 // SELECCIÓN DE CURSO
 // ═══════════════════════════════════════════════
-let cursoSeleccionado = null;
-const CURSOS = {
-    1: 'Diseño e Implementación de Tecnologías para la Detección de Incendios basado en Estándares Internacionales',
-    2: 'Diseño e Implementación de Sistemas de Notificación de Incendios y Tecnologías Especiales para la Detección basado en Estándares Internacionales',
-};
+let cursoSeleccionado = null;   // índice en CURSOS
+let CURSOS = [];                // cargado desde cursos-data.json
 
 function selectCourse(n) {
     cursoSeleccionado = n;
     document.querySelectorAll('.course-card').forEach(c => c.classList.remove('selected'));
-    document.getElementById('card-' + n).classList.add('selected');
+    const card = document.getElementById('card-' + n);
+    if (card) card.classList.add('selected');
+    // Actualiza el banner de fechas según el curso elegido
+    const c = CURSOS[n];
+    if (!c) return;
+    const fechas = document.querySelector('.schedule-dates .dates');
+    const label  = document.querySelector('.schedule-dates .label');
+    const prog = (c.fechasProgramadas || []).find(f => f.fechaInicio) || (c.fechasProgramadas || [])[0];
+    if (label) label.textContent = '📅 ' + (c.modalidad ? c.modalidad : 'Fechas del curso');
+    if (fechas) {
+        if (prog && prog.observaciones) fechas.textContent = prog.observaciones + '  ·  ' + c.duracion;
+        else fechas.textContent = c.duracion + '  ·  fechas por coordinar — te contactamos al inscribirte';
+    }
 }
+
+function fmtMeta(c) {
+    const bits = [];
+    if (c.duracion) bits.push('⏱️ ' + c.duracion);
+    if (c.modalidad) bits.push('🌐 ' + c.modalidad);
+    bits.push('📋 Certificado incluido');
+    return bits.map(b => '<span>' + b + '</span>').join('');
+}
+
+function renderCursos() {
+    const cont = document.getElementById('course-section');
+    cont.innerHTML = CURSOS.map((c, i) => {
+        const clarke = c.clarke ? '<span style="color:#c1121f;font-weight:700;">🔥 Certificado por Clarke Fire</span> ' : '';
+        return (
+            '<div class="course-card" id="card-' + i + '" onclick="selectCourse(' + i + ')">' +
+                '<div class="course-radio" id="radio-' + i + '"></div>' +
+                '<div class="course-info">' +
+                    '<div class="course-title">' + clarke + c.nombre + '</div>' +
+                    '<div class="course-meta">' + fmtMeta(c) + '</div>' +
+                '</div>' +
+                '<div class="course-pricing" style="display:flex;gap:1rem;align-items:flex-start;">' +
+                    '<div style="text-align:right;">' +
+                        '<div class="price-discount" style="font-size:1.1rem;">' + (c.precio || 'Consultar') + '</div>' +
+                        '<div class="price-iva">Exento de IVA en Chile</div>' +
+                        '<div class="price-iva">En otros países pueden aplicar impuestos locales</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>'
+        );
+    }).join('');
+}
+
+(function loadCursos() {
+    fetch('cursos-data.json')
+        .then(r => r.json())
+        .then(data => {
+            CURSOS = (data.cursos || []).map(c => ({
+                id: c.id, nombre: c.nombre, precio: c.precio, duracion: c.duracion,
+                modalidad: c.modalidad, clarke: !!c.clarke, fechasProgramadas: c.fechasProgramadas,
+            }));
+            renderCursos();
+            // Preselección por ?slug= o ?curso= (enlace desde el detalle del curso)
+            const params = new URLSearchParams(location.search);
+            const slug = params.get('slug') || params.get('curso');
+            if (slug) {
+                const idx = CURSOS.findIndex(c => c.id === slug);
+                if (idx >= 0) selectCourse(idx);
+            }
+        })
+        .catch(err => {
+            console.error('[cursos]', err);
+            document.getElementById('course-section').innerHTML =
+                '<div style="padding:1rem;color:#c1121f;">No se pudieron cargar los cursos. Escríbenos por WhatsApp al +56 9 8131 9416.</div>';
+        });
+})();
 
 // ═══════════════════════════════════════════════
 // VALIDACIÓN
@@ -758,7 +784,7 @@ function validate() {
             err.textContent = '';
         }
     });
-    if (!cursoSeleccionado) { alert('Por favor selecciona un curso.'); ok = false; }
+    if (cursoSeleccionado === null) { alert('Por favor selecciona un curso.'); ok = false; }
     if (!document.getElementById('terminos').checked) { alert('Debes aceptar la Política de Privacidad para continuar.'); ok = false; }
     return ok;
 }
@@ -777,7 +803,8 @@ function enviarFormulario() {
     const email = g('email');
     const pais = document.getElementById('pais').value;
     const mismoPagador = document.getElementById('mismo-pagador').checked;
-    const curso = CURSOS[cursoSeleccionado];
+    const cursoObj = CURSOS[cursoSeleccionado] || {};
+    const curso = cursoObj.nombre || '';
 
     const notas =
         'INSCRIPCIÓN CURSO: ' + curso +
