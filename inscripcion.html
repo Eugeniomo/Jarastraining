@@ -366,7 +366,7 @@
     <a href="https://www.jarastraining.cl" class="logo-area">
         <img src="logo-jdt.png" alt="Jaras Training">
     </a>
-    <span class="header-badge">Inscripción Online</span>
+    <span class="header-badge">Inscripción</span>
 </header>
 
 <!-- SCHEDULE BANNER -->
@@ -697,6 +697,10 @@ function selectCourse(n) {
         if (prog && prog.observaciones) fechas.textContent = prog.observaciones + '  ·  ' + c.duracion;
         else fechas.textContent = c.duracion + '  ·  fechas por coordinar — te contactamos al inscribirte';
     }
+    // El recuadro de hora/zona horaria (ej: 10:00 AM Chile) solo aplica a cursos online (webinar);
+    // en presenciales no tiene sentido, se oculta.
+    const times = document.querySelector('.schedule-times');
+    if (times) times.style.display = (c.modalidad || '').toLowerCase().includes('online') ? '' : 'none';
 }
 
 function fmtMeta(c) {
