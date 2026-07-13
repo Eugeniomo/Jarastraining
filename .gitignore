@@ -1,2 +1,19 @@
+# Basura de trabajo — no es el sitio
 /docs/
 /imagenes/
+.playwright-mcp/
+
+# Capturas de trabajo (screenshots de auditoría/depuración)
+crm-*.png
+outlook-*.png
+insc-*.png
+mensajes-wsp.png
+ingrid-lead.png
+jarastraining-home.png
+
+# Borradores y mockups internos
+/borradores/
+mockup-*.html
+
+# macOS
+.DS_Store
