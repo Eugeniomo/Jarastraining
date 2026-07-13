@@ -1,54 +1,50 @@
 # ESTADO — Jarastraining
 
 <!-- Estado: backlog | en-curso | code-listo | desplegado | ✅ validado | 🚫 bloqueado -->
-**Última sesión:** 2026-06-30 (tarde) · Rehecho el **catálogo de cursos** (`cursos.html` + `cursos-data.json`): dejado en **6 cursos**, quitado submenú "Calendario Cursos" del nav (4 páginas), quitados filtros de estado y nota NFPA, títulos sin recorte, y **foto propia distinta por curso** (generadas por IA, optimizadas con `sips`). Todo desplegado a GitHub Pages.
+**Última sesión:** 2026-07-09. Auditoría completa del sitio web y del CRM (3 hallazgos, 1 reparado). Diseñé el programa bianual de perfeccionamiento de brigada para GASCO (propuesta 40-26, base OSHA/NFPA). Consolidé toda la info del curso 17-jul (Fundamentos Bombas 8h): 11/20 inscritos, pero la **OC al relator quedó anulada** — bloquea el pago del anticipo antes del curso. Detalle completo de la sesión en BITACORA.
 
-## Catálogo de cursos — REHECHO (2026-06-30 tarde) — desplegado a Pages
-- **6 cursos finales** (antes había 14): 1) Detección Internacional (JDT-DETINT) · 2) Operación Salas de Bomba 8h (JDT-OSB8) · 3) Operación e **Inspección** Salas de Bomba 16h (JDT-OSB16, antes "y Mantenimiento" — se quitó "mantenimiento" a pedido) · 4) Formación de Brigada (JDT-BRIG-FORM, 8h) · 5) Especialización de Brigada (JDT-BRIG-ESP, **40h**) · 6) Uso y Manejo de Extintores (JDT-EXT, 4h).
-- **Eliminados** (recuperables por git): Clarke, NFPA 25 Inspección, Corporativo, Espuma, Rociadores, Seguridad Electrónica, Notificación Internacional y **Fundamentos Bombas SENCE** (el del temario T16, tenía inscripción con pago — ¡ojo si se quiere reactivar!).
-- Cambios UI en `cursos.html`: quitado submenú "Calendario Cursos" (index/nosotros/contacto/politica), quitados botones filtro Todos/Planificado/Finalizado, quitada nota "No incluye certificación NFPA", quitado `-webkit-line-clamp` del título, categoría "Operación y Mantenimiento" → "Salas de Bomba".
-- **Fotos:** 4 generadas por IA (Eugenio las creó con prompts que le pasé; CLI `gemini` quedó sin auth `IneligibleTierError`, MCP gemini-design no hace fotos). Archivos: `curso-deteccion.jpg`, `curso-brigada-formacion.jpg`, `curso-brigada-especializacion.jpg`, `curso-extintores.jpg` (campo `imagen` por curso). Salas de bomba usan `sala-bombas-general.jpg` y `capacitacion-practica.jpg`.
-- Último commit desplegado: `b45ea3b`. **Pendiente validación de Eugenio.**
-
-## WhatsApp del CRM — DIAGNÓSTICO CERRADO (2026-06-30)
-- El número **+56 9 8131 9416 NO se vincula a Evolution/Baileys**: WhatsApp manda **logout 401 al emparejar** (probado con QR y con código de 8 dígitos). Causa: el número está registrado como **WhatsApp Business en Meta Business Manager ("Aprobada")**, y Meta bloquea clientes no oficiales.
-- **No se arregla reintentando.** Decisión: **migrar al driver oficial `meta` (Cloud API)** — el CRM ya lo soporta (`api/wasap_send_meta.php`, `api/whatsapp_webhook_meta.php`).
-- **Ya configurado en `/var/www/jaras-crm/.env`:** `META_VERIFY_TOKEN=jaras_b08b5351b79a5193`. Webhook a registrar en Meta: `https://crm.sercloud.cl/api/whatsapp_webhook_meta.php` (suscribir `messages`).
-- **FALTA (manual de Eugenio en panel de Meta):** sacar `META_PHONE_NUMBER_ID` + `META_WA_TOKEN` (token permanente de Usuario del Sistema, permisos `whatsapp_business_messaging` + `whatsapp_business_management`). Cuando los traiga: agregar al `.env`, cambiar `WHATSAPP_DRIVER=evolution` → `meta`. Paso a paso entregado en el chat.
-- (Menor) En `/opt/evolution-jaras/.env` quedó `CONFIG_SESSION_PHONE_VERSION=2.3000.1035194821` — no resolvió, pero es inocuo.
+## 🔴 Bloqueante urgente (antes del 17-jul)
+- **OC del relator (Hidrolink) ANULADA** por Leslie Gatica: debe reemitirse explícitamente a nombre de **"Jaras Training"** (ella emite default a "Jaras Diesel") — resolver con Leslie/José Luis Saez antes de poder pagar el anticipo.
 
 ## Tablero
 | ID | Tarea | Estado | Bloqueo |
 |----|-------|--------|---------|
-| T17 | Catálogo de cursos rehecho (6 cursos + fotos propias) | desplegado a Pages (`b45ea3b`) | pendiente validación Eugenio |
-| T14 | WhatsApp CRM vía Meta Cloud API | code-listo (driver) | 🚫 falta Phone Number ID + token permanente de Eugenio |
-| T15 | `/admin/perfil.php` (datos + foto + cambio de clave) | desplegado y probado por mí (Playwright) | pendiente validación Eugenio |
-| T16 | Temario SENCE 8h "Fundamentos de Bombas de Incendio" (docx+pdf) | code-listo | pendiente validación Eugenio |
-| T12 | Enviar propuestas 38/39/41/42 desde info@ (adjuntar PDF a borradores) | borradores listos | manual de Eugenio |
-| T13 | SQM (Paulina): cotización NFPA 10-20-25, 2 grupos | 🚫 esperando N° personas por turno | — |
-| T5 | Inscripción Bombas → CRM | desplegado a Pages | 🚫 falta BanaHosting FTP |
-| T6/T7/T8 | Catálogo/Formularios/Textos SENCE | desplegado a Pages | pendiente validación |
-| T11 | PA-01: tabla distribución de contenidos | code-listo | pendiente validación Eugenio |
+| T25 | Curso **24-jul** (movido desde 17-jul) Fundamentos Bombas 8h | en-curso — 11/20 cupos; web actualizada y en Pages | 🚫 OC relator anulada (ver arriba) · falta enviar correos de cambio de fecha y subir a BanaHosting |
+| T26 | GASCO — Programa bianual perfeccionamiento brigada (40-26) | code-listo (programa diseñado) | falta adaptar cálculo económico (15 pers. × 8 jornadas) |
+| T27 | 5 prospectos con ficha enviada sin responder (Afiansso, Extingue Llamas, Syncore, Asprevención, OHLA) | backlog · texto de seguimiento redactado | falta enviar |
+| T28 | Chamilo (Aula Virtual) caído — host BD no responde | backlog | falta identificar cPanel de Chamilo y re-whitelistear IP `64.176.15.118` |
+| T18 | Presentación comercial Codelco | desplegado (enviada) | esperando respuesta Codelco |
+| T21 | Seguimiento a Francisco Ortega (prop. 38-26) | backlog | — |
+| T17 | Catálogo de cursos (6 cursos) | desplegado a Pages | pendiente validación Eugenio |
+| T14 | WhatsApp CRM vía Meta Cloud API | ✅ validado | prod pleno: falta plantilla propia + publicar app |
+| T15 | `/admin/perfil.php` | desplegado y probado | pendiente validación Eugenio |
+| T16 | Temario SENCE 8h + checklist práctica | code-listo (checklist grupal 1 hoja creado) | falta Área SENCE + Vigencia 11-06-2030; validación Eugenio |
+| T19 | Formulario inscripción dinámico | desplegado a Pages | pendiente validación Eugenio |
+| T20 | 6 fichas PDF Fundamentos Bombas 8h | enviadas 06-jul | solo Netbee avanzó a pago (ver T27) |
+| T23 | CRM badge inscripciones nuevas | code-listo, local | falta desplegar a vultr |
+| T12 | Enviar propuestas 38/39/41/42 desde info@ | borradores listos | manual de Eugenio |
+| T13 | SQM (Paulina): cotización NFPA 10-20-25 | 🚫 esperando N° personas por turno | — |
+| T5 | Inscripción Bombas → CRM (BanaHosting) | desplegado a Pages | 🚫 falta subir ZIP fresco a BanaHosting (política + nombre SENCE desactualizados) |
 
-## Temario 8h Bombas (SENCE) — sesión 2026-06-30
-- Base: ficha SENCE **solicitud 1941225** ("Copia de Curso sence 1238095641.pdf"). Curso 8h (4 teóricas + 4 prácticas), 3 AE, asistencia 75%, eval. teórica 40% (mín 60%) + práctica 60% (mín 70%), relator Anton Ziller.
-- Generado con formato Jaras (PR-18-F002). Guardado docx+pdf en:
-  `OneDrive…/Cursos/Curso OPERACIÓN SALA BOMBA SCI/8 horas/` (la carpeta estaba vacía).
-- **Pendiente:** presentación de 8h (solo existe la de 16h) — ofrecí adaptarla, Eugenio no respondió.
+## Reglas de contenido comercial (aprendidas — aplicar SIEMPRE)
+- Jaras Training **solo hace cursos**: nada de puesta en marcha, comisionamiento, mantención, servicio técnico ni repuestos.
+- Decir siempre **"Clarke Fire"**, nunca "el fabricante".
+- Docs: texto justificado, sin negritas en párrafos, precios con "Exento de IVA" debajo.
+- Correlativo de ofertas `NN-26`: registrar SIEMPRE en `7.2 Comercial/Control de ofertas.xlsx` al crear una propuesta nueva — se desactualizó una vez (35-42 nunca se anotaron) y causó el salto/duda del 40.
 
-## Sitio (GitHub Pages — https://eugeniomo.github.io/Jarastraining/)
-- Cambios viven SOLO en Pages. `jarastraining.cl` (BanaHosting) sube MANUAL — Claude sin FTP/cPanel. Bloqueante recurrente.
-
-## CRM (crm.sercloud.cl — deploy git pull root por SSH `vultr`, webroot /var/www/jaras-crm)
-- Login auditor: auditor@sercloud.cl (clave en `~/.orquestador/jaras-auditor.pw`). `wasap_pairing.php` requiere rol admin (auditor no entra).
+## Sitio y CRM (resumen vigente)
+- Web = GitHub Pages (auto con `git push`, código y Pages siempre correctos); `jarastraining.cl` BanaHosting = subida manual, recurrentemente desactualizado (ver T5).
+- CRM crm.sercloud.cl: deploy `git pull` root vía SSH `vultr`, webroot `/var/www/jaras-crm`, BD accesible vía `.env` (`CRM_DB_*`, no es parse_ini_file-compatible). Auditor: auditor@sercloud.cl (clave `~/.orquestador/jaras-auditor.pw`).
+- **`info@jarastraining.cl` se gestiona vía Gmail** (`emoyae@gmail.com`, alias), NO Outlook. Outlook (`eugenio.moya@jarasdiesel.com`) es buzón interno aparte (OC/administración con Leslie Gatica / José Luis Saez).
+- Campaña de email marketing: cron OK bajo `www-data`, funciona por diseño (ventana 10-12h Chile, ~100/día máx.) — no confundir con bug si se ve "fuera de horario".
 
 ## Preguntas / pendientes abiertas
-- **Eugenio → falta traer** `META_PHONE_NUMBER_ID` + token permanente de Meta para terminar WhatsApp.
-- ¿Adaptar la presentación de 16h a 8h? (sin respuesta)
-- ¿Cómo se sube a jarastraining.cl (FTP/cPanel BanaHosting)? — bloquea publicación real.
-- RUT de Sergio (Afiansso) para propuesta 37-26.
-- Validar en Pages: T6, T7, T8, **T17 (catálogo 6 cursos)**. Validar perfil.php (T15) y temario 8h (T16).
-- ⚠️ El curso **Fundamentos Bombas SENCE** (tenía inscripción con pago) salió del catálogo al reducir a 6 — ¿se reactiva o queda fuera? (T16 depende de esto).
+- ¿Cómo se sube a jarastraining.cl (FTP/cPanel BanaHosting)? — bloquea T5 y la política de calidad.
+- ¿En qué cPanel/hosting vive Chamilo? — necesario para resolver T28 (whitelist IP).
+- T16: ¿repongo campo Área SENCE + Vigencia 11-06-2030? ¿armo diseño PR-18-F001 8h con infraestructura/EPP reales?
+- ¿Se reactiva el curso Fundamentos Bombas en el catálogo si se amplía de 6 cursos?
+- WhatsApp Meta: ¿Paso 3 verificación del negocio + publicar app para producción plena?
+- Acreditación SENCE relator: ¿investigo planes formativos SENCE de contra incendios/emergencias?
 
 ---
 *Infra → INFRA_SERVER.md · Historia → BITACORA.md · CRM acceso → memoria acceso-crm-auditor*
