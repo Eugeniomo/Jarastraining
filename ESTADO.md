@@ -1,15 +1,16 @@
 # ESTADO — Jarastraining
 
 <!-- Estado: backlog | en-curso | code-listo | desplegado | ✅ validado | 🚫 bloqueado -->
-**Última sesión:** 2026-07-09. Auditoría completa del sitio web y del CRM (3 hallazgos, 1 reparado). Diseñé el programa bianual de perfeccionamiento de brigada para GASCO (propuesta 40-26, base OSHA/NFPA). Consolidé toda la info del curso 17-jul (Fundamentos Bombas 8h): 11/20 inscritos, pero la **OC al relator quedó anulada** — bloquea el pago del anticipo antes del curso. Detalle completo de la sesión en BITACORA.
+**Última sesión:** 2026-07-13. El curso de Fundamentos Bombas 8h se **movió del 17 al viernes 24 de julio (10:00–18:30)**. Actualicé web (Pages), las 3 fichas de propuesta y el CRM; ZIP listo para BanaHosting. **OC del relator resuelta.** Eugenio envía los correos de cambio de fecha. Detalle en BITACORA.
 
-## 🔴 Bloqueante urgente (antes del 17-jul)
-- **OC del relator (Hidrolink) ANULADA** por Leslie Gatica: debe reemitirse explícitamente a nombre de **"Jaras Training"** (ella emite default a "Jaras Diesel") — resolver con Leslie/José Luis Saez antes de poder pagar el anticipo.
+## 🔴 Bloqueante urgente (antes del 24-jul)
+- Ninguno. La **OC del relator (Hidrolink) quedó resuelta** (13-jul) — ya se puede pagar el anticipo.
+- Pendiente operativo: subir `~/Desktop/jaras-web-24jul.zip` a jarastraining.cl (BanaHosting) — hasta entonces el sitio público muestra la fecha vieja.
 
 ## Tablero
 | ID | Tarea | Estado | Bloqueo |
 |----|-------|--------|---------|
-| T25 | Curso **viernes 24-jul, 10:00–18:30** (movido desde 17-jul) Fundamentos Bombas 8h | en-curso — 11/20 cupos; web en Pages ✔, CRM actualizado ✔ | 🚫 OC relator anulada (ver arriba) · Eugenio envía correos de cambio de fecha · falta subir ZIP a BanaHosting |
+| T25 | Curso **viernes 24-jul, 10:00–18:30** (movido desde 17-jul) Fundamentos Bombas 8h | en-curso — 11/20 cupos; web ✔, CRM ✔, OC relator ✔ | Eugenio envía correos de cambio de fecha (borradores en `borradores/`) · falta subir ZIP a BanaHosting |
 | T26 | GASCO — Programa bianual perfeccionamiento brigada (40-26) | code-listo (programa diseñado) | falta adaptar cálculo económico (15 pers. × 8 jornadas) |
 | T27 | 5 prospectos con ficha enviada sin responder (Afiansso, Extingue Llamas, Syncore, Asprevención, OHLA) | backlog · texto de seguimiento redactado | falta enviar |
 | T28 | Chamilo (Aula Virtual) caído — host BD no responde | backlog | falta identificar cPanel de Chamilo y re-whitelistear IP `64.176.15.118` |
