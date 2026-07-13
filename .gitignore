@@ -17,3 +17,6 @@ mockup-*.html
 
 # macOS
 .DS_Store
+
+# Propuestas comerciales — NO publicar (datos y precios de clientes)
+/propuestas/
