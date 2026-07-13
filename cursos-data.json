@@ -63,7 +63,17 @@
       ],
       "requisitos": "Ninguno",
       "precio": "$275.000",
-      "fechasProgramadas": []
+      "fechasProgramadas": [
+        {
+          "fechaInicio": "2026-07-24",
+          "fechaFin": "2026-07-24",
+          "estado": "Confirmado",
+          "cupos": 20,
+          "cuposDisponibles": 9,
+          "ubicacion": "Quilicura, Santiago",
+          "observaciones": "Jornada única 08:00 a 16:30 hrs · Inscripción y pago hasta el 21 de julio"
+        }
+      ]
     },
     {
       "id": "operacion-salas-bomba-16h",
@@ -120,12 +130,7 @@
       ],
       "requisitos": "Ninguno",
       "precio": "$150.000",
-      "fechasProgramadas": [
-        {
-          "estado": "Planificado",
-          "ubicacion": "Quilicura, Santiago"
-        }
-      ]
+      "fechasProgramadas": []
     },
     {
       "id": "brigada-especializacion",
@@ -152,12 +157,7 @@
       ],
       "requisitos": "Curso de Formación de Brigada o experiencia equivalente",
       "precio": "$390.000",
-      "fechasProgramadas": [
-        {
-          "estado": "Planificado",
-          "ubicacion": "Quilicura, Santiago"
-        }
-      ]
+      "fechasProgramadas": []
     },
     {
       "id": "uso-manejo-extintores",
@@ -184,12 +184,7 @@
       ],
       "requisitos": "Ninguno",
       "precio": "$110.000",
-      "fechasProgramadas": [
-        {
-          "estado": "Planificado",
-          "ubicacion": "Quilicura, Santiago"
-        }
-      ]
+      "fechasProgramadas": []
     }
   ],
   "categorias": [

@@ -424,6 +424,7 @@
             cursosData.forEach(curso => {
                 if (curso.fechasProgramadas && curso.fechasProgramadas.length > 0) {
                     curso.fechasProgramadas.forEach(fecha => {
+                        if (!fecha.fechaInicio || !fecha.fechaFin) return;
                         allEvents.push({
                             curso: curso.nombre,
                             cursoCorto: curso.nombreCorto,
