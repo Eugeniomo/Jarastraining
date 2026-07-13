@@ -20,3 +20,11 @@ mockup-*.html
 
 # Propuestas comerciales — NO publicar (datos y precios de clientes)
 /propuestas/
+
+# Documentos internos — no publicar en el sitio
+BITACORA.md
+ESTADO.md
+TAREAS.md
+index.html-old
+proximoindex.html
+hero-jaras-old.png
