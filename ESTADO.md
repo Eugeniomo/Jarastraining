@@ -9,7 +9,7 @@
 ## Tablero
 | ID | Tarea | Estado | Bloqueo |
 |----|-------|--------|---------|
-| T25 | Curso **24-jul** (movido desde 17-jul) Fundamentos Bombas 8h | en-curso — 11/20 cupos; web actualizada y en Pages | 🚫 OC relator anulada (ver arriba) · falta enviar correos de cambio de fecha y subir a BanaHosting |
+| T25 | Curso **viernes 24-jul, 10:00–18:30** (movido desde 17-jul) Fundamentos Bombas 8h | en-curso — 11/20 cupos; web en Pages ✔, CRM actualizado ✔ | 🚫 OC relator anulada (ver arriba) · Eugenio envía correos de cambio de fecha · falta subir ZIP a BanaHosting |
 | T26 | GASCO — Programa bianual perfeccionamiento brigada (40-26) | code-listo (programa diseñado) | falta adaptar cálculo económico (15 pers. × 8 jornadas) |
 | T27 | 5 prospectos con ficha enviada sin responder (Afiansso, Extingue Llamas, Syncore, Asprevención, OHLA) | backlog · texto de seguimiento redactado | falta enviar |
 | T28 | Chamilo (Aula Virtual) caído — host BD no responde | backlog | falta identificar cPanel de Chamilo y re-whitelistear IP `64.176.15.118` |
