@@ -28,3 +28,6 @@ TAREAS.md
 index.html-old
 proximoindex.html
 hero-jaras-old.png
+.claude/worktrees/
+docs/historial/
+__pycache__/
