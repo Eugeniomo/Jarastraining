@@ -12,7 +12,7 @@
         { txt: 'Contacto', href: 'contacto.html', file: 'contacto.html' },
         { txt: 'Consultas/Reclamos', href: 'https://forms.office.com/Pages/ResponsePage.aspx?id=EUw9Id8rYE6qLqlQ-XJjaF7Fh-vb-iRCqi7KIdtVL5BUNklQTkMwRUZLMUY1VkY5MEpaRUVHREY3WS4u', ext: true },
         { txt: 'Política/Certificaciones', href: 'politica-certificaciones.html', file: 'politica-certificaciones.html' },
-        { txt: 'Aula Virtual', href: 'https://www.clases.grupoabante.com/aulavirtual/', ext: true, accent: true }
+        { txt: 'Aula Virtual', href: 'https://clases.sercloud.cl/', ext: true, accent: true }
     ];
 
     var CSS = ''
